@@ -218,7 +218,18 @@ class QueryTopicLearner:
         # More honest than cumulative for an online learner —
         # shows what the model is doing RIGHT NOW, not historical average
         self.rolling_acc = utils.Rolling(metrics.Accuracy(), window_size=50)
+        
+        # Per-topic recall: when true label IS this topic, how often correct?
+        # Answers: "which topics does the model struggle to recognize?"
+        self.per_topic_recall = {
+            topic: metrics.Recall() for topic in TOPICS
+        }
 
+        # Per-topic precision: when we PREDICT this topic, how often correct?
+        # Answers: "which topics does the model over-predict or confuse?"
+        self.per_topic_precision = {
+            topic: metrics.Precision() for topic in TOPICS
+}
         # Counters
         self.n_samples: int = 0
         self.n_resets: int = 0
@@ -316,6 +327,18 @@ class QueryTopicLearner:
         correct = int(pred == y)
         self.prequential_acc.update(y, pred)
         self.rolling_acc.update(y, pred)
+        # Update per-topic recall and precision
+        # River's Recall and Precision are binary metrics so we pass
+        # True/False indicating whether this sample belongs to each topic
+        for topic in TOPICS:
+            self.per_topic_recall[topic].update(
+                y_true=(y == topic),       # is the true label this topic?
+                y_pred=(pred == topic),    # did we predict this topic?
+            )
+            self.per_topic_precision[topic].update(
+                y_true=(y == topic),
+                y_pred=(pred == topic),
+            )
 
         # ── 4. Drift detection ────────────────────────────────────────────────
         # Feed error signal: 1 = wrong prediction, 0 = correct
@@ -390,6 +413,38 @@ class QueryTopicLearner:
         # Reset ADWIN window to monitor the new distribution fresh
         self.adwin = drift.ADWIN(delta=self.adwin_delta)
         logger.info("Pipeline rebuilt. Total resets: %d", self.n_resets)
+
+    def topic_accuracy_report(self) -> dict:
+        """
+        Returns per-topic recall and precision sorted by recall ascending.
+
+        Recall    : when true label IS this topic, how often correct?
+                    low recall = model misses this topic = needs more data
+        Precision : when we PREDICT this topic, how often correct?
+                    low precision = model confuses other topics with this one
+
+        Used by the D1 notebook to show which topics need more coverage.
+        Also flows into D2 — topics with low recall need more PDFs in the corpus.
+        """
+        report = {}
+        for topic in TOPICS:
+            recall    = self.per_topic_recall[topic].get()
+            precision = self.per_topic_precision[topic].get()
+            f1 = (
+                2 * precision * recall / (precision + recall)
+                if (precision + recall) > 0
+                else 0.0
+            )
+            report[topic] = {
+                "recall":    round(recall, 3),
+                "precision": round(precision, 3),
+                "f1":        round(f1, 3),
+            }
+
+        # Sort by recall ascending — weakest topics first
+        return dict(
+            sorted(report.items(), key=lambda x: x[1]["recall"])
+        )
 
     def _record_state(self) -> None:
         """Appends a LearnerState snapshot to self.history every 10 steps."""
