@@ -165,6 +165,8 @@ class QueryTopicLearner:
         this method is NOT called again on reset (that would wipe the TFIDF stats).
         """
         self.model = compose.Pipeline(
+            # Extract the 'text' value from the input dict
+            ("select", compose.Select("text")),
             # Step 1 — TFIDF vectorizer
             # Converts query text into a dict of {word: tfidf_score}
             # ngram_range=(1,2) means it captures single words AND word pairs
