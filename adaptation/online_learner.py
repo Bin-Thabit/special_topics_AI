@@ -370,6 +370,12 @@ class QueryTopicLearner:
         self.bow.learn_one(query)
         self.n_samples += 1
 
+        # Update helpfulness tracker from QueryFeedback.helpful flag
+        if feedback.helpful:
+            self.topic_helpfulness[y]["helpful"] += 1
+        else:
+            self.topic_helpfulness[y]["not_helpful"] += 1
+            
         # ── 6. Log ────────────────────────────────────────────────────────────
         if self.n_samples % 10 == 0:
             self._record_state()
