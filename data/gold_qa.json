@@ -44,3 +44,4 @@
     {"question": "How does GraphRAG outperform naive RAG?", "relevant_chunk_ids": [48]},
     {"question": "How does GraphRAG blend vector search with graph retrieval?", "relevant_chunk_ids": [49]}
   ]
+  
