@@ -229,7 +229,17 @@ class QueryTopicLearner:
         # Answers: "which topics does the model over-predict or confuse?"
         self.per_topic_precision = {
             topic: metrics.Precision() for topic in TOPICS
-}
+        }
+
+        # Per-topic helpfulness tracking
+        # Tracks how often users mark answers as helpful per topic
+        # Low helpfulness rate = retrieval is failing for that topic
+        # Flows into D2 — topics with low helpfulness need more PDFs
+        self.topic_helpfulness: dict[str, dict[str, int]] = {
+            topic: {"helpful": 0, "not_helpful": 0}
+            for topic in TOPICS
+        }
+
         # Counters
         self.n_samples: int = 0
         self.n_resets: int = 0
@@ -382,15 +392,23 @@ class QueryTopicLearner:
         Learn from a user feedback event.
         Called by the /feedback API endpoint in D2.
 
-        helpful=True  → user confirmed the answer was good
-                        reinforce: label = true_topic
-        helpful=False → user said the answer was bad
-                        correct: label = true_topic (the right one)
+        Also updates the helpfulness tracker for the predicted topic.
+        This tells us which topics are failing in retrieval — not just
+        which topics the classifier gets wrong.
 
-        Parameters
-        ----------
-        event : FeedbackEvent with query, predicted topic, true topic, helpful flag
+        helpful=True  → user confirmed the answer was good
+        helpful=False → user said the answer was bad
         """
+        # Update helpfulness tracker for the predicted topic
+        # We track the PREDICTED topic not the true topic because
+        # the user experienced the answer for what we predicted —
+        # they don't know what the true topic should have been
+        if event.predicted_topic in self.topic_helpfulness:
+            if event.helpful:
+                self.topic_helpfulness[event.predicted_topic]["helpful"] += 1
+            else:
+                self.topic_helpfulness[event.predicted_topic]["not_helpful"] += 1
+
         fb = QueryFeedback(
             query=event.query,
             topic=event.true_topic,
@@ -446,6 +464,45 @@ class QueryTopicLearner:
             sorted(report.items(), key=lambda x: x[1]["recall"])
         )
 
+    def helpfulness_report(self) -> dict:
+        """
+        Returns helpfulness rate per topic sorted ascending (worst first).
+
+        Helpfulness rate = helpful / (helpful + not_helpful)
+
+        A low rate means users are consistently marking answers for that
+        topic as not helpful — indicating the retrieval pipeline or corpus
+        coverage needs improvement for that topic in D2.
+
+        Topics with zero feedback are marked as None — not enough data yet.
+
+        Returns
+        -------
+        dict mapping topic -> {helpful, not_helpful, rate, total}
+        sorted by rate ascending (worst performing topics first)
+        """
+        report = {}
+        for topic, counts in self.topic_helpfulness.items():
+            total = counts["helpful"] + counts["not_helpful"]
+            rate = (
+                round(counts["helpful"] / total, 3)
+                if total > 0
+                else None
+            )
+            report[topic] = {
+                "helpful":     counts["helpful"],
+                "not_helpful": counts["not_helpful"],
+                "total":       total,
+                "rate":        rate,
+            }
+
+        # Sort by rate ascending — topics with no feedback go last
+        return dict(
+            sorted(
+                report.items(),
+                key=lambda x: (x[1]["rate"] is None, x[1]["rate"] or 0)
+            )
+        )
     def _record_state(self) -> None:
         """Appends a LearnerState snapshot to self.history every 10 steps."""
         self.history.append(LearnerState(
