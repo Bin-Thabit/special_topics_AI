@@ -165,13 +165,12 @@ class QueryTopicLearner:
         this method is NOT called again on reset (that would wipe the TFIDF stats).
         """
         self.model = compose.Pipeline(
-            # Extract the 'text' value from the input dict
-            ("select", compose.Select("text")),
             # Step 1 — TFIDF vectorizer
             # Converts query text into a dict of {word: tfidf_score}
             # ngram_range=(1,2) means it captures single words AND word pairs
             # e.g. "attention work" as a unit, not just "attention" and "work" separately
             ("vectorizer", feature_extraction.TFIDF(
+                on="text",           # tells TFIDF which dict key to read
                 lowercase=True,      # "Attention" and "attention" treated the same
                 strip_accents=True,  # handles accented characters in paper titles
                 ngram_range=(1, 2),  # unigrams + bigrams for better topic signal
@@ -268,56 +267,53 @@ class QueryTopicLearner:
         """
         Called when ADWIN detects concept drift.
 
-        What we RESET:
-            - SoftmaxRegression weights (the learned topic boundaries are stale)
-            - ADWIN window (start monitoring the new distribution fresh)
+        What we RESET:   SoftmaxRegression weights
+        What we KEEP:    TFIDF instance (vocabulary + IDF stats)
+                        StandardScaler instance (running mean/variance)
 
-        What we KEEP:
-            - TFIDF vocabulary and IDF statistics
-              (the words users type don't change, only topic distributions do)
-            - StandardScaler running mean/variance
-              (still useful context even after a topic shift)
-
-        This selective reset means the model can recover faster after drift
-        because it doesn't have to relearn the vocabulary from scratch.
+        We rebuild the pipeline but pass the existing TFIDF and Scaler
+        instances in so their learned state is not lost.
         """
         self.n_resets += 1
         self.drift_detected = False
 
-        # Replace only the classifier step — pipeline keys are accessible by name
-        self.model["classifier"] = linear_model.SoftmaxRegression(
-            optimizer=None,
-            l2=1e-4,
+        # Grab the existing TFIDF and Scaler — their state is still valid
+        existing_tfidf   = self.model["vectorizer"]
+        existing_scaler  = self.model["scaler"]
+
+        # Rebuild pipeline with the same TFIDF + Scaler but a fresh classifier
+        self.model = compose.Pipeline(
+            ("vectorizer",  existing_tfidf),
+            ("scaler",      existing_scaler),
+            ("classifier",  linear_model.SoftmaxRegression(
+                optimizer=None,
+                l2=1e-4,
+            )),
         )
 
-        # Reset ADWIN so it starts monitoring the new distribution
+        # Reset ADWIN window to monitor the new distribution fresh
         self.drift_detector = drift.ADWIN(delta=0.002)
 
         logger.info("Classifier reset complete. Total resets: %d", self.n_resets)
 
     def predict(self, query: str) -> dict:
-        """
-        Predict the topic of a query WITHOUT updating the model.
-
-        This is called at inference time when a user submits a question
-        to the agent. It does NOT affect the model weights.
-
-        Returns a dict with the predicted topic and probability scores
-        for all 9 topics, sorted by confidence (highest first).
-        """
         x = {"text": query}
         try:
             topic = self.model.predict_one(x)
             probas = self.model.predict_proba_one(x)
         except Exception:
-            # Cold start — model not trained yet
+            topic = None
+            probas = {}
+
+        # predict_one returns None before any training — no exception is raised
+        if not topic:
             topic = "other"
+        if not probas:
             probas = {t: round(1.0 / len(TOPICS), 4) for t in TOPICS}
 
         return {
             "query": query,
             "topic": topic,
-            # Sort probabilities highest first so the most confident topic is at the top
             "probabilities": {
                 k: round(v, 4)
                 for k, v in sorted(
