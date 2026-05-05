@@ -218,6 +218,27 @@ class QueryTopicLearner:
         # More honest than cumulative for an online learner —
         # shows what the model is doing RIGHT NOW, not historical average
         self.rolling_acc = utils.Rolling(metrics.Accuracy(), window_size=50)
+        
+        # Per-topic recall: when true label IS this topic, how often correct?
+        # Answers: "which topics does the model struggle to recognize?"
+        self.per_topic_recall = {
+            topic: metrics.Recall() for topic in TOPICS
+        }
+
+        # Per-topic precision: when we PREDICT this topic, how often correct?
+        # Answers: "which topics does the model over-predict or confuse?"
+        self.per_topic_precision = {
+            topic: metrics.Precision() for topic in TOPICS
+        }
+
+        # Per-topic helpfulness tracking
+        # Tracks how often users mark answers as helpful per topic
+        # Low helpfulness rate = retrieval is failing for that topic
+        # Flows into D2 — topics with low helpfulness need more PDFs
+        self.topic_helpfulness: dict[str, dict[str, int]] = {
+            topic: {"helpful": 0, "not_helpful": 0}
+            for topic in TOPICS
+        }
 
         # Counters
         self.n_samples: int = 0
@@ -316,6 +337,18 @@ class QueryTopicLearner:
         correct = int(pred == y)
         self.prequential_acc.update(y, pred)
         self.rolling_acc.update(y, pred)
+        # Update per-topic recall and precision
+        # River's Recall and Precision are binary metrics so we pass
+        # True/False indicating whether this sample belongs to each topic
+        for topic in TOPICS:
+            self.per_topic_recall[topic].update(
+                y_true=(y == topic),       # is the true label this topic?
+                y_pred=(pred == topic),    # did we predict this topic?
+            )
+            self.per_topic_precision[topic].update(
+                y_true=(y == topic),
+                y_pred=(pred == topic),
+            )
 
         # ── 4. Drift detection ────────────────────────────────────────────────
         # Feed error signal: 1 = wrong prediction, 0 = correct
@@ -337,6 +370,12 @@ class QueryTopicLearner:
         self.bow.learn_one(query)
         self.n_samples += 1
 
+        # Update helpfulness tracker from QueryFeedback.helpful flag
+        if feedback.helpful:
+            self.topic_helpfulness[y]["helpful"] += 1
+        else:
+            self.topic_helpfulness[y]["not_helpful"] += 1
+            
         # ── 6. Log ────────────────────────────────────────────────────────────
         if self.n_samples % 10 == 0:
             self._record_state()
@@ -359,15 +398,23 @@ class QueryTopicLearner:
         Learn from a user feedback event.
         Called by the /feedback API endpoint in D2.
 
-        helpful=True  → user confirmed the answer was good
-                        reinforce: label = true_topic
-        helpful=False → user said the answer was bad
-                        correct: label = true_topic (the right one)
+        Also updates the helpfulness tracker for the predicted topic.
+        This tells us which topics are failing in retrieval — not just
+        which topics the classifier gets wrong.
 
-        Parameters
-        ----------
-        event : FeedbackEvent with query, predicted topic, true topic, helpful flag
+        helpful=True  → user confirmed the answer was good
+        helpful=False → user said the answer was bad
         """
+        # Update helpfulness tracker for the predicted topic
+        # We track the PREDICTED topic not the true topic because
+        # the user experienced the answer for what we predicted —
+        # they don't know what the true topic should have been
+        if event.predicted_topic in self.topic_helpfulness:
+            if event.helpful:
+                self.topic_helpfulness[event.predicted_topic]["helpful"] += 1
+            else:
+                self.topic_helpfulness[event.predicted_topic]["not_helpful"] += 1
+
         fb = QueryFeedback(
             query=event.query,
             topic=event.true_topic,
@@ -391,6 +438,77 @@ class QueryTopicLearner:
         self.adwin = drift.ADWIN(delta=self.adwin_delta)
         logger.info("Pipeline rebuilt. Total resets: %d", self.n_resets)
 
+    def topic_accuracy_report(self) -> dict:
+        """
+        Returns per-topic recall and precision sorted by recall ascending.
+
+        Recall    : when true label IS this topic, how often correct?
+                    low recall = model misses this topic = needs more data
+        Precision : when we PREDICT this topic, how often correct?
+                    low precision = model confuses other topics with this one
+
+        Used by the D1 notebook to show which topics need more coverage.
+        Also flows into D2 — topics with low recall need more PDFs in the corpus.
+        """
+        report = {}
+        for topic in TOPICS:
+            recall    = self.per_topic_recall[topic].get()
+            precision = self.per_topic_precision[topic].get()
+            f1 = (
+                2 * precision * recall / (precision + recall)
+                if (precision + recall) > 0
+                else 0.0
+            )
+            report[topic] = {
+                "recall":    round(recall, 3),
+                "precision": round(precision, 3),
+                "f1":        round(f1, 3),
+            }
+
+        # Sort by recall ascending — weakest topics first
+        return dict(
+            sorted(report.items(), key=lambda x: x[1]["recall"])
+        )
+
+    def helpfulness_report(self) -> dict:
+        """
+        Returns helpfulness rate per topic sorted ascending (worst first).
+
+        Helpfulness rate = helpful / (helpful + not_helpful)
+
+        A low rate means users are consistently marking answers for that
+        topic as not helpful — indicating the retrieval pipeline or corpus
+        coverage needs improvement for that topic in D2.
+
+        Topics with zero feedback are marked as None — not enough data yet.
+
+        Returns
+        -------
+        dict mapping topic -> {helpful, not_helpful, rate, total}
+        sorted by rate ascending (worst performing topics first)
+        """
+        report = {}
+        for topic, counts in self.topic_helpfulness.items():
+            total = counts["helpful"] + counts["not_helpful"]
+            rate = (
+                round(counts["helpful"] / total, 3)
+                if total > 0
+                else None
+            )
+            report[topic] = {
+                "helpful":     counts["helpful"],
+                "not_helpful": counts["not_helpful"],
+                "total":       total,
+                "rate":        rate,
+            }
+
+        # Sort by rate ascending — topics with no feedback go last
+        return dict(
+            sorted(
+                report.items(),
+                key=lambda x: (x[1]["rate"] is None, x[1]["rate"] or 0)
+            )
+        )
     def _record_state(self) -> None:
         """Appends a LearnerState snapshot to self.history every 10 steps."""
         self.history.append(LearnerState(
