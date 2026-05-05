@@ -56,7 +56,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
-from river import compose, feature_extraction, linear_model, metrics, drift, preprocessing
+from river import compose, feature_extraction, linear_model, naive_bayes, metrics, drift, preprocessing
 
 logger = logging.getLogger(__name__)
 
@@ -165,32 +165,13 @@ class QueryTopicLearner:
         this method is NOT called again on reset (that would wipe the TFIDF stats).
         """
         self.model = compose.Pipeline(
-            # Step 1 — TFIDF vectorizer
-            # Converts query text into a dict of {word: tfidf_score}
-            # ngram_range=(1,2) means it captures single words AND word pairs
-            # e.g. "attention work" as a unit, not just "attention" and "work" separately
             ("vectorizer", feature_extraction.TFIDF(
-                on="text",           # tells TFIDF which dict key to read
-                lowercase=True,      # "Attention" and "attention" treated the same
-                strip_accents=True,  # handles accented characters in paper titles
-                ngram_range=(1, 2),  # unigrams + bigrams for better topic signal
+                on="text",
+                lowercase=True,
+                strip_accents=True,
+                ngram_range=(1, 2),
             )),
-
-            # Step 2 — StandardScaler
-            # Normalizes each feature using running mean and variance.
-            # Needed because TFIDF scores vary widely across vocabulary size.
-            # River's version updates statistics incrementally — no full pass needed.
-            ("scaler", preprocessing.StandardScaler()),
-
-            # Step 3 — SoftmaxRegression (multi-class logistic regression)
-            # Outputs a probability for each of the 9 topics.
-            # Picks the highest probability as the predicted topic.
-            # Updates weights via SGD on each sample.
-            # l2=1e-4 adds slight regularization to prevent overfitting on small data.
-            ("classifier", linear_model.SoftmaxRegression(
-                optimizer=None,  # uses River's default SGD
-                l2=1e-4,
-            )),
+            ("classifier", naive_bayes.MultinomialNB()),
         )
 
     def learn_one(self, feedback: QueryFeedback) -> dict:
@@ -277,21 +258,14 @@ class QueryTopicLearner:
         self.n_resets += 1
         self.drift_detected = False
 
-        # Grab the existing TFIDF and Scaler — their state is still valid
-        existing_tfidf   = self.model["vectorizer"]
-        existing_scaler  = self.model["scaler"]
+        # Grab the existing TFIDF — their state is still valid
+        existing_tfidf = self.model["vectorizer"]
 
-        # Rebuild pipeline with the same TFIDF + Scaler but a fresh classifier
         self.model = compose.Pipeline(
-            ("vectorizer",  existing_tfidf),
-            ("scaler",      existing_scaler),
-            ("classifier",  linear_model.SoftmaxRegression(
-                optimizer=None,
-                l2=1e-4,
-            )),
+            ("vectorizer", existing_tfidf),
+            ("classifier", naive_bayes.MultinomialNB()),
         )
 
-        # Reset ADWIN window to monitor the new distribution fresh
         self.drift_detector = drift.ADWIN(delta=0.002)
 
         logger.info("Classifier reset complete. Total resets: %d", self.n_resets)
