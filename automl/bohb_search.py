@@ -50,7 +50,7 @@ def get_embeddings(
     return embeddings, svd
 
 
-def run_bohb(n_trials: int = 50, min_budget: int = 5, max_budget: int = 22) -> dict:
+def run_bohb(n_trials: int = 50, min_budget: int = 5, max_budget: int = 22,chunks_path: str = CHUNKS_PATH, gold_path: str = GOLD_PATH) -> dict:
     """
     BOHB = Bayesian Optimization + HyperBand pruning.
 
@@ -68,7 +68,7 @@ def run_bohb(n_trials: int = 50, min_budget: int = 5, max_budget: int = 22) -> d
       max_budget=22 → final rung: score on all questions (we have 22)
     """
     print("Loading chunks and building BM25 index...")
-    chunks     = load_chunks(CHUNKS_PATH)
+    chunks     = load_chunks(chunks_path)    
     bm25_index = build_bm25_index(chunks)
 
     print(f"Loading embedding model: {MODEL_NAME}")
@@ -77,7 +77,7 @@ def run_bohb(n_trials: int = 50, min_budget: int = 5, max_budget: int = 22) -> d
 
     # load gold questions once so we can slice them per budget step
     import json
-    with open(GOLD_PATH) as f:
+    with open(gold_path) as f:               # ← use parameter
         gold_questions = json.load(f)
     total_questions = len(gold_questions)
 
@@ -214,5 +214,6 @@ def run_bohb(n_trials: int = 50, min_budget: int = 5, max_budget: int = 22) -> d
         "n_trials":     n_trials,
         "pruned":       pruned,
         "complete":     complete,
+        "study":        study,
     }
 
