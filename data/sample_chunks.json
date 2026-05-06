@@ -1,0 +1,61 @@
+[
+    {"chunk_id": 0, "paper_id": "attention_paper", "page_num": 1, "text": "The transformer model relies entirely on attention mechanisms to draw global dependencies between input and output sequences without using recurrent networks."},
+    {"chunk_id": 1, "paper_id": "attention_paper", "page_num": 2, "text": "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions improving model capacity."},
+    {"chunk_id": 2, "paper_id": "attention_paper", "page_num": 3, "text": "Scaled dot-product attention computes the dot products of the query with all keys divided by the square root of the dimension to stabilize gradients."},
+    {"chunk_id": 3, "paper_id": "attention_paper", "page_num": 4, "text": "Positional encoding is added to the input embeddings to give the model information about the relative or absolute position of tokens in the sequence."},
+    {"chunk_id": 4, "paper_id": "attention_paper", "page_num": 5, "text": "The encoder maps an input sequence of symbol representations to a sequence of continuous representations used by the decoder to generate output."},
+  
+    {"chunk_id": 5, "paper_id": "bert_paper", "page_num": 1, "text": "BERT is designed to pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers of the transformer."},
+    {"chunk_id": 6, "paper_id": "bert_paper", "page_num": 2, "text": "BERT uses masked language modeling where some input tokens are randomly masked and the model learns to predict the original vocabulary item from context."},
+    {"chunk_id": 7, "paper_id": "bert_paper", "page_num": 3, "text": "Next sentence prediction is a binary classification task used in BERT pre-training to help the model understand relationships between sentence pairs."},
+    {"chunk_id": 8, "paper_id": "bert_paper", "page_num": 4, "text": "BERT fine-tuning adds a single output layer on top of the pre-trained model to perform downstream tasks like question answering and text classification."},
+    {"chunk_id": 9, "paper_id": "bert_paper", "page_num": 5, "text": "The BERT base model has 12 transformer layers 768 hidden units and 12 attention heads totaling 110 million parameters trained on BooksCorpus and Wikipedia."},
+  
+    {"chunk_id": 10, "paper_id": "gpt_paper", "page_num": 1, "text": "GPT uses a unidirectional transformer trained with a language modeling objective to predict the next token given all previous tokens in the sequence."},
+    {"chunk_id": 11, "paper_id": "gpt_paper", "page_num": 2, "text": "The model is fine-tuned on downstream tasks using task-specific input transformations that convert structured inputs into ordered token sequences."},
+    {"chunk_id": 12, "paper_id": "gpt_paper", "page_num": 3, "text": "GPT-2 demonstrates that language models can perform tasks like translation and summarization without task-specific training through zero-shot generalization."},
+    {"chunk_id": 13, "paper_id": "gpt_paper", "page_num": 4, "text": "GPT-3 scales language model pre-training to 175 billion parameters and shows strong few-shot performance across a wide range of NLP benchmarks."},
+    {"chunk_id": 14, "paper_id": "gpt_paper", "page_num": 5, "text": "In-context learning allows GPT models to adapt to new tasks using only a few examples provided in the prompt without updating any model parameters."},
+  
+    {"chunk_id": 15, "paper_id": "rag_paper", "page_num": 1, "text": "Retrieval augmented generation combines a retriever that fetches relevant documents with a generator that produces answers grounded in retrieved evidence."},
+    {"chunk_id": 16, "paper_id": "rag_paper", "page_num": 2, "text": "The retriever uses dense passage retrieval with a bi-encoder architecture to find the most relevant chunks from a large document corpus efficiently."},
+    {"chunk_id": 17, "paper_id": "rag_paper", "page_num": 3, "text": "RAG reduces hallucination in language models by grounding generation in retrieved documents ensuring answers are supported by real evidence from the corpus."},
+    {"chunk_id": 18, "paper_id": "rag_paper", "page_num": 4, "text": "The generator in RAG conditions on both the input query and the retrieved documents to produce faithful and informative answers with citations."},
+    {"chunk_id": 19, "paper_id": "rag_paper", "page_num": 5, "text": "RAG can be updated with new knowledge by simply updating the document index without expensive retraining of the underlying language model parameters."},
+  
+    {"chunk_id": 20, "paper_id": "llama_paper", "page_num": 1, "text": "LLaMA is a collection of foundation language models ranging from 7B to 65B parameters trained exclusively on publicly available datasets for reproducibility."},
+    {"chunk_id": 21, "paper_id": "llama_paper", "page_num": 2, "text": "The model uses rotary positional embeddings and grouped query attention to improve computational efficiency and reduce memory usage during inference."},
+    {"chunk_id": 22, "paper_id": "llama_paper", "page_num": 3, "text": "LLaMA-2 introduces supervised fine-tuning and reinforcement learning from human feedback to align the model with human preferences and safety requirements."},
+    {"chunk_id": 23, "paper_id": "llama_paper", "page_num": 4, "text": "The LLaMA tokenizer uses byte pair encoding with a vocabulary of 32000 tokens balancing coverage of diverse languages and computational efficiency."},
+    {"chunk_id": 24, "paper_id": "llama_paper", "page_num": 5, "text": "LLaMA models outperform GPT-3 on most benchmarks despite being significantly smaller demonstrating the importance of training data quality over model size."},
+  
+    {"chunk_id": 25, "paper_id": "diffusion_paper", "page_num": 1, "text": "Diffusion models learn to generate data by gradually denoising a sample from a Gaussian noise distribution through a learned reverse diffusion process."},
+    {"chunk_id": 26, "paper_id": "diffusion_paper", "page_num": 2, "text": "The forward diffusion process adds Gaussian noise to data over many timesteps until the data becomes indistinguishable from pure random noise."},
+    {"chunk_id": 27, "paper_id": "diffusion_paper", "page_num": 3, "text": "Stable diffusion uses a latent diffusion model that operates in a compressed latent space reducing computational cost while maintaining generation quality."},
+    {"chunk_id": 28, "paper_id": "diffusion_paper", "page_num": 4, "text": "Classifier-free guidance improves sample quality in diffusion models by training with and without class conditioning and interpolating at inference time."},
+    {"chunk_id": 29, "paper_id": "diffusion_paper", "page_num": 5, "text": "DALL-E 2 uses a diffusion model conditioned on CLIP image embeddings to generate high quality images from natural language text descriptions."},
+  
+    {"chunk_id": 30, "paper_id": "rlhf_paper", "page_num": 1, "text": "Reinforcement learning from human feedback trains a reward model on human preference data then uses PPO to optimize the language model against this reward."},
+    {"chunk_id": 31, "paper_id": "rlhf_paper", "page_num": 2, "text": "InstructGPT applies RLHF to align GPT-3 with human intent producing outputs that are more helpful honest and harmless than the base model."},
+    {"chunk_id": 32, "paper_id": "rlhf_paper", "page_num": 3, "text": "The reward model is trained as a binary classifier on pairs of model outputs labeled by human annotators as preferred or not preferred."},
+    {"chunk_id": 33, "paper_id": "rlhf_paper", "page_num": 4, "text": "Constitutional AI uses a set of principles to guide model behavior during RLHF training replacing some human feedback with AI-generated feedback signals."},
+    {"chunk_id": 34, "paper_id": "rlhf_paper", "page_num": 5, "text": "Direct preference optimization simplifies RLHF by directly optimizing the language model on preference data without training a separate reward model."},
+  
+    {"chunk_id": 35, "paper_id": "lora_paper", "page_num": 1, "text": "LoRA adapts large language models by injecting trainable low-rank matrices into transformer layers keeping original weights frozen to reduce memory cost."},
+    {"chunk_id": 36, "paper_id": "lora_paper", "page_num": 2, "text": "The rank decomposition in LoRA represents weight updates as a product of two small matrices greatly reducing the number of trainable parameters."},
+    {"chunk_id": 37, "paper_id": "lora_paper", "page_num": 3, "text": "QLoRA combines LoRA with 4-bit quantization of the base model enabling fine-tuning of 65B parameter models on a single GPU with minimal quality loss."},
+    {"chunk_id": 38, "paper_id": "lora_paper", "page_num": 4, "text": "LoRA adapters can be merged back into the base model weights at inference time resulting in zero additional latency compared to the original model."},
+    {"chunk_id": 39, "paper_id": "lora_paper", "page_num": 5, "text": "Adapter methods like LoRA achieve comparable performance to full fine-tuning on most benchmarks while training less than one percent of total parameters."},
+  
+    {"chunk_id": 40, "paper_id": "vit_paper", "page_num": 1, "text": "Vision transformer applies the transformer architecture directly to image patches by splitting images into fixed-size patches and treating them as tokens."},
+    {"chunk_id": 41, "paper_id": "vit_paper", "page_num": 2, "text": "ViT requires large scale pre-training data to outperform convolutional networks but achieves state of the art results when trained on datasets like JFT-300M."},
+    {"chunk_id": 42, "paper_id": "vit_paper", "page_num": 3, "text": "Patch embeddings in ViT are created by linearly projecting flattened image patches into the transformer input dimension similar to word embeddings in NLP."},
+    {"chunk_id": 43, "paper_id": "vit_paper", "page_num": 4, "text": "DeiT improves ViT data efficiency through knowledge distillation from a CNN teacher allowing transformers to be trained on ImageNet without extra data."},
+    {"chunk_id": 44, "paper_id": "vit_paper", "page_num": 5, "text": "Swin transformer introduces hierarchical feature maps and shifted window attention enabling efficient processing of high resolution images for dense tasks."},
+  
+    {"chunk_id": 45, "paper_id": "graphrag_paper", "page_num": 1, "text": "GraphRAG builds a knowledge graph from documents to enable graph-guided retrieval that captures relationships between entities across multiple source documents."},
+    {"chunk_id": 46, "paper_id": "graphrag_paper", "page_num": 2, "text": "Community detection in GraphRAG identifies clusters of related entities allowing the system to summarize entire topics rather than individual document chunks."},
+    {"chunk_id": 47, "paper_id": "graphrag_paper", "page_num": 3, "text": "Graph traversal in GraphRAG uses Cypher queries on Neo4j to find relevant subgraphs that connect query entities through multi-hop relationship paths."},
+    {"chunk_id": 48, "paper_id": "graphrag_paper", "page_num": 4, "text": "GraphRAG outperforms naive RAG on questions requiring synthesis of information from multiple documents by leveraging entity relationships in the knowledge graph."},
+    {"chunk_id": 49, "paper_id": "graphrag_paper", "page_num": 5, "text": "The hybrid retrieval in GraphRAG blends vector similarity search with graph-guided expansion to improve both recall and answer grounding with citations."}
+  ]
