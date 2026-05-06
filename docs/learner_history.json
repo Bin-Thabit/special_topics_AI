@@ -1,13 +1,10 @@
 {
-  "n_samples": 1600,
-  "n_resets": 4,
-  "final_accuracy": 0.6212,
-  "final_rolling_accuracy": 0.94,
+  "n_samples": 500,
+  "n_resets": 1,
+  "final_accuracy": 0.854,
+  "final_rolling_accuracy": 0.86,
   "drift_points": [
-    287,
-    543,
-    1183,
-    1407
+    383
   ],
   "adwin_delta": 0.002,
   "alpha": 1.0,
@@ -18,1279 +15,399 @@
       "rolling_accuracy": 0.4,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.499208"
+      "timestamp": "2026-05-06T11:04:59.310246"
     },
     {
       "step": 20,
-      "accuracy": 0.35,
-      "rolling_accuracy": 0.35,
+      "accuracy": 0.45,
+      "rolling_accuracy": 0.45,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.517593"
+      "timestamp": "2026-05-06T11:04:59.321755"
     },
     {
       "step": 30,
-      "accuracy": 0.3,
-      "rolling_accuracy": 0.3,
+      "accuracy": 0.4667,
+      "rolling_accuracy": 0.4667,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.532576"
+      "timestamp": "2026-05-06T11:04:59.331758"
     },
     {
       "step": 40,
-      "accuracy": 0.35,
-      "rolling_accuracy": 0.35,
+      "accuracy": 0.5,
+      "rolling_accuracy": 0.5,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.547582"
+      "timestamp": "2026-05-06T11:04:59.342757"
     },
     {
       "step": 50,
-      "accuracy": 0.32,
-      "rolling_accuracy": 0.32,
+      "accuracy": 0.56,
+      "rolling_accuracy": 0.56,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.563590"
+      "timestamp": "2026-05-06T11:04:59.349759"
     },
     {
       "step": 60,
-      "accuracy": 0.3833,
-      "rolling_accuracy": 0.38,
+      "accuracy": 0.6,
+      "rolling_accuracy": 0.64,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.578576"
+      "timestamp": "2026-05-06T11:04:59.358769"
     },
     {
       "step": 70,
-      "accuracy": 0.3714,
-      "rolling_accuracy": 0.38,
+      "accuracy": 0.6143,
+      "rolling_accuracy": 0.68,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.594603"
+      "timestamp": "2026-05-06T11:04:59.366782"
     },
     {
       "step": 80,
-      "accuracy": 0.3875,
-      "rolling_accuracy": 0.44,
+      "accuracy": 0.6375,
+      "rolling_accuracy": 0.74,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.609647"
+      "timestamp": "2026-05-06T11:04:59.374777"
     },
     {
       "step": 90,
-      "accuracy": 0.4111,
-      "rolling_accuracy": 0.46,
+      "accuracy": 0.6444,
+      "rolling_accuracy": 0.76,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.625210"
+      "timestamp": "2026-05-06T11:04:59.381777"
     },
     {
       "step": 100,
-      "accuracy": 0.42,
-      "rolling_accuracy": 0.52,
+      "accuracy": 0.67,
+      "rolling_accuracy": 0.78,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.640227"
+      "timestamp": "2026-05-06T11:04:59.389785"
     },
     {
       "step": 110,
-      "accuracy": 0.4455,
-      "rolling_accuracy": 0.52,
+      "accuracy": 0.6909,
+      "rolling_accuracy": 0.8,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.656183"
+      "timestamp": "2026-05-06T11:04:59.398785"
     },
     {
       "step": 120,
-      "accuracy": 0.4333,
-      "rolling_accuracy": 0.52,
+      "accuracy": 0.7167,
+      "rolling_accuracy": 0.86,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.672205"
+      "timestamp": "2026-05-06T11:04:59.407795"
     },
     {
       "step": 130,
-      "accuracy": 0.4692,
-      "rolling_accuracy": 0.6,
+      "accuracy": 0.7385,
+      "rolling_accuracy": 0.9,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.686880"
+      "timestamp": "2026-05-06T11:04:59.415310"
     },
     {
       "step": 140,
-      "accuracy": 0.4786,
-      "rolling_accuracy": 0.6,
+      "accuracy": 0.75,
+      "rolling_accuracy": 0.94,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.702831"
+      "timestamp": "2026-05-06T11:04:59.422343"
     },
     {
       "step": 150,
-      "accuracy": 0.4933,
-      "rolling_accuracy": 0.64,
+      "accuracy": 0.7533,
+      "rolling_accuracy": 0.92,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.719356"
+      "timestamp": "2026-05-06T11:04:59.431317"
     },
     {
       "step": 160,
-      "accuracy": 0.5125,
-      "rolling_accuracy": 0.66,
+      "accuracy": 0.7562,
+      "rolling_accuracy": 0.9,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.735377"
+      "timestamp": "2026-05-06T11:04:59.440317"
     },
     {
       "step": 170,
-      "accuracy": 0.5294,
-      "rolling_accuracy": 0.76,
+      "accuracy": 0.7647,
+      "rolling_accuracy": 0.88,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.750386"
+      "timestamp": "2026-05-06T11:04:59.447327"
     },
     {
       "step": 180,
-      "accuracy": 0.5556,
-      "rolling_accuracy": 0.78,
+      "accuracy": 0.7778,
+      "rolling_accuracy": 0.88,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.765354"
+      "timestamp": "2026-05-06T11:04:59.454335"
     },
     {
       "step": 190,
-      "accuracy": 0.5632,
-      "rolling_accuracy": 0.8,
+      "accuracy": 0.7895,
+      "rolling_accuracy": 0.9,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.780360"
+      "timestamp": "2026-05-06T11:04:59.462335"
     },
     {
       "step": 200,
-      "accuracy": 0.56,
-      "rolling_accuracy": 0.76,
+      "accuracy": 0.795,
+      "rolling_accuracy": 0.92,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.795380"
+      "timestamp": "2026-05-06T11:04:59.469335"
     },
     {
       "step": 210,
-      "accuracy": 0.5762,
-      "rolling_accuracy": 0.78,
+      "accuracy": 0.7952,
+      "rolling_accuracy": 0.92,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.812411"
+      "timestamp": "2026-05-06T11:04:59.476335"
     },
     {
       "step": 220,
-      "accuracy": 0.5864,
-      "rolling_accuracy": 0.78,
+      "accuracy": 0.8045,
+      "rolling_accuracy": 0.94,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.827972"
+      "timestamp": "2026-05-06T11:04:59.483335"
     },
     {
       "step": 230,
-      "accuracy": 0.5913,
-      "rolling_accuracy": 0.72,
+      "accuracy": 0.813,
+      "rolling_accuracy": 0.94,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.842980"
+      "timestamp": "2026-05-06T11:04:59.491327"
     },
     {
       "step": 240,
-      "accuracy": 0.6083,
-      "rolling_accuracy": 0.78,
+      "accuracy": 0.8208,
+      "rolling_accuracy": 0.94,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.857969"
+      "timestamp": "2026-05-06T11:04:59.499327"
     },
     {
       "step": 250,
-      "accuracy": 0.612,
-      "rolling_accuracy": 0.82,
+      "accuracy": 0.828,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.873971"
+      "timestamp": "2026-05-06T11:04:59.510338"
     },
     {
       "step": 260,
-      "accuracy": 0.6269,
-      "rolling_accuracy": 0.84,
+      "accuracy": 0.8346,
+      "rolling_accuracy": 1.0,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.889986"
+      "timestamp": "2026-05-06T11:04:59.518895"
     },
     {
       "step": 270,
-      "accuracy": 0.6407,
-      "rolling_accuracy": 0.88,
+      "accuracy": 0.8407,
+      "rolling_accuracy": 1.0,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.906020"
+      "timestamp": "2026-05-06T11:04:59.527870"
     },
     {
       "step": 280,
-      "accuracy": 0.6429,
-      "rolling_accuracy": 0.88,
+      "accuracy": 0.8464,
+      "rolling_accuracy": 1.0,
       "drift_detected": false,
       "resets": 0,
-      "timestamp": "2026-05-05T20:57:25.922586"
+      "timestamp": "2026-05-06T11:04:59.537875"
     },
     {
       "step": 290,
-      "accuracy": 0.6483,
-      "rolling_accuracy": 0.84,
+      "accuracy": 0.8483,
+      "rolling_accuracy": 0.98,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:25.939586"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.547873"
     },
     {
       "step": 300,
-      "accuracy": 0.63,
-      "rolling_accuracy": 0.72,
+      "accuracy": 0.8533,
+      "rolling_accuracy": 0.98,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:25.954591"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.555885"
     },
     {
       "step": 310,
-      "accuracy": 0.6161,
-      "rolling_accuracy": 0.56,
+      "accuracy": 0.8548,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:25.970581"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.563886"
     },
     {
       "step": 320,
-      "accuracy": 0.6,
-      "rolling_accuracy": 0.38,
+      "accuracy": 0.8594,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:25.985586"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.570894"
     },
     {
       "step": 330,
-      "accuracy": 0.597,
-      "rolling_accuracy": 0.34,
+      "accuracy": 0.8606,
+      "rolling_accuracy": 0.94,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.000564"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.577912"
     },
     {
       "step": 340,
-      "accuracy": 0.5941,
-      "rolling_accuracy": 0.28,
+      "accuracy": 0.8647,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.016587"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.584887"
     },
     {
       "step": 350,
-      "accuracy": 0.5886,
-      "rolling_accuracy": 0.34,
+      "accuracy": 0.8686,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.031818"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.591878"
     },
     {
       "step": 360,
-      "accuracy": 0.5889,
-      "rolling_accuracy": 0.42,
+      "accuracy": 0.8722,
+      "rolling_accuracy": 0.98,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.047810"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.599865"
     },
     {
       "step": 370,
-      "accuracy": 0.5973,
-      "rolling_accuracy": 0.58,
+      "accuracy": 0.8757,
+      "rolling_accuracy": 0.98,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.065788"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.607896"
     },
     {
       "step": 380,
-      "accuracy": 0.6026,
-      "rolling_accuracy": 0.64,
+      "accuracy": 0.8789,
+      "rolling_accuracy": 1.0,
       "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.085788"
+      "resets": 0,
+      "timestamp": "2026-05-06T11:04:59.614898"
     },
     {
       "step": 390,
-      "accuracy": 0.6103,
-      "rolling_accuracy": 0.72,
+      "accuracy": 0.8769,
+      "rolling_accuracy": 0.96,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.102812"
+      "timestamp": "2026-05-06T11:04:59.622432"
     },
     {
       "step": 400,
-      "accuracy": 0.61,
-      "rolling_accuracy": 0.76,
+      "accuracy": 0.8675,
+      "rolling_accuracy": 0.86,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.122344"
+      "timestamp": "2026-05-06T11:04:59.630428"
     },
     {
       "step": 410,
-      "accuracy": 0.6171,
-      "rolling_accuracy": 0.82,
+      "accuracy": 0.861,
+      "rolling_accuracy": 0.78,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.140345"
+      "timestamp": "2026-05-06T11:04:59.638419"
     },
     {
       "step": 420,
-      "accuracy": 0.619,
-      "rolling_accuracy": 0.78,
+      "accuracy": 0.8548,
+      "rolling_accuracy": 0.7,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.161342"
+      "timestamp": "2026-05-06T11:04:59.650423"
     },
     {
       "step": 430,
-      "accuracy": 0.6116,
-      "rolling_accuracy": 0.68,
+      "accuracy": 0.8512,
+      "rolling_accuracy": 0.64,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.181371"
+      "timestamp": "2026-05-06T11:04:59.661436"
     },
     {
       "step": 440,
-      "accuracy": 0.6114,
-      "rolling_accuracy": 0.62,
+      "accuracy": 0.8545,
+      "rolling_accuracy": 0.68,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.215813"
+      "timestamp": "2026-05-06T11:04:59.669434"
     },
     {
       "step": 450,
-      "accuracy": 0.6133,
-      "rolling_accuracy": 0.64,
+      "accuracy": 0.8533,
+      "rolling_accuracy": 0.74,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.237003"
+      "timestamp": "2026-05-06T11:04:59.677439"
     },
     {
       "step": 460,
-      "accuracy": 0.6174,
-      "rolling_accuracy": 0.62,
+      "accuracy": 0.8543,
+      "rolling_accuracy": 0.8,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.254005"
+      "timestamp": "2026-05-06T11:04:59.684438"
     },
     {
       "step": 470,
-      "accuracy": 0.6213,
-      "rolling_accuracy": 0.64,
+      "accuracy": 0.8553,
+      "rolling_accuracy": 0.86,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.268986"
+      "timestamp": "2026-05-06T11:04:59.692430"
     },
     {
       "step": 480,
-      "accuracy": 0.6229,
-      "rolling_accuracy": 0.72,
+      "accuracy": 0.8542,
+      "rolling_accuracy": 0.88,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.284002"
+      "timestamp": "2026-05-06T11:04:59.699427"
     },
     {
       "step": 490,
-      "accuracy": 0.6306,
-      "rolling_accuracy": 0.8,
+      "accuracy": 0.8531,
+      "rolling_accuracy": 0.84,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.298027"
+      "timestamp": "2026-05-06T11:04:59.707456"
     },
     {
       "step": 500,
-      "accuracy": 0.636,
-      "rolling_accuracy": 0.84,
-      "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.313091"
-    },
-    {
-      "step": 510,
-      "accuracy": 0.6373,
-      "rolling_accuracy": 0.82,
-      "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.331161"
-    },
-    {
-      "step": 520,
-      "accuracy": 0.6404,
-      "rolling_accuracy": 0.82,
-      "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.346132"
-    },
-    {
-      "step": 530,
-      "accuracy": 0.6453,
+      "accuracy": 0.854,
       "rolling_accuracy": 0.86,
       "drift_detected": false,
       "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.361140"
-    },
-    {
-      "step": 540,
-      "accuracy": 0.6463,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 1,
-      "timestamp": "2026-05-05T20:57:26.378112"
-    },
-    {
-      "step": 550,
-      "accuracy": 0.6455,
-      "rolling_accuracy": 0.74,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.399124"
-    },
-    {
-      "step": 560,
-      "accuracy": 0.6339,
-      "rolling_accuracy": 0.6,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.416280"
-    },
-    {
-      "step": 570,
-      "accuracy": 0.6263,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.433312"
-    },
-    {
-      "step": 580,
-      "accuracy": 0.6224,
-      "rolling_accuracy": 0.38,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.450332"
-    },
-    {
-      "step": 590,
-      "accuracy": 0.6186,
-      "rolling_accuracy": 0.32,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.468336"
-    },
-    {
-      "step": 600,
-      "accuracy": 0.615,
-      "rolling_accuracy": 0.28,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.484332"
-    },
-    {
-      "step": 610,
-      "accuracy": 0.6131,
-      "rolling_accuracy": 0.38,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.503326"
-    },
-    {
-      "step": 620,
-      "accuracy": 0.6113,
-      "rolling_accuracy": 0.44,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.524867"
-    },
-    {
-      "step": 630,
-      "accuracy": 0.6095,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.546850"
-    },
-    {
-      "step": 640,
-      "accuracy": 0.6156,
-      "rolling_accuracy": 0.58,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.563849"
-    },
-    {
-      "step": 650,
-      "accuracy": 0.6138,
-      "rolling_accuracy": 0.6,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.585856"
-    },
-    {
-      "step": 660,
-      "accuracy": 0.6121,
-      "rolling_accuracy": 0.6,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.604877"
-    },
-    {
-      "step": 670,
-      "accuracy": 0.6164,
-      "rolling_accuracy": 0.68,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.623451"
-    },
-    {
-      "step": 680,
-      "accuracy": 0.6176,
-      "rolling_accuracy": 0.72,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.643453"
-    },
-    {
-      "step": 690,
-      "accuracy": 0.6174,
-      "rolling_accuracy": 0.64,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.663439"
-    },
-    {
-      "step": 700,
-      "accuracy": 0.62,
-      "rolling_accuracy": 0.7,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.681472"
-    },
-    {
-      "step": 710,
-      "accuracy": 0.6239,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.699443"
-    },
-    {
-      "step": 720,
-      "accuracy": 0.6236,
-      "rolling_accuracy": 0.72,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.716106"
-    },
-    {
-      "step": 730,
-      "accuracy": 0.6247,
-      "rolling_accuracy": 0.72,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.733274"
-    },
-    {
-      "step": 740,
-      "accuracy": 0.627,
-      "rolling_accuracy": 0.76,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.749265"
-    },
-    {
-      "step": 750,
-      "accuracy": 0.628,
-      "rolling_accuracy": 0.74,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.766246"
-    },
-    {
-      "step": 760,
-      "accuracy": 0.6303,
-      "rolling_accuracy": 0.72,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.783270"
-    },
-    {
-      "step": 770,
-      "accuracy": 0.6351,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.799296"
-    },
-    {
-      "step": 780,
-      "accuracy": 0.6372,
-      "rolling_accuracy": 0.82,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.815312"
-    },
-    {
-      "step": 790,
-      "accuracy": 0.638,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.829888"
-    },
-    {
-      "step": 800,
-      "accuracy": 0.6412,
-      "rolling_accuracy": 0.84,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.844876"
-    },
-    {
-      "step": 810,
-      "accuracy": 0.6395,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.885527"
-    },
-    {
-      "step": 820,
-      "accuracy": 0.6354,
-      "rolling_accuracy": 0.64,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.906526"
-    },
-    {
-      "step": 830,
-      "accuracy": 0.6325,
-      "rolling_accuracy": 0.56,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.922119"
-    },
-    {
-      "step": 840,
-      "accuracy": 0.6286,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.938108"
-    },
-    {
-      "step": 850,
-      "accuracy": 0.6235,
-      "rolling_accuracy": 0.34,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.954087"
-    },
-    {
-      "step": 860,
-      "accuracy": 0.6233,
-      "rolling_accuracy": 0.36,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.973084"
-    },
-    {
-      "step": 870,
-      "accuracy": 0.6184,
-      "rolling_accuracy": 0.34,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:26.991103"
-    },
-    {
-      "step": 880,
-      "accuracy": 0.6136,
-      "rolling_accuracy": 0.3,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.013144"
-    },
-    {
-      "step": 890,
-      "accuracy": 0.6112,
-      "rolling_accuracy": 0.32,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.036201"
-    },
-    {
-      "step": 900,
-      "accuracy": 0.61,
-      "rolling_accuracy": 0.38,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.057200"
-    },
-    {
-      "step": 910,
-      "accuracy": 0.6066,
-      "rolling_accuracy": 0.32,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.079239"
-    },
-    {
-      "step": 920,
-      "accuracy": 0.6054,
-      "rolling_accuracy": 0.38,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.102208"
-    },
-    {
-      "step": 930,
-      "accuracy": 0.6032,
-      "rolling_accuracy": 0.42,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.122797"
-    },
-    {
-      "step": 940,
-      "accuracy": 0.6021,
-      "rolling_accuracy": 0.44,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.144795"
-    },
-    {
-      "step": 950,
-      "accuracy": 0.6021,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.168794"
-    },
-    {
-      "step": 960,
-      "accuracy": 0.601,
-      "rolling_accuracy": 0.5,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.187798"
-    },
-    {
-      "step": 970,
-      "accuracy": 0.5969,
-      "rolling_accuracy": 0.44,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.205818"
-    },
-    {
-      "step": 980,
-      "accuracy": 0.5969,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.222370"
-    },
-    {
-      "step": 990,
-      "accuracy": 0.597,
-      "rolling_accuracy": 0.5,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.239393"
-    },
-    {
-      "step": 1000,
-      "accuracy": 0.595,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.255401"
-    },
-    {
-      "step": 1010,
-      "accuracy": 0.5921,
-      "rolling_accuracy": 0.42,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.272377"
-    },
-    {
-      "step": 1020,
-      "accuracy": 0.5912,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.289400"
-    },
-    {
-      "step": 1030,
-      "accuracy": 0.5913,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.306451"
-    },
-    {
-      "step": 1040,
-      "accuracy": 0.5904,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.322999"
-    },
-    {
-      "step": 1050,
-      "accuracy": 0.5895,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.340973"
-    },
-    {
-      "step": 1060,
-      "accuracy": 0.5868,
-      "rolling_accuracy": 0.48,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.358989"
-    },
-    {
-      "step": 1070,
-      "accuracy": 0.5869,
-      "rolling_accuracy": 0.5,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.377979"
-    },
-    {
-      "step": 1080,
-      "accuracy": 0.5852,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.396994"
-    },
-    {
-      "step": 1090,
-      "accuracy": 0.5826,
-      "rolling_accuracy": 0.42,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.414008"
-    },
-    {
-      "step": 1100,
-      "accuracy": 0.5836,
-      "rolling_accuracy": 0.46,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.432609"
-    },
-    {
-      "step": 1110,
-      "accuracy": 0.5802,
-      "rolling_accuracy": 0.44,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.447612"
-    },
-    {
-      "step": 1120,
-      "accuracy": 0.5777,
-      "rolling_accuracy": 0.38,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.462592"
-    },
-    {
-      "step": 1130,
-      "accuracy": 0.5779,
-      "rolling_accuracy": 0.42,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.477592"
-    },
-    {
-      "step": 1140,
-      "accuracy": 0.5746,
-      "rolling_accuracy": 0.4,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.492643"
-    },
-    {
-      "step": 1150,
-      "accuracy": 0.5722,
-      "rolling_accuracy": 0.32,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.506660"
-    },
-    {
-      "step": 1160,
-      "accuracy": 0.5698,
-      "rolling_accuracy": 0.34,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.521905"
-    },
-    {
-      "step": 1170,
-      "accuracy": 0.5675,
-      "rolling_accuracy": 0.34,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.535908"
-    },
-    {
-      "step": 1180,
-      "accuracy": 0.5661,
-      "rolling_accuracy": 0.3,
-      "drift_detected": false,
-      "resets": 2,
-      "timestamp": "2026-05-05T20:57:27.551477"
-    },
-    {
-      "step": 1190,
-      "accuracy": 0.563,
-      "rolling_accuracy": 0.3,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.570151"
-    },
-    {
-      "step": 1200,
-      "accuracy": 0.5608,
-      "rolling_accuracy": 0.3,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.611140"
-    },
-    {
-      "step": 1210,
-      "accuracy": 0.5579,
-      "rolling_accuracy": 0.28,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.663661"
-    },
-    {
-      "step": 1220,
-      "accuracy": 0.5574,
-      "rolling_accuracy": 0.32,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.687654"
-    },
-    {
-      "step": 1230,
-      "accuracy": 0.5577,
-      "rolling_accuracy": 0.36,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.710689"
-    },
-    {
-      "step": 1240,
-      "accuracy": 0.5573,
-      "rolling_accuracy": 0.42,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.729257"
-    },
-    {
-      "step": 1250,
-      "accuracy": 0.5608,
-      "rolling_accuracy": 0.56,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.744260"
-    },
-    {
-      "step": 1260,
-      "accuracy": 0.5619,
-      "rolling_accuracy": 0.66,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.759265"
-    },
-    {
-      "step": 1270,
-      "accuracy": 0.563,
-      "rolling_accuracy": 0.7,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.773251"
-    },
-    {
-      "step": 1280,
-      "accuracy": 0.5648,
-      "rolling_accuracy": 0.74,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.787262"
-    },
-    {
-      "step": 1290,
-      "accuracy": 0.5667,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.801257"
-    },
-    {
-      "step": 1300,
-      "accuracy": 0.57,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.814558"
-    },
-    {
-      "step": 1310,
-      "accuracy": 0.5733,
-      "rolling_accuracy": 0.86,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.829100"
-    },
-    {
-      "step": 1320,
-      "accuracy": 0.575,
-      "rolling_accuracy": 0.88,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.842104"
-    },
-    {
-      "step": 1330,
-      "accuracy": 0.5782,
-      "rolling_accuracy": 0.92,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.855108"
-    },
-    {
-      "step": 1340,
-      "accuracy": 0.5799,
-      "rolling_accuracy": 0.92,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.869099"
-    },
-    {
-      "step": 1350,
-      "accuracy": 0.5822,
-      "rolling_accuracy": 0.9,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.882097"
-    },
-    {
-      "step": 1360,
-      "accuracy": 0.5846,
-      "rolling_accuracy": 0.88,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.895108"
-    },
-    {
-      "step": 1370,
-      "accuracy": 0.5876,
-      "rolling_accuracy": 0.92,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.909132"
-    },
-    {
-      "step": 1380,
-      "accuracy": 0.5906,
-      "rolling_accuracy": 0.92,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.921673"
-    },
-    {
-      "step": 1390,
-      "accuracy": 0.5928,
-      "rolling_accuracy": 0.94,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.935701"
-    },
-    {
-      "step": 1400,
-      "accuracy": 0.5957,
-      "rolling_accuracy": 0.96,
-      "drift_detected": false,
-      "resets": 3,
-      "timestamp": "2026-05-05T20:57:27.947698"
-    },
-    {
-      "step": 1410,
-      "accuracy": 0.5986,
-      "rolling_accuracy": 0.98,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:27.963692"
-    },
-    {
-      "step": 1420,
-      "accuracy": 0.5979,
-      "rolling_accuracy": 0.88,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:27.977704"
-    },
-    {
-      "step": 1430,
-      "accuracy": 0.5972,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:27.990690"
-    },
-    {
-      "step": 1440,
-      "accuracy": 0.5965,
-      "rolling_accuracy": 0.7,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.002702"
-    },
-    {
-      "step": 1450,
-      "accuracy": 0.5972,
-      "rolling_accuracy": 0.64,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.015719"
-    },
-    {
-      "step": 1460,
-      "accuracy": 0.5986,
-      "rolling_accuracy": 0.6,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.029284"
-    },
-    {
-      "step": 1470,
-      "accuracy": 0.6007,
-      "rolling_accuracy": 0.68,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.042277"
-    },
-    {
-      "step": 1480,
-      "accuracy": 0.602,
-      "rolling_accuracy": 0.74,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.055280"
-    },
-    {
-      "step": 1490,
-      "accuracy": 0.6027,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.068295"
-    },
-    {
-      "step": 1500,
-      "accuracy": 0.6047,
-      "rolling_accuracy": 0.82,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.087300"
-    },
-    {
-      "step": 1510,
-      "accuracy": 0.606,
-      "rolling_accuracy": 0.82,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.103280"
-    },
-    {
-      "step": 1520,
-      "accuracy": 0.6066,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.120400"
-    },
-    {
-      "step": 1530,
-      "accuracy": 0.6072,
-      "rolling_accuracy": 0.76,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.135148"
-    },
-    {
-      "step": 1540,
-      "accuracy": 0.6084,
-      "rolling_accuracy": 0.78,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.152158"
-    },
-    {
-      "step": 1550,
-      "accuracy": 0.611,
-      "rolling_accuracy": 0.8,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.168147"
-    },
-    {
-      "step": 1560,
-      "accuracy": 0.6135,
-      "rolling_accuracy": 0.84,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.185157"
-    },
-    {
-      "step": 1570,
-      "accuracy": 0.6159,
-      "rolling_accuracy": 0.9,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.201168"
-    },
-    {
-      "step": 1580,
-      "accuracy": 0.6165,
-      "rolling_accuracy": 0.9,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.217188"
-    },
-    {
-      "step": 1590,
-      "accuracy": 0.6189,
-      "rolling_accuracy": 0.94,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.232319"
-    },
-    {
-      "step": 1600,
-      "accuracy": 0.6212,
-      "rolling_accuracy": 0.94,
-      "drift_detected": false,
-      "resets": 4,
-      "timestamp": "2026-05-05T20:57:28.248347"
+      "timestamp": "2026-05-06T11:04:59.713447"
     }
   ]
 }

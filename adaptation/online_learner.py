@@ -68,17 +68,14 @@ logger = logging.getLogger(__name__)
 
 
 # ── Topic labels ──────────────────────────────────────────────────────────────
-# These 9 topics map to the Topic nodes in the Neo4j graph (built in D2).
-# Every query will be classified into one of these.
-TOPICS: list[str] = [
-    "neural_networks",
-    "transformers",
+# These are the cs.AI sub-areas your model classifies queries into.
+# You can extend this list to match your actual corpus topics.
+TOPICS = [
     "reinforcement_learning",
     "computer_vision",
     "natural_language_processing",
-    "graph_neural_networks",
-    "generative_models",
-    "optimization",
+    "knowledge_representation",
+    "planning_search",
     "other",
 ]
 
@@ -435,7 +432,7 @@ class QueryTopicLearner:
         self.drift_detected = False
         self._build_pipeline()
         # Reset ADWIN window to monitor the new distribution fresh
-        self.adwin = drift.ADWIN(delta=self.adwin_delta)
+        # self.adwin = drift.ADWIN(delta=self.adwin_delta)
         logger.info("Pipeline rebuilt. Total resets: %d", self.n_resets)
 
     def topic_accuracy_report(self) -> dict:
