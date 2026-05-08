@@ -46,6 +46,7 @@ for i, paper in enumerate(client.results(search)):
         "year":     paper.published.year,
         "pdf_path": pdf_path,
         "topics":   "cs.AI",
+        "abstract": paper.summary.replace("\n", " "),
     })
 
 with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
