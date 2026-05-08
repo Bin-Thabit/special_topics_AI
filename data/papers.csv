@@ -1,0 +1,201 @@
+paper_id,title,authors,venue,year,pdf_path,topics
+2604.15309v1,MM-WebAgent: A Hierarchical Multimodal Web Agent for Webpage Generation,Yan Li; Zezi Zeng; Yifan Yang; Yuqing Yang; Ning Liao,arXiv,2026,data/pdfs/2604.15309v1.pdf,cs.AI
+2604.15306v1,Generalization in LLM Problem Solving: The Case of the Shortest Path,Yao Tong; Jiayuan Ye; Anastasia Borovykh; Reza Shokri,arXiv,2026,data/pdfs/2604.15306v1.pdf,cs.AI
+2604.15302v1,Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations,Manan Gupta; Dhruv Kumar,arXiv,2026,data/pdfs/2604.15302v1.pdf,cs.AI
+2604.15294v1,How Do LLMs and VLMs Understand Viewpoint Rotation Without Vision? An Interpretability Study,Zhen Yang; Ping Jian; Zhongbin Guo; Zuming Zhang; Chengzhi Li,arXiv,2026,data/pdfs/2604.15294v1.pdf,cs.AI
+2604.15291v1,AD4AD: Benchmarking Visual Anomaly Detection Models for Safer Autonomous Driving,Fabrizio Genilotti; Arianna Stropeni; Gionata Grotto; Francesco Borsatti; Manuel Barusco,arXiv,2026,data/pdfs/2604.15291v1.pdf,cs.AI
+2604.15280v1,Why Do Vision Language Models Struggle To Recognize Human Emotions?,Madhav Agarwal; Sotirios A. Tsaftaris; Laura Sevilla-Lara; Steven McDonagh,arXiv,2026,data/pdfs/2604.15280v1.pdf,cs.AI
+2604.15272v1,Prism: Symbolic Superoptimization of Tensor Programs,Mengdi Wu; Xiaoyu Jiang; Oded Padon; Zhihao Jia,arXiv,2026,data/pdfs/2604.15272v1.pdf,cs.AI
+2604.15271v1,SegWithU: Uncertainty as Perturbation Energy for Single-Forward-Pass Risk-Aware Medical Image Segmentation,Tianhao Fu; Austin Wang; Charles Chen; Roby Aldave-Garza; Yucheng Chen,arXiv,2026,data/pdfs/2604.15271v1.pdf,cs.AI
+2604.15267v1,CoopEval: Benchmarking Cooperation-Sustaining Mechanisms and LLM Agents in Social Dilemmas,Emanuel Tewolde; Xiao Zhang; David Guzman Piedrahita; Vincent Conitzer; Zhijing Jin,arXiv,2026,data/pdfs/2604.15267v1.pdf,cs.AI
+2604.15259v1,Stability and Generalization in Looped Transformers,Asher Labovich,arXiv,2026,data/pdfs/2604.15259v1.pdf,cs.AI
+2604.15236v1,Agentic Microphysics: A Manifesto for Generative AI Safety,Federico Pierucci; Matteo Prandi; Marcantonio Bracale Syrnikov; Marcello Galisai; Piercosma Bisconti,arXiv,2026,data/pdfs/2604.15236v1.pdf,cs.AI
+2604.15233v1,Blue Data Intelligence Layer: Streaming Data and Agents for Multi-source Multi-modal Data-Centric Applications,Moin Aminnaseri; Farima Fatahi Bayat; Nikita Bhutani; Jean-Flavien Bussotti; Kevin Chan,arXiv,2026,data/pdfs/2604.15233v1.pdf,cs.AI
+2604.15231v1,RadAgent: A tool-using AI agent for stepwise interpretation of chest computed tomography,Mélanie Roschewitz; Kenneth Styppa; Yitian Tao; Jiwoong Sohn; Jean-Benoit Delbrouck,arXiv,2026,data/pdfs/2604.15231v1.pdf,cs.AI
+2604.15224v1,Context Over Content: Exposing Evaluation Faking in Automated Judges,Manan Gupta; Inderjeet Nair; Lu Wang; Dhruv Kumar,arXiv,2026,data/pdfs/2604.15224v1.pdf,cs.AI
+2604.15222v1,AI-Assisted Requirements Engineering: An Empirical Evaluation Relative to Expert Judgment,Oz Levy; Ilya Dikman; Natan Levy; Michael Winokur,arXiv,2026,data/pdfs/2604.15222v1.pdf,cs.AI
+2604.15210v1,Learning to Think Like a Cartoon Captionist: Incongruity-Resolution Supervision for Multimodal Humor Understanding,Hatice Merve Vural; Doga Kukul; Ege Erdem Ozlu; Demir Ekin Arikan; Bob Mankoff,arXiv,2026,data/pdfs/2604.15210v1.pdf,cs.AI
+2604.15202v1,Benchmarking Classical Coverage Path Planning Heuristics on Irregular Hexagonal Grids for Maritime Coverage Scenarios,Carlos S. Sepúlveda; Gonzalo A. Ruz,arXiv,2026,data/pdfs/2604.15202v1.pdf,cs.AI
+2604.15190v1,Meituan Merchant Business Diagnosis via Policy-Guided Dual-Process User Simulation,Ziyang Chen; Renbing Chen; Daowei Li; Jinzhi Liao; Jiashen Sun,arXiv,2026,data/pdfs/2604.15190v1.pdf,cs.AI
+2604.15188v1,VisPCO: Visual Token Pruning Configuration Optimization via Budget-Aware Pareto-Frontier Learning for Vision-Language Models,Huawei Ji; Yuanhao Sun; Yuan Jin; Cheng Deng; Jiaxin Ding,arXiv,2026,data/pdfs/2604.15188v1.pdf,cs.AI
+2604.15186v1,Scepsy: Serving Agentic Workflows Using Aggregate LLM Pipelines,Marcel Wagenländer; Otto White; Britannio Jarrett; Pedro Silvestre; Yanda Tao,arXiv,2026,data/pdfs/2604.15186v1.pdf,cs.AI
+2604.15184v1,Agent-Aided Design for Dynamic CAD Models,Mitch Adler; Matthew Russo; Michael Cafarella,arXiv,2026,data/pdfs/2604.15184v1.pdf,cs.AI
+2604.15174v1,MambaSL: Exploring Single-Layer Mamba for Time Series Classification,Yoo-Min Jung; Leekyung Kim,arXiv,2026,data/pdfs/2604.15174v1.pdf,cs.AI
+2604.15166v1,Class Unlearning via Depth-Aware Removal of Forget-Specific Directions,Arman Hatami; Romina Aalishah; Ilya E. Monosov,arXiv,2026,data/pdfs/2604.15166v1.pdf,cs.AI
+2604.15153v1,Compressing Sequences in the Latent Embedding Space: $K$-Token Merging for Large Language Models,Zihao Xu; John Harvill; Ziwei Fan; Yizhou Sun; Hao Ding,arXiv,2026,data/pdfs/2604.15153v1.pdf,cs.AI
+2604.15149v1,LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking,Lukas Helff; Quentin Delfosse; David Steinmann; Ruben Härle; Hikaru Shindo,arXiv,2026,data/pdfs/2604.15149v1.pdf,cs.AI
+2604.15148v1,IG-Search: Step-Level Information Gain Rewards for Search-Augmented Reasoning,Zihan Liang; Yufei Ma; Ben Chen; Zhipeng Qian; Huangyu Dai,arXiv,2026,data/pdfs/2604.15148v1.pdf,cs.AI
+2604.15145v1,An Axiomatic Benchmark for Evaluation of Scientific Novelty Metrics,Miri Liu; ChengXiang Zhai,arXiv,2026,data/pdfs/2604.15145v1.pdf,cs.AI
+2604.15143v1,Structure as Computation: Developmental Generation of Minimal Neural Circuits,Duan Zhou,arXiv,2026,data/pdfs/2604.15143v1.pdf,cs.AI
+2604.15121v1,SRMU: Relevance-Gated Updates for Streaming Hyperdimensional Memories,Shay Snyder; Andrew Capodieci; David Gorsich; Maryam Parsa,arXiv,2026,data/pdfs/2604.15121v1.pdf,cs.AI
+2604.15114v1,Amortized Optimal Transport from Sliced Potentials,Minh-Phuc Truong; Khai Nguyen,arXiv,2026,data/pdfs/2604.15114v1.pdf,cs.AI
+2604.15113v1,HyperSpace: A Generalized Framework for Spatial Encoding in Hyperdimensional Representations,Shay Snyder; Andrew Capodieci; David Gorsich; Maryam Parsa,arXiv,2026,data/pdfs/2604.15113v1.pdf,cs.AI
+2604.15109v1,IUQ: Interrogative Uncertainty Quantification for Long-Form Large Language Model Generation,Haozhi Fan; Jinhao Duan; Kaidi Xu,arXiv,2026,data/pdfs/2604.15109v1.pdf,cs.AI
+2604.15093v1,OpenMobile: Building Open Mobile Agents with Task and Trajectory Synthesis,Kanzhi Cheng; Zehao Li; Zheng Ma; Nuo Chen; Jialin Cao,arXiv,2026,data/pdfs/2604.15093v1.pdf,cs.AI
+2604.15082v1,Autonomous Evolution of EDA Tools: Multi-Agent Self-Evolved ABC,Cunxi Yu; Haoxing Ren,arXiv,2026,data/pdfs/2604.15082v1.pdf,cs.AI
+2604.15078v1,Where are the Humans? A Scoping Review of Fairness in Multi-agent AI Systems,Simeon Allmendinger; Luca Deck; Lucas Mueller,arXiv,2026,data/pdfs/2604.15078v1.pdf,cs.AI
+2604.15076v1,NEAT-NC: NEAT guided Navigation Cells for Robot Path Planning,Hibatallah Meliani; Khadija Slimani; Samira Khoulji,arXiv,2026,data/pdfs/2604.15076v1.pdf,cs.AI
+2604.15063v1,No More Guessing: a Verifiable Gradient Inversion Attack in Federated Learning,Francesco Diana; Chuan Xu; André Nusser; Giovanni Neglia,arXiv,2026,data/pdfs/2604.15063v1.pdf,cs.AI
+2604.15044v1,CoGrid & the Multi-User Gymnasium: A Framework for Multi-Agent Experimentation,Chase McDonald; Cleotilde Gonzalez,arXiv,2026,data/pdfs/2604.15044v1.pdf,cs.AI
+2604.15038v1,When Fairness Metrics Disagree: Evaluating the Reliability of Demographic Fairness Assessment in Machine Learning,Khalid Adnan Alsayed,arXiv,2026,data/pdfs/2604.15038v1.pdf,cs.AI
+2604.15037v1,From Reactive to Proactive: Assessing the Proactivity of Voice Agents via ProVoice-Bench,Ke Xu; Yuhao Wang; Yu Wang,arXiv,2026,data/pdfs/2604.15037v1.pdf,cs.AI
+2604.15034v1,Autogenesis: A Self-Evolving Agent Protocol,Wentao Zhang,arXiv,2026,data/pdfs/2604.15034v1.pdf,cs.AI
+2604.15022v1,Route to Rome Attack: Directing LLM Routers to Expensive Models via Adversarial Suffix Optimization,Haochun Tang; Yuliang Yan; Jiahua Lu; Huaxiao Liu; Enyan Dai,arXiv,2026,data/pdfs/2604.15022v1.pdf,cs.AI
+2604.15010v1,What Is the Minimum Architecture for Prolepsis? Early Irrevocable Commitment Across Tasks in Small Transformers,Éric Jacopin,arXiv,2026,data/pdfs/2604.15010v1.pdf,cs.AI
+2604.15009v1,Towards Faster Language Model Inference Using Mixture-of-Experts Flow Matching,Aihua Li,arXiv,2026,data/pdfs/2604.15009v1.pdf,cs.AI
+2604.15001v1,COEVO: Co-Evolutionary Framework for Joint Functional Correctness and PPA Optimization in LLM-Based RTL Generation,Heng Ping; Peiyu Zhang; Shixuan Li; Wei Yang; Anzhe Cheng,arXiv,2026,data/pdfs/2604.15001v1.pdf,cs.AI
+2604.14991v1,Predicting Power-System Dynamic Trajectories with Foundation Models,Haoran Li; Lihao Mai; Chenhan Xiao; Erik Blasch; Yang Weng,arXiv,2026,data/pdfs/2604.14991v1.pdf,cs.AI
+2604.14990v1,The Possibility of Artificial Intelligence Becoming a Subject and the Alignment Problem,Till Mossakowski; Helena Esther Grass,arXiv,2026,data/pdfs/2604.14990v1.pdf,cs.AI
+2604.14989v1,Dr.~RTL: Autonomous Agentic RTL Optimization through Tool-Grounded Self-Improvement,Wenji Fang; Yao Lu; Shang Liu; Jing Wang; Ziyan Guo,arXiv,2026,data/pdfs/2604.14989v1.pdf,cs.AI
+2604.14987v1,AI-Enabled Covert Channel Detection in RF Receiver Architectures,Abdelrahman Emad Abdelazim; Alan Rodrigo Diaz-Rizo; Hassan Aboushady; Haralampos-G. Stratigopoulos,arXiv,2026,data/pdfs/2604.14987v1.pdf,cs.AI
+2604.14984v1,Agentic Explainability at Scale: Between Corporate Fears and XAI Needs,Yomna Elsayed; Cecily Jones,arXiv,2026,data/pdfs/2604.14984v1.pdf,cs.AI
+2604.14980v1,Hybrid Decision Making via Conformal VLM-generated Guidance,Debodeep Banerjee; Burcu Sayin; Stefano Teso; Andrea Passerini,arXiv,2026,data/pdfs/2604.14980v1.pdf,cs.AI
+2604.14969v1,Discovering Novel LLM Experts via Task-Capability Coevolution,Andrew Dai; Boris Meinardus; Ciaran Regan; Yingtao Tian; Yujin Tang,arXiv,2026,data/pdfs/2604.14969v1.pdf,cs.AI
+2604.14967v1,UniDoc-RL: Coarse-to-Fine Visual RAG with Hierarchical Actions and Dense Rewards,Jun Wang; Shuo Tan; Zelong Sun; Tiancheng Gu; Yongle Zhao,arXiv,2026,data/pdfs/2604.14967v1.pdf,cs.AI
+2604.14961v1,Calibration-Gated LLM Pseudo-Observations for Online Contextual Bandits,Maksim Pershin; Ivan Golovanov; Pavel Baltabaev; Natalia Trankova,arXiv,2026,data/pdfs/2604.14961v1.pdf,cs.AI
+2604.14951v1,RaTA-Tool: Retrieval-based Tool Selection with Multimodal Large Language Models,Gabriele Mattioli; Evelyn Turri; Sara Sarto; Lorenzo Baraldi; Marcella Cornia,arXiv,2026,data/pdfs/2604.14951v1.pdf,cs.AI
+2604.14932v1,WavAlign: Enhancing Intelligence and Expressiveness in Spoken Dialogue Models via Adaptive Hybrid Post-Training,Yifu Chen; Shengpeng Ji; Qian Chen; Tianle Liang; Yangzhuo Li,arXiv,2026,data/pdfs/2604.14932v1.pdf,cs.AI
+2604.14927v1,STEP-Parts: Geometric Partitioning of Boundary Representations for Large-Scale CAD Processing,Shen Fan; Mikołaj Kida; Przemyslaw Musialski,arXiv,2026,data/pdfs/2604.14927v1.pdf,cs.AI
+2604.14925v1,Improving Sparse Autoencoder with Dynamic Attention,Dongsheng Wang; Jinsen Zhang; Dawei Su; Hui Huang,arXiv,2026,data/pdfs/2604.14925v1.pdf,cs.AI
+2604.14920v1,Dual-Axis Generative Reward Model Toward Semantic and Turn-taking Robustness in Interactive Spoken Dialogue Models,Yifu Chen; Shengpeng Ji; Zhengqing Liu; Qian Chen; Wen Wang,arXiv,2026,data/pdfs/2604.14920v1.pdf,cs.AI
+2604.14902v1,ADAPT: Benchmarking Commonsense Planning under Unspecified Affordance Constraints,Pei-An Chen; Yong-Ching Liang; Jia-Fong Yeh; Hung-Ting Su; Yi-Ting Chen,arXiv,2026,data/pdfs/2604.14902v1.pdf,cs.AI
+2604.14898v1,Governing Reflective Human-AI Collaboration: A Framework for Epistemic Scaffolding and Traceable Reasoning,Rikard Rosenbacke; Carl Rosenbacke; Victor Rosenbacke; Martin McKee,arXiv,2026,data/pdfs/2604.14898v1.pdf,cs.AI
+2604.14896v1,Toward Agentic RAG for Ukrainian,Marta Sumyk; Oleksandr Kosovan,arXiv,2026,data/pdfs/2604.14896v1.pdf,cs.AI
+2604.14895v1,Beyond Importance Sampling: Rejection-Gated Policy Optimization,Ziwu Sun; Zhen Gao; Jiyong Zhang; Jiaheng Li,arXiv,2026,data/pdfs/2604.14895v1.pdf,cs.AI
+2604.14892v1,Can LLMs Score Medical Diagnoses and Clinical Reasoning as well as Expert Panels?,Amy Rouillard; Sitwala Mundiab; Linda Camarab; Michael Cameron Gramaniec; Ziyaad Dangorc,arXiv,2026,data/pdfs/2604.14892v1.pdf,cs.AI
+2604.14889v1,MemoSight: Unifying Context Compression and Multi Token Prediction for Reasoning Acceleration,Xinyu Liu; Xin Liu; Bo Jin; Runsong Zhao; Pengcheng Huang,arXiv,2026,data/pdfs/2604.14889v1.pdf,cs.AI
+2604.14888v1,Reasoning Dynamics and the Limits of Monitoring Modality Reliance in Vision-Language Models,Danae Sánchez Villegas; Samuel Lewis-Lim; Nikolaos Aletras; Desmond Elliott,arXiv,2026,data/pdfs/2604.14888v1.pdf,cs.AI
+2604.14886v1,Cooperate to Compete: Strategic Data Generation and Incentivization Framework for Coopetitive Cross-Silo Federated Learning,Thanh Linh Nguyen; Nguyen Van Huynh; Quoc-Viet Pham,arXiv,2026,data/pdfs/2604.14886v1.pdf,cs.AI
+2604.14885v1,RACER: Retrieval-Augmented Contextual Rapid Speculative Decoding,Zihong Zhang; Zuchao Li; Lefei Zhang; Ping Wang; Hai Zhao,arXiv,2026,data/pdfs/2604.14885v1.pdf,cs.AI
+2604.14881v1,The Missing Knowledge Layer in AI: A Framework for Stable Human-AI Reasoning,Rikard Rosenbacke; Carl Rosenbacke; Victor Rosenbacke; Martin McKee,arXiv,2026,data/pdfs/2604.14881v1.pdf,cs.AI
+2604.14879v1,SOLIS: Physics-Informed Learning of Interpretable Neural Surrogates for Nonlinear Systems,Murat Furkan Mansur; Tufan Kumbasar,arXiv,2026,data/pdfs/2604.14879v1.pdf,cs.AI
+2604.14878v1,GenRec: A Preference-Oriented Generative Framework for Large-Scale Recommendation,Yanyan Zou; Junbo Qi; Lunsong Huang; Yu Li; Kewei Xu,arXiv,2026,data/pdfs/2604.14878v1.pdf,cs.AI
+2604.14867v1,"Vibe-Coding: Feedback-Based Automated Verification with no Human Code Inspection, a Feasibility Study",Michal Töpfer; František Plášil; Tomáš Bureš; Petr Hnětynka,arXiv,2026,data/pdfs/2604.14867v1.pdf,cs.AI
+2604.14866v1,MetaDent: Labeling Clinical Images for Vision-Language Models in Dentistry,Meng-Xun Li; Wen-Hui Deng; Zhi-Xing Wu; Chun-Xiao Jin; Jia-Min Wu,arXiv,2026,data/pdfs/2604.14866v1.pdf,cs.AI
+2604.14862v1,Schema Key Wording as an Instruction Channel in Structured Generation under Constrained Decoding,Yifan Le,arXiv,2026,data/pdfs/2604.14862v1.pdf,cs.AI
+2604.14858v1,Benchmarks for Trajectory Safety Evaluation and Diagnosis in OpenClaw and Codex: ATBench-Claw and ATBench-CodeX,Zhonghao Yang; Yu Li; Yanxu Zhu; Tianyi Zhou; Yuejin Xie,arXiv,2026,data/pdfs/2604.14858v1.pdf,cs.AI
+2604.14856v1,ClimateCause: Complex and Implicit Causal Structures in Climate Reports,Liesbeth Allein; Nataly Pineda-Castañeda; Andrea Rocci; Marie-Francine Moens,arXiv,2026,data/pdfs/2604.14856v1.pdf,cs.AI
+2604.14849v1,Efficient Search of Implantable Adaptive Cells for Medical Image Segmentation,Emil Benedykciuk; Marcin Denkowski; Grzegorz M. Wójcik,arXiv,2026,data/pdfs/2604.14849v1.pdf,cs.AI
+2604.14847v1,TrigReason: Trigger-Based Collaboration between Small and Large Reasoning Models,Yi Zhao; Yajuan Peng; Cam-Tu Nguyen; Zuchao Li; Xiaoliang Wang,arXiv,2026,data/pdfs/2604.14847v1.pdf,cs.AI
+2604.14846v1,"Zero-Shot Retail Theft Detection via Orchestrated Vision Models: A Model-Agnostic, Cost-Effective Alternative to Trained Single-Model Systems",Haileab Yagersew,arXiv,2026,data/pdfs/2604.14846v1.pdf,cs.AI
+2604.14838v1,Intermediate Layers Encode Optimal Biological Representations in Single-Cell Foundation Models,Vincenzo Yuto Civale; Roberto Semeraro; Andrew David Bagdanov; Alberto Magi,arXiv,2026,data/pdfs/2604.14838v1.pdf,cs.AI
+2604.14829v1,Beyond Literal Summarization: Redefining Hallucination for Medical SOAP Note Evaluation,Bhavik Vachhani; Kush Shrisvastava; Pranshu Nema; Sai Chiranthan,arXiv,2026,data/pdfs/2604.14829v1.pdf,cs.AI
+2604.14807v1,The LLM Fallacy: Misattribution in AI-Assisted Cognitive Workflows,Hyunwoo Kim; Harin Yu; Hanau Yi,arXiv,2026,data/pdfs/2604.14807v1.pdf,cs.AI
+2604.14790v1,Diffusion Crossover: Defining Evolutionary Recombination in Diffusion Models via Noise Sequence Interpolation,Chisatao Kumada; Satoru Hiwa; Tomoyuki Hiroyasu,arXiv,2026,data/pdfs/2604.14790v1.pdf,cs.AI
+2604.14789v1,A Comparative Study of CNN Optimization Methods for Edge AI: Exploring the Role of Early Exits,Nekane Fernandez; Ivan Valdes; Steven Van Vaerenbergh; Idoia de la Iglesia; Julen Arratibel,arXiv,2026,data/pdfs/2604.14789v1.pdf,cs.AI
+2604.14788v1,Sequence Search: Automated Sequence Design using Neural Architecture Search,Rokgi Hong; Hongjun An; Sooyeon Ji; Jongho Lee,arXiv,2026,data/pdfs/2604.14788v1.pdf,cs.AI
+2604.14786v1,CogEvolution: A Human-like Generative Educational Agent to Simulate Student's Cognitive Evolution,Wei Zhang; Yihang Cheng; Zhirong Ye; Kezhen Huang,arXiv,2026,data/pdfs/2604.14786v1.pdf,cs.AI
+2604.14785v1,MirrorBench: Evaluating Self-centric Intelligence in MLLMs by Introducing a Mirror,Shengyu Guo; Tongrui Ye; Jianbo Zhang; Zicheng Zhang; Chunyi Li,arXiv,2026,data/pdfs/2604.14785v1.pdf,cs.AI
+2604.14768v1,CoTEvol: Self-Evolving Chain-of-Thoughts for Data Synthesis in Mathematical Reasoning,Zhuo Wang; Zhuo Zhang; Yafu Li; Yu Cheng; Lizhen Qu,arXiv,2026,data/pdfs/2604.14768v1.pdf,cs.AI
+2604.14766v1,Temporal Cross-Modal Knowledge-Distillation-Based Transfer-Learning for Gas Turbine Vibration Fault Detection,Ali Bagheri Nejad; Mahdi Aliyari-Shoorehdeli; Abolfazl Hasanzadeh,arXiv,2026,data/pdfs/2604.14766v1.pdf,cs.AI
+2604.14749v1,Which bird does not have wings: Negative-constrained KGQA with Schema-guided Semantic Matching and Self-directed Refinement,Midan Shim; Seokju Hwang; Kaehyun Um; Kyong-Ho Lee,arXiv,2026,data/pdfs/2604.14749v1.pdf,cs.AI
+2604.14746v1,Disentangle-then-Refine: LLM-Guided Decoupling and Structure-Aware Refinement for Graph Contrastive Learning,Zhaoxing Li; Hai-Feng Zhang; Xiaoming Zhang,arXiv,2026,data/pdfs/2604.14746v1.pdf,cs.AI
+2604.14738v1,Personalized and Context-Aware Transformer Models for Predicting Post-Intervention Physiological Responses from Wearable Sensor Data,Esther Brown; Victoria Dean; Finale Doshi-Velez,arXiv,2026,data/pdfs/2604.14738v1.pdf,cs.AI
+2604.14726v1,Catching Every Ripple: Enhanced Anomaly Awareness via Dynamic Concept Adaptation,Jiaqi Zhu; Shaofeng Cai; Jie Chen; Fang Deng; Beng Chin Ooi,arXiv,2026,data/pdfs/2604.14726v1.pdf,cs.AI
+2604.14723v1,Bounded Autonomy for Enterprise AI: Typed Action Contracts and Consumer-Side Execution,Sarmad Sohail; Ghufran Haider,arXiv,2026,data/pdfs/2604.14723v1.pdf,cs.AI
+2604.14718v1,The Agentification of Scientific Research: A Physicist's Perspective,Xiao-Liang Qi,arXiv,2026,data/pdfs/2604.14718v1.pdf,cs.AI
+2604.14717v1,Layered Mutability: Continuity and Governance in Persistent Self-Modifying Agents,Krti Tallam,arXiv,2026,data/pdfs/2604.14717v1.pdf,cs.AI
+2604.14712v1,SGA-MCTS: Decoupling Planning from Execution via Training-Free Atomic Experience Retrieval,Xin Xie; Dongyun Xue; Wuguannan Yao; Mingxiao Feng; Wengang Zhou,arXiv,2026,data/pdfs/2604.14712v1.pdf,cs.AI
+2604.14709v1,HWE-Bench: Benchmarking LLM Agents on Real-World Hardware Bug Repair Tasks,Fan Cui; Hongyuan Hou; Zizhang Luo; Chenyun Yin; Yun Liang,arXiv,2026,data/pdfs/2604.14709v1.pdf,cs.AI
+2604.14705v1,SynHAT: A Two-stage Coarse-to-Fine Diffusion Framework for Synthesizing Human Activity Traces,Rongchao Xu; Lin Jiang; Dahai Yu; Ximiao Li; Guang Wang,arXiv,2026,data/pdfs/2604.14705v1.pdf,cs.AI
+2604.14691v1,CAMO: An Agentic Framework for Automated Causal Discovery from Micro Behaviors to Macro Emergence in LLM Agent Simulations,Xiangning Yu; Yuwei Guo; Yuqi Hou; Xiao Xue; Qun Ma,arXiv,2026,data/pdfs/2604.14691v1.pdf,cs.AI
+2604.14687v1,M2-PALE: A Framework for Explaining Multi-Agent MCTS--Minimax Hybrids via Process Mining and LLMs,Yiyu Qian; Liyuan Zhao; Tim Miller,arXiv,2026,data/pdfs/2604.14687v1.pdf,cs.AI
+2604.14683v1,DR$^{3}$-Eval: Towards Realistic and Reproducible Deep Research Evaluation,Qianqian Xie; Qingheng Xiong; He Zhu; Tiantian Xia; Xueming Han,arXiv,2026,data/pdfs/2604.14683v1.pdf,cs.AI
+2604.14682v1,Acceptance Dynamics Across Cognitive Domains in Speculative Decoding,Saif Mahmoud,arXiv,2026,data/pdfs/2604.14682v1.pdf,cs.AI
+2604.14661v1,AIPC: Agent-Based Automation for AI Model Deployment with Qualcomm AI Runtime,Jianhao Su; Zhanwei Wu; ShengTing Huang; Weidong Feng,arXiv,2026,data/pdfs/2604.14661v1.pdf,cs.AI
+2604.14656v1,Rethinking Patient Education as Multi-turn Multi-modal Interaction,Zonghai Yao; Zhipeng Tang; Chengtao Lin; Xiong Luo; Benlu Wang,arXiv,2026,data/pdfs/2604.14656v1.pdf,cs.AI
+2604.14655v1,AgentGA: Evolving Code Solutions in Agent-Seed Space,David Y. Y. Tan; Kellie Chin; Jingxian Zhang,arXiv,2026,data/pdfs/2604.14655v1.pdf,cs.AI
+2604.14648v1,"Seen-to-Scene: Keep the Seen, Generate the Unseen for Video Outpainting",Inseok Jeon; Minhyeok Lee; Seunghoon Lee; Minseok Kang; Suhwan Cho,arXiv,2026,data/pdfs/2604.14648v1.pdf,cs.AI
+2604.14646v1,Targeted Exploration via Unified Entropy Control for Reinforcement Learning,Chen Wang; Lai Wei; Yanzhi Zhang; Chenyang Shao; Zedong Dan,arXiv,2026,data/pdfs/2604.14646v1.pdf,cs.AI
+2604.14645v1,Chaotic CNN for Limited Data Image Classification,Anusree M; Akhila Henry; Pramod P Nair,arXiv,2026,data/pdfs/2604.14645v1.pdf,cs.AI
+2604.14641v1,Learning to Draw ASCII Improves Spatial Reasoning in Language Models,Shiyuan Huang; Li Liu; Jincheng He; Leilani H. Gilpin,arXiv,2026,data/pdfs/2604.14641v1.pdf,cs.AI
+2604.14640v1,Fact4ac at the Financial Misinformation Detection Challenge Task: Reference-Free Financial Misinformation Detection via Fine-Tuning and Few-Shot Prompting of Large Language Models,Cuong Hoang; Le-Minh Nguyen,arXiv,2026,data/pdfs/2604.14640v1.pdf,cs.AI
+2604.14631v1,StoryCoder: Narrative Reformulation for Structured Reasoning in LLM Code Generation,Geonhui Jang; Dongyoon Han; YoungJoon Yoo,arXiv,2026,data/pdfs/2604.14631v1.pdf,cs.AI
+2604.14627v1,A Parallel Approach to Counting Exact Covers Based on Decomposability Property,Liangda Fang; Yaohui Luo; Delong Li; Xuanxiang Huang; Quanlong Guan,arXiv,2026,data/pdfs/2604.14627v1.pdf,cs.AI
+2604.14626v1,ELMoE-3D: Leveraging Intrinsic Elasticity of MoE for Hybrid-Bonding-Enabled Self-Speculative Decoding in On-Premises Serving,Yuseon Choi; Jingu Lee; Jungjun Oh; Sunjoo Whang; Byeongcheol Kim,arXiv,2026,data/pdfs/2604.14626v1.pdf,cs.AI
+2604.14624v1,Asking What Matters: Reward-Driven Clarification for Software Engineering Tasks,Sanidhya Vijayvargiya; Vijay Viswanathan; Graham Neubig,arXiv,2026,data/pdfs/2604.14624v1.pdf,cs.AI
+2604.14616v1,"Retrieve, Then Classify: Corpus-Grounded Automation of Clinical Value Set Authoring",Sumit Mukherjee; Juan Shu; Nairwita Mazumder; Tate Kernell; Celena Wheeler,arXiv,2026,data/pdfs/2604.14616v1.pdf,cs.AI
+2604.14615v1,CoDaS: AI Co-Data-Scientist for Biomarker Discovery via Wearable Sensors,Yubin Kim; Salman Rahman; Samuel Schmidgall; Chunjong Park; A. Ali Heydari,arXiv,2026,data/pdfs/2604.14615v1.pdf,cs.AI
+2604.14613v1,Uncertainty-aware Generative Learning Path Recommendation with Cognition-Adaptive Diffusion,Xiangrui Xiong; Hang Liang; Baiyang Chen; Zifei Pan; Yanli Lee,arXiv,2026,data/pdfs/2604.14613v1.pdf,cs.AI
+2604.14609v1,El Agente Forjador: Task-Driven Agent Generation for Quantum Simulation,Zijian Zhang; Aiwei Yin; Amaan Baweja; Jiaru Bai; Ignacio Gustin,arXiv,2026,data/pdfs/2604.14609v1.pdf,cs.AI
+2604.14607v1,GDPR Auto-Formalization with AI Agents and Human Verification,Ha Thanh Nguyen; Wachara Fungwacharakorn; Sabine Wehnert; May Myo Zin; Yuntao Kong,arXiv,2026,data/pdfs/2604.14607v1.pdf,cs.AI
+2604.14604v1,Hijacking Large Audio-Language Models via Context-Agnostic and Imperceptible Auditory Prompt Injection,Meng Chen; Kun Wang; Li Lu; Jiaheng Zhang; Tianwei Zhang,arXiv,2026,data/pdfs/2604.14604v1.pdf,cs.AI
+2604.14602v1,CausalDetox: Causal Head Selection and Intervention for Language Model Detoxification,Yian Wang; Yuen Chen; Agam Goyal; Hari Sundaram,arXiv,2026,data/pdfs/2604.14602v1.pdf,cs.AI
+2604.14593v1,Mechanistic Decoding of Cognitive Constructs in LLMs,Yitong Shou; Manhao Guan,arXiv,2026,data/pdfs/2604.14593v1.pdf,cs.AI
+2604.14590v1,AgileLog: A Forkable Shared Log for Agents on Data Streams,Shreesha G. Bhat; Tony Hong; Michael Noguera; Ramnatthan Alagappan; Aishwarya Ganesan,arXiv,2026,data/pdfs/2604.14590v1.pdf,cs.AI
+2604.14586v1,CPGRec+: A Balance-oriented Framework for Personalized Video Game Recommendations,Xiping Li; Aier Yang; Jianghong Ma; Kangzhe Liu; Shanshan Feng,arXiv,2026,data/pdfs/2604.14586v1.pdf,cs.AI
+2604.14585v1,Prompt Optimization Is a Coin Flip: Diagnosing When It Helps in Compound AI Systems,Xing Zhang; Guanghui Wang; Yanwei Cui; Wei Qiu; Ziyuan Li,arXiv,2026,data/pdfs/2604.14585v1.pdf,cs.AI
+2604.14576v1,Enhancing Mental Health Counseling Support in Bangladesh using Culturally-Grounded Knowledge,Md Arid Hasan; Azhagu Meena SP; Aditya Khan; Abu Md Akteruzzaman Bhuiyan; Helal Uddin Ahmed,arXiv,2026,data/pdfs/2604.14576v1.pdf,cs.AI
+2604.14575v1,Generative Augmented Inference,Cheng Lu; Mengxin Wang; Dennis J. Zhang; Heng Zhang,arXiv,2026,data/pdfs/2604.14575v1.pdf,cs.AI
+2604.14572v1,"Don't Retrieve, Navigate: Distilling Enterprise Knowledge into Navigable Agent Skills for QA and RAG",Yiqun Sun; Pengfei Wei; Lawrence B. Hsieh,arXiv,2026,data/pdfs/2604.14572v1.pdf,cs.AI
+2604.14564v1,MARS$^2$: Scaling Multi-Agent Tree Search via Reinforcement Learning for Code Generation,Pengfei Li; Shijie Wang; Fangyuan Li; Yikun Fu; Kaifeng Liu,arXiv,2026,data/pdfs/2604.14564v1.pdf,cs.AI
+2604.14556v1,Controllable Video Object Insertion via Multiview Priors,Xia Qi; Peishan Cong; Yichen Yao; Ziyi Wang; Yaoqin Ye,arXiv,2026,data/pdfs/2604.14556v1.pdf,cs.AI
+2604.14550v1,VeriGraphi: A Multi-Agent Framework of Hierarchical RTL Generation for Large Hardware Designs,Sazzadul Islam; Tasnim Tabassum; Hao Zheng,arXiv,2026,data/pdfs/2604.14550v1.pdf,cs.AI
+2604.14532v1,CSRA: Controlled Spectral Residual Augmentation for Robust Sepsis Prediction,Honglin Guo; Rihao Chang; He Jiao; Weizhi Nie; Zhongheng Zhang,arXiv,2026,data/pdfs/2604.14532v1.pdf,cs.AI
+2604.14531v1,TRACER: Trace-Based Adaptive Cost-Efficient Routing for LLM Classification,Adam Rida,arXiv,2026,data/pdfs/2604.14531v1.pdf,cs.AI
+2604.14528v1,Dissecting Failure Dynamics in Large Language Model Reasoning,Wei Zhu; Jian Zhang; Lixing Yu; Kun Yue; Zhiwen Tang,arXiv,2026,data/pdfs/2604.14528v1.pdf,cs.AI
+2604.14525v1,Quantifying Cross-Query Contradictions in Multi-Query LLM Reasoning,Rohit Kumar Salla; Ramya Manasa Amancherla; Manoj Saravanan,arXiv,2026,data/pdfs/2604.14525v1.pdf,cs.AI
+2604.14518v1,Mind DeepResearch Technical Report,MindDR Team; Li Auto Inc,arXiv,2026,data/pdfs/2604.14518v1.pdf,cs.AI
+2604.14514v1,Perspective on Bias in Biomedical AI: Preventing Downstream Healthcare Disparities,Michal Rosen-Zvi; Yoav Kan-Tor; Michael Danziger; Agata Ferretti; Javier Aula-Blasco,arXiv,2026,data/pdfs/2604.14514v1.pdf,cs.AI
+2604.14512v1,CBCL: Safe Self-Extending Agent Communication,Hugo O'Connor,arXiv,2026,data/pdfs/2604.14512v1.pdf,cs.AI
+2604.14510v1,NewsTorch: A PyTorch-based Toolkit for Learner-oriented News Recommendation,Rongyao Wang; Veronica Liesaputra; Zhiyi Huang,arXiv,2026,data/pdfs/2604.14510v1.pdf,cs.AI
+2604.14501v1,On the Expressive Power and Limitations of Multi-Layer SSMs,Nikola Zubić; Qian Li; Yuyi Wang; Davide Scaramuzza,arXiv,2026,data/pdfs/2604.14501v1.pdf,cs.AI
+2604.14500v1,Geometric Metrics for MoE Specialization: From Fisher Information to Early Failure Detection,Dongxin Guo; Jikun Wu; Siu Ming Yiu,arXiv,2026,data/pdfs/2604.14500v1.pdf,cs.AI
+2604.14498v1,Improving Machine Learning Performance with Synthetic Augmentation,Mel Sohm; Charles Dezons; Sami Sellami; Oscar Ninou; Axel Pincon,arXiv,2026,data/pdfs/2604.14498v1.pdf,cs.AI
+2604.14495v1,Decoupling Identity from Utility: Privacy-by-Design Frameworks for Financial Ecosystems,Ifayoyinsola Ibikunle; Tyler Farnan; Senthil Kumar; Mayana Pereira,arXiv,2026,data/pdfs/2604.14495v1.pdf,cs.AI
+2604.14493v1,"Pushing the Limits of On-Device Streaming ASR: A Compact, High-Accuracy English Model for Low-Latency Inference",Nenad Banfic; David Fan; Kunal Vaishnavi; Sam Kemp; Sunghoon Choi,arXiv,2026,data/pdfs/2604.14493v1.pdf,cs.AI
+2604.14484v1,A Nonasymptotic Theory of Gain-Dependent Error Dynamics in Behavior Cloning,Junghoon Seo,arXiv,2026,data/pdfs/2604.14484v1.pdf,cs.AI
+2604.14477v1,Seeing Through Circuits: Faithful Mechanistic Interpretability for Vision Transformers,Nina Żukowska; Wolfgang Stammer; Bernt Schiele; Jonas Fischer,arXiv,2026,data/pdfs/2604.14477v1.pdf,cs.AI
+2604.14475v1,"Evo-MedAgent: Beyond One-Shot Diagnosis with Agents That Remember, Reflect, and Improve",Weixiang Shen; Bailiang Jian; Jun Li; Che Liu; Johannes Moll,arXiv,2026,data/pdfs/2604.14475v1.pdf,cs.AI
+2604.14473v1,Response-Aware User Memory Selection for LLM Personalization,Jillian Fisher; Jennifer Neville; Chan Young Park,arXiv,2026,data/pdfs/2604.14473v1.pdf,cs.AI
+2604.14472v1,Auxiliary Finite-Difference Residual-Gradient Regularization for PINNs,Stavros Kassinos,arXiv,2026,data/pdfs/2604.14472v1.pdf,cs.AI
+2604.14465v1,Improving Human Performance with Value-Aware Interventions: A Case Study in Chess,Saumik Narayanan; Raja Panjwani; Siddhartha Sen; Chien-Ju Ho,arXiv,2026,data/pdfs/2604.14465v1.pdf,cs.AI
+2604.14456v1,FocalLens: Visualizing Narratives through Focalization,S M Raihanul Alam; Md Dilshadur Rahman; Md Naimul Hoque,arXiv,2026,data/pdfs/2604.14456v1.pdf,cs.AI
+2604.14455v1,AIBuildAI: An AI Agent for Automatically Building AI Models,Ruiyi Zhang; Peijia Qin; Qi Cao; Li Zhang; Pengtao Xie,arXiv,2026,data/pdfs/2604.14455v1.pdf,cs.AI
+2604.14451v1,FAIR Universe Weak Lensing ML Uncertainty Challenge: Handling Uncertainties and Distribution Shifts for Precision Cosmology,Biwei Dai; Po-Wen Chang; Wahid Bhimji; Paolo Calafiura; Ragansu Chakkappai,arXiv,2026,data/pdfs/2604.14451v1.pdf,cs.AI
+2604.14449v1,Crowdsourcing of Real-world Image Annotation via Visual Properties,Xiaolei Diao; Fausto Giunchiglia,arXiv,2026,data/pdfs/2604.14449v1.pdf,cs.AI
+2604.14444v1,Robustness Analysis of Machine Learning Models for IoT Intrusion Detection Under Data Poisoning Attacks,Fortunatus Aabangbio Wulnye; Justice Owusu Agyemang; Kwame Opuni-Boachie Obour Agyekum; Kwame Agyeman-Prempeh Agyekum; Kingsford Sarkodie Obeng Kwakye,arXiv,2026,data/pdfs/2604.14444v1.pdf,cs.AI
+2604.14442v1,Hierarchical vs. Flat Iteration in Shared-Weight Transformers,Sang-Il Han,arXiv,2026,data/pdfs/2604.14442v1.pdf,cs.AI
+2604.14437v1,LLMs taking shortcuts in test generation: A study with SAP HANA and LevelDB,Vekil Bekmyradov; Noah C. Pütz; Thomas Bartz-Beielstein,arXiv,2026,data/pdfs/2604.14437v1.pdf,cs.AI
+2604.14434v1,Geometric Routing Enables Causal Expert Control in Mixture of Experts,Ivan Ternovtsii; Yurii Bilak,arXiv,2026,data/pdfs/2604.14434v1.pdf,cs.AI
+2604.14430v1,Three-Phase Transformer,Mohammad R. Abu Ayyash,arXiv,2026,data/pdfs/2604.14430v1.pdf,cs.AI
+2604.14422v1,Demonstration of Pneuma-Seeker: Agentic System for Reifying and Fulfilling Information Needs on Tabular Data,Muhammad Imam Luthfi Balaka; Raul Castro Fernandez,arXiv,2026,data/pdfs/2604.14422v1.pdf,cs.AI
+2604.14419v1,Equifinality in Mixture of Experts: Routing Topology Does Not Determine Language Modeling Quality,Ivan Ternovtsii; Yurii Bilak,arXiv,2026,data/pdfs/2604.14419v1.pdf,cs.AI
+2604.14401v1,Credo: Declarative Control of LLM Pipelines via Beliefs and Policies,Duo Lu; Andrew Crotty; Uğur Çetintemel,arXiv,2026,data/pdfs/2604.14401v1.pdf,cs.AI
+2604.14399v1,SpaceMind: A Modular and Self-Evolving Embodied Vision-Language Agent Framework for Autonomous On-orbit Servicing,Aodi Wu; Haodong Han; Xubo Luo; Ruisuo Wang; Shan He,arXiv,2026,data/pdfs/2604.14399v1.pdf,cs.AI
+2604.14397v1,Generating Concept Lexicalizations via Dictionary-Based Cross-Lingual Sense Projection,David Basil; Chirooth Girigowda; Bradley Hauer; Sahir Momin; Ning Shi,arXiv,2026,data/pdfs/2604.14397v1.pdf,cs.AI
+2604.14389v1,BiCon-Gate: Consistency-Gated De-colloquialisation for Dialogue Fact-Checking,Hyunkyung Park; Arkaitz Zubiaga,arXiv,2026,data/pdfs/2604.14389v1.pdf,cs.AI
+2604.14386v1,Coalition Formation in LLM Agent Networks: Stability Analysis and Convergence Guarantees,Dongxin Guo; Jikun Wu; Siu-Ming Yiu,arXiv,2026,data/pdfs/2604.14386v1.pdf,cs.AI
+2604.14379v1,Step-level Denoising-time Diffusion Alignment with Multiple Objectives,Qi Zhang; Dawei Wang; Shaofeng Zou,arXiv,2026,data/pdfs/2604.14379v1.pdf,cs.AI
+2604.14375v1,Modular Continual Learning via Zero-Leakage Reconstruction Routing and Autonomous Task Discovery,Noureddine Kermiche,arXiv,2026,data/pdfs/2604.14375v1.pdf,cs.AI
+2604.14373v1,SatBLIP: Context Understanding and Feature Identification from Satellite Imagery with Vision-Language Learning,Xue Wu; Shengting Cao; Jiaqi Gong,arXiv,2026,data/pdfs/2604.14373v1.pdf,cs.AI
+2604.14363v1,The Cost of Language: Centroid Erasure Exposes and Exploits Modal Competition in Multimodal Language Models,Akshay Paruchuri; Ishan Chatterjee; Henry Fuchs; Ehsan Adeli; Piotr Didyk,arXiv,2026,data/pdfs/2604.14363v1.pdf,cs.AI
+2604.14362v1,APEX-MEM: Agentic Semi-Structured Memory with Temporal Reasoning for Long-Term Conversational AI,Pratyay Banerjee; Masud Moshtaghi; Shivashankar Subramanian; Amita Misra; Ankit Chadha,arXiv,2026,data/pdfs/2604.14362v1.pdf,cs.AI
+2604.14356v1,When PCOS Meets Eating Disorders: An Explainable AI Approach to Detecting the Hidden Triple Burden,Apoorv Prasad; Susan McRoy,arXiv,2026,data/pdfs/2604.14356v1.pdf,cs.AI
+2604.14345v1,Tight Sample Complexity Bounds for Best-Arm Identification Under Bounded Systematic Bias,Tianhao Qian,arXiv,2026,data/pdfs/2604.14345v1.pdf,cs.AI
+2604.14336v1,Mistake gating leads to energy and memory efficient continual learning,Aaron Pache; Mark CW van Rossum,arXiv,2026,data/pdfs/2604.14336v1.pdf,cs.AI
+2604.14334v1,Mamba-SSM with LLM Reasoning for Biomarker Discovery: Causal Feature Refinement via Chain-of-Thought Gene Evaluation,Pushpa Kumar Balan; Aijing Feng,arXiv,2026,data/pdfs/2604.14334v1.pdf,cs.AI
+2604.14332v1,Thermodynamic Diffusion Inference with Minimal Digital Conditioning,Aditi De,arXiv,2026,data/pdfs/2604.14332v1.pdf,cs.AI
+2604.14325v1,Faithfulness Serum: Mitigating the Faithfulness Gap in Textual Explanations of LLM Decisions via Attribution Guidance,Bar Alon; Itamar Zimerman; Lior Wolf,arXiv,2026,data/pdfs/2604.14325v1.pdf,cs.AI
+2604.14317v1,Challenges and Future Directions in Agentic Reverse Engineering Systems,Salem Radey; Jack West; Kassem Fawaz,arXiv,2026,data/pdfs/2604.14317v1.pdf,cs.AI
+2604.14316v1,Seeing Through Experts Eyes A Foundational Vision Language Model Trained on Radiologists Gaze and Reasoning,Kinhei Lee; Peiyuan Jing; Zhenxuan Zhang; Yue Yang; Tao Wang,arXiv,2026,data/pdfs/2604.14316v1.pdf,cs.AI
+2604.14314v1,DharmaOCR: Specialized Small Language Models for Structured OCR that outperform Open-Source and Commercial Baselines,Gabriel Pimenta de Freitas Cardoso; Caio Lucas da Silva Chacon; Jonas Felipe da Fonseca Oliveira; Paulo Henrique de Medeiros Araujo,arXiv,2026,data/pdfs/2604.14314v1.pdf,cs.AI
+2604.14309v1,Aerial Multi-Functional RIS in Fluid Antennas-Aided Full-Duplex Networks: A Self-Optimized Hybrid Deep Reinforcement Learning Approach,Li-Hsiang Shen; Yu-Quan Zheng,arXiv,2026,data/pdfs/2604.14309v1.pdf,cs.AI
+2604.14306v1,"EuropeMedQA Study Protocol: A Multilingual, Multimodal Medical Examination Dataset for Language Model Evaluation",Francesco Andrea Causio; Vittorio De Vita; Olivia Riccomi; Michele Ferramola; Federico Felizzi,arXiv,2026,data/pdfs/2604.14306v1.pdf,cs.AI
+2604.14287v1,Quantum-inspired tensor networks in machine learning models,Guillermo Valverde; Igor García-Olaizola; Giannicola Scarpa; Alejandro Pozas-Kerstjens,arXiv,2026,data/pdfs/2604.14287v1.pdf,cs.AI
+2604.14142v1,From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space,Yuqiao Tan; Minzheng Wang; Bo Liu; Zichen Liu; Tian Liang,arXiv,2026,data/pdfs/2604.14142v1.pdf,cs.AI
+2604.14140v1,LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning,Sumeet Ramesh Motwani; Daniel Nichols; Charles London; Peggy Li; Fabio Pizzati,arXiv,2026,data/pdfs/2604.14140v1.pdf,cs.AI
+2604.14137v2,From Feelings to Metrics: Understanding and Formalizing How Users Vibe-Test LLMs,Itay Itzhak; Eliya Habba; Gabriel Stanovsky; Yonatan Belinkov,arXiv,2026,data/pdfs/2604.14137v2.pdf,cs.AI
+2604.14128v1,Rhetorical Questions in LLM Representations: A Linear Probing Study,Louie Hong Yao; Vishesh Anand; Yuan Zhuang; Tianyu Jiang,arXiv,2026,data/pdfs/2604.14128v1.pdf,cs.AI
+2604.14125v1,HiVLA: A Visual-Grounded-Centric Hierarchical Embodied Manipulation System,Tianshuo Yang; Guanyu Chen; Yutian Chen; Zhixuan Liang; Yitian Liu,arXiv,2026,data/pdfs/2604.14125v1.pdf,cs.AI
+2604.14116v1,TREX: Automating LLM Fine-tuning via Agent-Driven Tree-based Exploration,Zerun Ma; Guoqiang Wang; Xinchen Xie; Yicheng Chen; He Du,arXiv,2026,data/pdfs/2604.14116v1.pdf,cs.AI
+2604.14267v1,Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization,Junzhe Wang; Zhiheng Xi; yajie yang; Hao Luo; Shihan Dou,arXiv,2026,data/pdfs/2604.14267v1.pdf,cs.AI
+2604.14113v1,UI-Zoomer: Uncertainty-Driven Adaptive Zoom-In for GUI Grounding,Fei Tang; Bofan Chen; Zhengxi Lu; Tongbo Chen; Songqin Nong,arXiv,2026,data/pdfs/2604.14113v1.pdf,cs.AI
+2604.14265v1,Reinforcement Learning via Value Gradient Flow,Haoran Xu; Kaiwen Hu; Somayeh Sojoudi; Amy Zhang,arXiv,2026,data/pdfs/2604.14265v1.pdf,cs.AI
+2604.14089v1,UMI-3D: Extending Universal Manipulation Interface from Vision-Limited to 3D Spatial Perception,Ziming Wang,arXiv,2026,data/pdfs/2604.14089v1.pdf,cs.AI
+2604.14084v1,TIP: Token Importance in On-Policy Distillation,Yuanda Xu; Hejian Sang; Zhengze Zhou; Ran He; Zhipeng Wang,arXiv,2026,data/pdfs/2604.14084v1.pdf,cs.AI
+2604.14262v1,GUI-Perturbed: Domain Randomization Reveals Systematic Brittleness in GUI Grounding Models,Yangyue Wang; Harshvardhan Sikka; Yash Mathur; Tony Zhou; Jinu Nyachhyon,arXiv,2026,data/pdfs/2604.14262v1.pdf,cs.AI
+2604.14261v1,"ReviewGrounder: Improving Review Substantiveness with Rubric-Guided, Tool-Integrated Agents",Zhuofeng Li; Yi Lu; Dongfu Jiang; Haoxiang Zhang; Yuyang Bai,arXiv,2026,data/pdfs/2604.14261v1.pdf,cs.AI
+2604.14035v1,First-See-Then-Design: A Multi-Stakeholder View for Optimal Performance-Fairness Trade-Offs,Kavya Gupta; Nektarios Kalampalikis; Christoph Heitz; Isabel Valera,arXiv,2026,data/pdfs/2604.14035v1.pdf,cs.AI
+2604.14034v1,"Large Language Models to Enhance Business Process Modeling: Past, Present, and Future Trends",João Bettencourt; Sérgio Guerreiro,arXiv,2026,data/pdfs/2604.14034v1.pdf,cs.AI
+2604.14032v1,Hierarchical Reinforcement Learning with Runtime Safety Shielding for Power Grid Operation,Gitesh Malik,arXiv,2026,data/pdfs/2604.14032v1.pdf,cs.AI
