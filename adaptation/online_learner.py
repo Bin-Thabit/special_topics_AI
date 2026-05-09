@@ -578,148 +578,148 @@ class QueryTopicLearner:
         }
 
 
-# # ── HybridWeightAdapter ───────────────────────────────────────────────────────
+# ── HybridWeightAdapter ───────────────────────────────────────────────────────
 
-# class HybridWeightAdapter:
-#     """
-#     Adapts the BM25 vs dense fusion weight (alpha) from user feedback.
-#     Used by the /feedback endpoint in D2 to tune retrieval in real time.
+class HybridWeightAdapter:
+    """
+    Adapts the BM25 vs dense fusion weight (alpha) from user feedback.
+    Used by the /feedback endpoint in D2 to tune retrieval in real time.
 
-#     alpha = 0.0 → pure BM25  (keyword search)
-#     alpha = 1.0 → pure dense (vector search)
-#     alpha = 0.5 → equal blend (default)
+    alpha = 0.0 → pure BM25  (keyword search)
+    alpha = 1.0 → pure dense (vector search)
+    alpha = 0.5 → equal blend (default)
 
-#     Update logic
-#     ------------
-#     helpful=True  + dense   → increase alpha (dense worked well)
-#     helpful=True  + bm25    → decrease alpha (bm25 worked well)
-#     helpful=False + dense   → decrease alpha (dense failed)
-#     helpful=False + bm25    → increase alpha (bm25 failed)
-#     helpful=True  + hybrid  → no change (both contributed)
-#     helpful=False + hybrid  → small decrease (blend needs tuning)
+    Update logic
+    ------------
+    helpful=True  + dense   → increase alpha (dense worked well)
+    helpful=True  + bm25    → decrease alpha (bm25 worked well)
+    helpful=False + dense   → decrease alpha (dense failed)
+    helpful=False + bm25    → increase alpha (bm25 failed)
+    helpful=True  + hybrid  → no change (both contributed)
+    helpful=False + hybrid  → small decrease (blend needs tuning)
 
-#     ADWIN also monitors the helpful/not-helpful signal stream.
-#     If the helpfulness pattern shifts, it logs the drift event.
+    ADWIN also monitors the helpful/not-helpful signal stream.
+    If the helpfulness pattern shifts, it logs the drift event.
 
-#     Usage
-#     -----
-#     adapter = HybridWeightAdapter()
-#     new_alpha = adapter.update(helpful=True, retrieval_type="dense")
-#     print(new_alpha)  # slightly higher than 0.5
-#     """
+    Usage
+    -----
+    adapter = HybridWeightAdapter()
+    new_alpha = adapter.update(helpful=True, retrieval_type="dense")
+    print(new_alpha)  # slightly higher than 0.5
+    """
 
-#     def __init__(
-#         self,
-#         alpha: float = 0.5,
-#         lr: float = 0.01,
-#         adwin_delta: float = 0.002,
-#     ) -> None:
-#         """
-#         Parameters
-#         ----------
-#         alpha       : initial fusion weight (0=BM25, 1=dense, 0.5=equal blend)
-#         lr          : learning rate — how much to nudge alpha per feedback
-#                       0.01 means each feedback moves alpha by 1%
-#         adwin_delta : ADWIN sensitivity for helpfulness drift detection
-#         """
-#         self.alpha = alpha
-#         self.lr = lr
-#         self.adwin = drift.ADWIN(delta=adwin_delta)
-#         self.step = 0
-#         self.history: list[dict] = []
+    def __init__(
+        self,
+        alpha: float = 0.5,
+        lr: float = 0.01,
+        adwin_delta: float = 0.002,
+    ) -> None:
+        """
+        Parameters
+        ----------
+        alpha       : initial fusion weight (0=BM25, 1=dense, 0.5=equal blend)
+        lr          : learning rate — how much to nudge alpha per feedback
+                      0.01 means each feedback moves alpha by 1%
+        adwin_delta : ADWIN sensitivity for helpfulness drift detection
+        """
+        self.alpha = alpha
+        self.lr = lr
+        self.adwin = drift.ADWIN(delta=adwin_delta)
+        self.step = 0
+        self.history: list[dict] = []
 
-#     def update(
-#         self,
-#         helpful: bool,
-#         retrieval_type: Literal["bm25", "dense", "hybrid"],
-#     ) -> float:
-#         """
-#         Update alpha based on one feedback signal.
+    def update(
+        self,
+        helpful: bool,
+        retrieval_type: Literal["bm25", "dense", "hybrid"],
+    ) -> float:
+        """
+        Update alpha based on one feedback signal.
 
-#         Parameters
-#         ----------
-#         helpful        : did the user mark the answer as helpful?
-#         retrieval_type : which retrieval method was used for this query
+        Parameters
+        ----------
+        helpful        : did the user mark the answer as helpful?
+        retrieval_type : which retrieval method was used for this query
 
-#         Returns
-#         -------
-#         float : the new alpha value after this update
-#         """
-#         # Nudge alpha based on what worked and what didn't
-#         if helpful:
-#             if retrieval_type == "dense":
-#                 # Dense worked well → lean more towards dense
-#                 self.alpha = min(1.0, self.alpha + self.lr)
-#             elif retrieval_type == "bm25":
-#                 # BM25 worked well → lean more towards BM25
-#                 self.alpha = max(0.0, self.alpha - self.lr)
-#             # hybrid + helpful → no change, both contributed
-#         else:
-#             if retrieval_type == "dense":
-#                 # Dense failed → lean away from dense
-#                 self.alpha = max(0.0, self.alpha - self.lr)
-#             elif retrieval_type == "bm25":
-#                 # BM25 failed → lean away from BM25
-#                 self.alpha = min(1.0, self.alpha + self.lr)
-#             elif retrieval_type == "hybrid":
-#                 # Hybrid failed → small nudge towards BM25 (more precise)
-#                 self.alpha = max(0.0, self.alpha - self.lr * 0.5)
+        Returns
+        -------
+        float : the new alpha value after this update
+        """
+        # Nudge alpha based on what worked and what didn't
+        if helpful:
+            if retrieval_type == "dense":
+                # Dense worked well → lean more towards dense
+                self.alpha = min(1.0, self.alpha + self.lr)
+            elif retrieval_type == "bm25":
+                # BM25 worked well → lean more towards BM25
+                self.alpha = max(0.0, self.alpha - self.lr)
+            # hybrid + helpful → no change, both contributed
+        else:
+            if retrieval_type == "dense":
+                # Dense failed → lean away from dense
+                self.alpha = max(0.0, self.alpha - self.lr)
+            elif retrieval_type == "bm25":
+                # BM25 failed → lean away from BM25
+                self.alpha = min(1.0, self.alpha + self.lr)
+            elif retrieval_type == "hybrid":
+                # Hybrid failed → small nudge towards BM25 (more precise)
+                self.alpha = max(0.0, self.alpha - self.lr * 0.5)
 
-#         # Monitor helpfulness signal for drift
-#         # 0 = helpful (good), 1 = not helpful (bad)
-#         self.adwin.update(0 if helpful else 1)
+        # Monitor helpfulness signal for drift
+        # 0 = helpful (good), 1 = not helpful (bad)
+        self.adwin.update(0 if helpful else 1)
 
-#         if self.adwin.drift_detected:
-#             logger.warning(
-#                 "HybridWeightAdapter: helpfulness drift at step %d, alpha=%.3f",
-#                 self.step, self.alpha,
-#             )
+        if self.adwin.drift_detected:
+            logger.warning(
+                "HybridWeightAdapter: helpfulness drift at step %d, alpha=%.3f",
+                self.step, self.alpha,
+            )
 
-#         self.step += 1
-#         self.history.append({
-#             "step": self.step,
-#             "alpha": round(self.alpha, 4),
-#             "helpful": helpful,
-#             "retrieval_type": retrieval_type,
-#         })
+        self.step += 1
+        self.history.append({
+            "step": self.step,
+            "alpha": round(self.alpha, 4),
+            "helpful": helpful,
+            "retrieval_type": retrieval_type,
+        })
 
-#         return round(self.alpha, 4)
+        return round(self.alpha, 4)
 
-#     def get_weights(self) -> dict:
-#         """
-#         Returns the current fusion weights as a dict.
-#         Used by the retrieval pipeline in D2 to blend BM25 and dense scores.
+    def get_weights(self) -> dict:
+        """
+        Returns the current fusion weights as a dict.
+        Used by the retrieval pipeline in D2 to blend BM25 and dense scores.
 
-#         Returns
-#         -------
-#         dict with bm25_weight and dense_weight that sum to 1.0
-#         """
-#         return {
-#             "dense_weight": round(self.alpha, 4),
-#             "bm25_weight": round(1.0 - self.alpha, 4),
-#         }
+        Returns
+        -------
+        dict with bm25_weight and dense_weight that sum to 1.0
+        """
+        return {
+            "dense_weight": round(self.alpha, 4),
+            "bm25_weight": round(1.0 - self.alpha, 4),
+        }
 
-#     def save(self, path: str | Path = "data/hybrid_adapter_state.json") -> None:
-#         """Save adapter state and history to JSON."""
-#         path = Path(path)
-#         path.parent.mkdir(parents=True, exist_ok=True)
+    def save(self, path: str | Path = "data/hybrid_adapter_state.json") -> None:
+        """Save adapter state and history to JSON."""
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
 
-#         data = {
-#             "alpha": self.alpha,
-#             "step": self.step,
-#             "lr": self.lr,
-#             "history": self.history,
-#         }
+        data = {
+            "alpha": self.alpha,
+            "step": self.step,
+            "lr": self.lr,
+            "history": self.history,
+        }
 
-#         with open(path, "w") as f:
-#             json.dump(data, f, indent=2)
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2)
 
-#         logger.info("HybridWeightAdapter state saved to %s", path)
+        logger.info("HybridWeightAdapter state saved to %s", path)
 
-#     def summary(self) -> dict:
-#         """Returns a quick summary of the current adapter state."""
-#         return {
-#             "alpha": round(self.alpha, 4),
-#             "step": self.step,
-#             "weights": self.get_weights(),
-#         }
+    def summary(self) -> dict:
+        """Returns a quick summary of the current adapter state."""
+        return {
+            "alpha": round(self.alpha, 4),
+            "step": self.step,
+            "weights": self.get_weights(),
+        }
