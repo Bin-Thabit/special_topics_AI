@@ -134,26 +134,28 @@ def extract_metadata(
 
 def extract_pages(pdf_path: str) -> list[dict]:
     """
-    Extract text from each page using pdfplumber.
-    Returns a list of {page_num, text} dicts.
-    page_num is 1-indexed to match human-readable citations.
+    Extract text from each page using LangChain's PyMuPDFLoader.
+    PyMuPDF handles arXiv font encoding and spacing far better than pdfplumber.
     """
+    from langchain_community.document_loaders import PyMuPDFLoader
+
     pages = []
 
     try:
-        with pdfplumber.open(pdf_path) as pdf:
-            for i, page in enumerate(pdf.pages, start=1):
-                raw_text = page.extract_text() or ""
-                cleaned  = clean_text(raw_text)
+        loader   = PyMuPDFLoader(pdf_path)
+        documents = loader.load()   # one Document per page
 
-                # Skip pages that are essentially empty (covers, blank pages)
-                if len(cleaned) < 50:
-                    continue
+        for doc in documents:
+            page_num = doc.metadata.get("page", 0) + 1  # 0-indexed → 1-indexed
+            cleaned  = clean_text(doc.page_content)
 
-                pages.append({
-                    "page_num": i,
-                    "text":     cleaned,
-                })
+            if len(cleaned) < 50:
+                continue
+
+            pages.append({
+                "page_num": page_num,
+                "text":     cleaned,
+            })
 
     except Exception as e:
         raise RuntimeError(f"Failed to parse PDF {pdf_path}: {e}") from e
