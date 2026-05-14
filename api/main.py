@@ -120,15 +120,7 @@ state = AppState()
 # ---------------------------------------------------------------------------
 
 def build_retrieval_indexes() -> None:
-    """
-    Load all chunks from MongoDB and build:
-        - BM25 index (rank-bm25)
-        - Dense embeddings matrix (sentence-transformers)
-
-    Called once at startup and after every /ingest.
-    """
-    from rank_bm25 import BM25Okapi
-    from retrieval.bm25_retriever import build_bm25_index
+    from retrieval.bm25_retriever  import build_bm25_index
     from retrieval.dense_retriever import build_dense_index
 
     print("  Building retrieval indexes from MongoDB...")
@@ -142,10 +134,12 @@ def build_retrieval_indexes() -> None:
         state.dense_embeddings = None
         return
 
-    state.bm25_index       = build_bm25_index(state.all_chunks)
-    state.dense_embeddings = build_dense_index(
+    state.bm25_index = build_bm25_index(state.all_chunks)
+
+    # build_dense_index returns (model, embeddings) — unpack both
+    _, state.dense_embeddings = build_dense_index(
         state.all_chunks,
-        state.model,
+        EMBED_MODEL,
     )
     print(f"  Indexes built: {len(state.all_chunks)} chunks")
 
@@ -399,12 +393,12 @@ async def search(request: SearchRequest):
         query            =request.query,
         chunks           =state.all_chunks,
         bm25_index       =state.bm25_index,
-        dense_model      =state.model,
+        dense_model      =state.model,        # ← SentenceTransformer object
         dense_embeddings =state.dense_embeddings,
         k                =top_k,
         alpha            =alpha,
         query_vector     =query_vector,
-    )
+    )   
 
     # Build response
     chunk_results = [
