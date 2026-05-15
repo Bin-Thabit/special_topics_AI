@@ -1,0 +1,278 @@
+{
+  "recall@5": 0.6,
+  "mrr": 0.55,
+  "avg_latency": 2.7034,
+  "p95_latency": 4.002,
+  "queries": [
+    {
+      "query": "how does ActCam control camera motion without training?",
+      "paper_id": "2605.06667v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 4.002,
+      "top_results": [
+        {
+          "paper_id": "2605.06667v1",
+          "page_num": 2,
+          "score": 0.9689,
+          "text": "However, we argue that the necessity of using a specific model for generating videos with acting and camera control is a"
+        },
+        {
+          "paper_id": "2605.06667v1",
+          "page_num": 3,
+          "score": 0.9662,
+          "text": "ActCam: Zero-Shot Joint Camera and 3D Motion Control for Video Generation 3 Depth 2D Pose Reference Image Unproject Unpr"
+        },
+        {
+          "paper_id": "2605.06667v1",
+          "page_num": 5,
+          "score": 0.9659,
+          "text": "We also test ActCam in a static camera setup by comparing against strong motion control methods without explicit camera "
+        }
+      ]
+    },
+    {
+      "query": "What is the main computational drawback of the RLPD algorithm?",
+      "paper_id": "2605.05863v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 2.448,
+      "top_results": [
+        {
+          "paper_id": "2605.05863v1",
+          "page_num": 5,
+          "score": 0.968,
+          "text": "Q4: What is the computational efficiency of SOPE compared to baselines? Q1: Is dynamic allocation of offline updates sup"
+        },
+        {
+          "paper_id": "2605.06156v1",
+          "page_num": 19,
+          "score": 0.9213,
+          "text": "Because RLPD does not employ a behavioral constraint, Li and Levine [2026] trained it from scratch online using a 50/50 "
+        },
+        {
+          "paper_id": "2605.05863v1",
+          "page_num": 2,
+          "score": 0.8701,
+          "text": "shift; and a large ensemble of critic functions to reduce overestimation. A major drawback of this approach is its compu"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
+      "paper_id": "2605.05896v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 2.404,
+      "top_results": [
+        {
+          "paper_id": "2605.05896v1",
+          "page_num": 1,
+          "score": 0.992,
+          "text": "VARS-FL: Validation-Aligned Client Selection for Non-IID Federated Learning in IoT Systems Mohamed Lakas, Mohamed Amine "
+        },
+        {
+          "paper_id": "2605.05896v1",
+          "page_num": 7,
+          "score": 0.9658,
+          "text": "The overall VARS-FL procedure is decomposed into three components: (i) the main federated training loop (Algorithm 1), ("
+        },
+        {
+          "paper_id": "2605.05896v1",
+          "page_num": 4,
+          "score": 0.9555,
+          "text": "addresses this limitation by defining the reward as validationloss reduction, aligning the bandit objective with the glo"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
+      "paper_id": "2605.05913v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 2.72,
+      "top_results": [
+        {
+          "paper_id": "2605.05913v1",
+          "page_num": 21,
+          "score": 0.9962,
+          "text": "5. Conclusion In this study, we presented a genomic language model based on multi scale feature learning for DNA sequenc"
+        },
+        {
+          "paper_id": "2605.05913v1",
+          "page_num": 3,
+          "score": 0.9222,
+          "text": "gated convolutions, gated MLPs, and Fourier based attention into bidirectional Mamba blocks, Wisteria achieves a unified"
+        },
+        {
+          "paper_id": "2605.05913v1",
+          "page_num": 8,
+          "score": 0.8868,
+          "text": "4. Experiments To evaluate the performance and generalization ability of Wisteria, we conduct a series of experiments co"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
+      "paper_id": "2605.05929v1",
+      "hit": 1,
+      "rr": 0.5,
+      "latency": 2.533,
+      "top_results": [
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 3,
+          "score": 0.9742,
+          "text": "Toward a Better Representation of Low-Resource Languages with KGs 3 tity Recognition, Relation Extraction, Information E"
+        },
+        {
+          "paper_id": "2605.05929v1",
+          "page_num": 2,
+          "score": 0.9462,
+          "text": "2 N.-E. Mbengue et al. suitable low-resource language targets, along with corresponding high-resource languages to trans"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 9,
+          "score": 0.9328,
+          "text": "A formalization of the different levels of resource availability will also be developed to establish systematized defini"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
+      "paper_id": "2605.05951v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 2.604,
+      "top_results": [
+        {
+          "paper_id": "2605.05951v1",
+          "page_num": 1,
+          "score": 0.9041,
+          "text": "HaM-World: Soft-Hamiltonian World Models with Selective Memory for Planning Haoyun Tang1 Haodong Cui2 Keyao Xu3 Kun Wang"
+        },
+        {
+          "paper_id": "2605.05951v1",
+          "page_num": 9,
+          "score": 0.8858,
+          "text": "A1 keeps the planner usable but weakens the geometric prior: the Reacher MSE gap is small, yet return and OOD scores sti"
+        },
+        {
+          "paper_id": "2605.06130v1",
+          "page_num": 21,
+          "score": 0.8753,
+          "text": "Guidelines: The answer [N/A] means that the paper has no limitation while the answer [No] means that the paper has limit"
+        }
+      ]
+    },
+    {
+      "query": "What is the fundamental barrier to using standard Reinforcement Learning (RL) in real-world power grids?",
+      "paper_id": "2604.14032v1",
+      "hit": 0,
+      "rr": 0.0,
+      "latency": 2.594,
+      "top_results": [
+        {
+          "paper_id": "2605.06638v1",
+          "page_num": 1,
+          "score": 0.9492,
+          "text": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key Tianle Wang1 Zhaoyang Wang2 Guangchen Lan1 Xinpeng We"
+        },
+        {
+          "paper_id": "2605.06500v1",
+          "page_num": 1,
+          "score": 0.9432,
+          "text": "Operator-Guided Invariance Learning for Continuous Reinforcement Learning Zuyuan Zhang The George Washington University "
+        },
+        {
+          "paper_id": "2605.06228v1",
+          "page_num": 1,
+          "score": 0.9261,
+          "text": "Soft Deterministic Policy Gradient with Gaussian Smoothing Hyunjun Na Donghwan Lee School of Electrical Engineering, KAI"
+        }
+      ]
+    },
+    {
+      "query": "What are the promising future research directions identified in the literature review for AI-driven BPMN model generation?",
+      "paper_id": "2604.14034v1",
+      "hit": 0,
+      "rr": 0.0,
+      "latency": 2.707,
+      "top_results": [
+        {
+          "paper_id": "2605.06029v1",
+          "page_num": 4,
+          "score": 0.9534,
+          "text": "1 Research Questions Our focus are five related questions that stem from a critical software studies perspective. Underp"
+        },
+        {
+          "paper_id": "2605.06033v1",
+          "page_num": 4,
+          "score": 0.9262,
+          "text": "and geographical areas where AI adoption (or its lack thereof) require a closer look due to exceptional trends (e.g., hi"
+        },
+        {
+          "paper_id": "2605.06033v1",
+          "page_num": 1,
+          "score": 0.9058,
+          "text": "When AI Meets Science: Research Diversity, Interdisciplinarity, Visibility, and Retractions across Disciplines in a Glob"
+        }
+      ]
+    },
+    {
+      "query": "What is Value Gradient Flow (VGF) and how does it approach behavior-regularized reinforcement learning?",
+      "paper_id": "2604.14265v1",
+      "hit": 0,
+      "rr": 0.0,
+      "latency": 2.439,
+      "top_results": [
+        {
+          "paper_id": "2605.06500v1",
+          "page_num": 1,
+          "score": 0.9367,
+          "text": "Operator-Guided Invariance Learning for Continuous Reinforcement Learning Zuyuan Zhang The George Washington University "
+        },
+        {
+          "paper_id": "2605.06500v1",
+          "page_num": 7,
+          "score": 0.929,
+          "text": "The normalization penalty prevents the trivial zero-field solution and fixes the overall scale of X. (When learning mult"
+        },
+        {
+          "paper_id": "2605.06228v1",
+          "page_num": 1,
+          "score": 0.9216,
+          "text": "Soft Deterministic Policy Gradient with Gaussian Smoothing Hyunjun Na Donghwan Lee School of Electrical Engineering, KAI"
+        }
+      ]
+    },
+    {
+      "query": "What unique fine-tuning methodology does the DharmaOCR paper introduce to handle text degeneration in structured OCR?",
+      "paper_id": "2604.14314v1",
+      "hit": 0,
+      "rr": 0.0,
+      "latency": 2.583,
+      "top_results": [
+        {
+          "paper_id": "2605.06330v1",
+          "page_num": 3,
+          "score": 0.9235,
+          "text": "FINE-TUNING SMALL LANGUAGE MODELS FOR SOLUTION-ORIENTED WINDOWS EVENT LOG ANALYSIS3 we also found that using the LoRA fi"
+        },
+        {
+          "paper_id": "2605.06548v1",
+          "page_num": 84,
+          "score": 0.9107,
+          "text": "Increasing the repaint cycles from t = 1 to t = 3 does not produce stable gains either, suggesting that repeatedly revis"
+        },
+        {
+          "paper_id": "2605.06054v1",
+          "page_num": 2,
+          "score": 0.9027,
+          "text": "2 RELATED WORK Visual Text Comparison. Prior literature discusses various visual approaches for document-level compariso"
+        }
+      ]
+    }
+  ]
+}
