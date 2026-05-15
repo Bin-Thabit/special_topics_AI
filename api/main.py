@@ -120,29 +120,48 @@ state = AppState()
 # ---------------------------------------------------------------------------
 
 def build_retrieval_indexes() -> None:
-    from retrieval.bm25_retriever  import build_bm25_index
-    from retrieval.dense_retriever import build_dense_index
+    from retrieval.bm25_retriever import build_bm25_index
 
-    print("  Building retrieval indexes from MongoDB...")
+    print("  Rebuilding retrieval indexes...")
     state.all_chunks = list(
         state.mongo_db["chunks"].find({}, {"_id": 0})
     )
 
     if not state.all_chunks:
-        print("  No chunks in MongoDB yet — indexes empty.")
+        print("  No chunks in MongoDB yet.")
         state.bm25_index       = None
         state.dense_embeddings = None
         return
 
     state.bm25_index = build_bm25_index(state.all_chunks)
+    _build_dense_from_qdrant()
+    print(f"  Indexes rebuilt: {len(state.all_chunks)} chunks")
 
-    # build_dense_index returns (model, embeddings) — unpack both
-    _, state.dense_embeddings = build_dense_index(
-        state.all_chunks,
-        EMBED_MODEL,
-    )
-    print(f"  Indexes built: {len(state.all_chunks)} chunks")
+def _build_dense_from_qdrant() -> None:
+    """Pull vectors from Qdrant — fast, no re-encoding."""
+    import uuid
+    print("  Pulling dense vectors from Qdrant...")
 
+    dense_embeddings = []
+    ordered_chunks   = []
+
+    for chunk in state.all_chunks:
+        point_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, chunk["chunk_id"]))
+        try:
+            results = state.qdrant.retrieve(
+                collection_name=COLLECTION_NAME,
+                ids            =[point_id],
+                with_vectors   =True,
+            )
+            if results:
+                dense_embeddings.append(results[0].vector)
+                ordered_chunks.append(chunk)
+        except Exception:
+            pass
+
+    state.all_chunks       = ordered_chunks
+    state.dense_embeddings = np.array(dense_embeddings) if dense_embeddings else None
+    print(f"  Dense vectors loaded: {len(ordered_chunks)} chunks")
 
 # ---------------------------------------------------------------------------
 # Lifespan
@@ -152,24 +171,19 @@ def build_retrieval_indexes() -> None:
 async def lifespan(app: FastAPI):
     print("Starting up...")
 
-    # Load run card
     state.run_card  = load_run_card()
     state.default_k = state.run_card.get("best_k", 10)
     alpha           = state.run_card.get("best_alpha", 0.5)
 
-    # Load embedding model
     print(f"  Loading model: {EMBED_MODEL}")
     state.model = load_model()
 
-    # Connect to Qdrant
     state.qdrant = get_qdrant_client()
     ensure_collection(state.qdrant)
 
-    # Connect to MongoDB
     state.mongo_db = get_mongo_db()
     ensure_indexes(state.mongo_db)
 
-    # Warm-start HybridWeightAdapter with AutoML best_alpha
     try:
         from adaptation.online_learner import HybridWeightAdapter
         state.hybrid_adapter = HybridWeightAdapter(alpha=alpha)
@@ -178,8 +192,17 @@ async def lifespan(app: FastAPI):
         print("  HybridWeightAdapter not found — using static alpha")
         state.hybrid_adapter = None
 
-    # Build BM25 + dense retrieval indexes
-    build_retrieval_indexes()
+    # At startup only load chunks + BM25 — skip dense re-encoding
+    print("  Loading chunks and building BM25 index...")
+    state.all_chunks = list(state.mongo_db["chunks"].find({}, {"_id": 0}))
+    if state.all_chunks:
+        from retrieval.bm25_retriever import build_bm25_index
+        state.bm25_index = build_bm25_index(state.all_chunks)
+    else:
+        state.bm25_index = None
+
+    # Pull dense vectors from Qdrant (fast — no re-encoding)
+    _build_dense_from_qdrant()
 
     print("Startup complete.\n")
     yield
@@ -336,8 +359,6 @@ async def ingest(file: UploadFile = File(...)):
             "model":           EMBED_MODEL,
         })
 
-        # Rebuild retrieval indexes so new paper is searchable immediately
-        build_retrieval_indexes()
 
         return IngestResponse(
             paper_id        =paper_id,
@@ -423,6 +444,19 @@ async def search(request: SearchRequest):
         elapsed_seconds   =round(time.time() - start, 2),
     )
 
+@app.post("/rebuild-index")
+async def rebuild_index():
+    """
+    Rebuild BM25 + dense indexes after batch ingest.
+    Call this once after all PDFs are ingested.
+    """
+    start = time.time()
+    build_retrieval_indexes()
+    return {
+        "status":          "ok",
+        "chunks_indexed":  len(state.all_chunks),
+        "elapsed_seconds": round(time.time() - start, 2),
+    }
 
 # ---------------------------------------------------------------------------
 # Health check
