@@ -1,0 +1,1402 @@
+[
+  {
+    "paper_id": "2605.06665v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 20,
+    "elapsed": 0.85
+  },
+  {
+    "paper_id": "2605.06667v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 12,
+    "elapsed": 0.13
+  },
+  {
+    "paper_id": "2605.06664v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 16,
+    "elapsed": 0.16
+  },
+  {
+    "paper_id": "2605.06660v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 20,
+    "elapsed": 0.11
+  },
+  {
+    "paper_id": "2605.06654v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 25,
+    "elapsed": 0.26
+  },
+  {
+    "paper_id": "2605.06652v1",
+    "status": "ok",
+    "chunks": 54,
+    "pages": 29,
+    "elapsed": 16.78
+  },
+  {
+    "paper_id": "2605.06651v1",
+    "status": "ok",
+    "chunks": 39,
+    "pages": 22,
+    "elapsed": 12.94
+  },
+  {
+    "paper_id": "2605.06647v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 12,
+    "elapsed": 7.51
+  },
+  {
+    "paper_id": "2605.06643v1",
+    "status": "ok",
+    "chunks": 32,
+    "pages": 20,
+    "elapsed": 11.18
+  },
+  {
+    "paper_id": "2605.06642v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 26,
+    "elapsed": 12.22
+  },
+  {
+    "paper_id": "2605.06640v1",
+    "status": "ok",
+    "chunks": 83,
+    "pages": 45,
+    "elapsed": 27.52
+  },
+  {
+    "paper_id": "2605.06641v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 20,
+    "elapsed": 11.35
+  },
+  {
+    "paper_id": "2605.06639v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 27,
+    "elapsed": 12.11
+  },
+  {
+    "paper_id": "2605.06638v1",
+    "status": "ok",
+    "chunks": 56,
+    "pages": 32,
+    "elapsed": 18.53
+  },
+  {
+    "paper_id": "2605.06623v1",
+    "status": "ok",
+    "chunks": 51,
+    "pages": 31,
+    "elapsed": 13.83
+  },
+  {
+    "paper_id": "2605.06615v1",
+    "status": "ok",
+    "chunks": 35,
+    "pages": 25,
+    "elapsed": 10.47
+  },
+  {
+    "paper_id": "2605.06614v1",
+    "status": "ok",
+    "chunks": 62,
+    "pages": 33,
+    "elapsed": 20.51
+  },
+  {
+    "paper_id": "2605.06611v1",
+    "status": "ok",
+    "chunks": 24,
+    "pages": 16,
+    "elapsed": 9.55
+  },
+  {
+    "paper_id": "2605.06607v1",
+    "status": "ok",
+    "chunks": 56,
+    "pages": 30,
+    "elapsed": 18.35
+  },
+  {
+    "paper_id": "2605.06601v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 17,
+    "elapsed": 9.87
+  },
+  {
+    "paper_id": "2605.06597v1",
+    "status": "ok",
+    "chunks": 29,
+    "pages": 22,
+    "elapsed": 10.39
+  },
+  {
+    "paper_id": "2605.06595v1",
+    "status": "ok",
+    "chunks": 35,
+    "pages": 22,
+    "elapsed": 11.42
+  },
+  {
+    "paper_id": "2605.06592v1",
+    "status": "ok",
+    "chunks": 29,
+    "pages": 18,
+    "elapsed": 9.69
+  },
+  {
+    "paper_id": "2605.06588v1",
+    "status": "ok",
+    "chunks": 50,
+    "pages": 28,
+    "elapsed": 14.95
+  },
+  {
+    "paper_id": "2605.06584v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 23,
+    "elapsed": 11.57
+  },
+  {
+    "paper_id": "2605.06583v1",
+    "status": "ok",
+    "chunks": 48,
+    "pages": 39,
+    "elapsed": 14.45
+  },
+  {
+    "paper_id": "2605.06575v1",
+    "status": "ok",
+    "chunks": 20,
+    "pages": 14,
+    "elapsed": 7.02
+  },
+  {
+    "paper_id": "2605.06557v1",
+    "status": "ok",
+    "chunks": 48,
+    "pages": 27,
+    "elapsed": 15.78
+  },
+  {
+    "paper_id": "2605.06548v1",
+    "status": "ok",
+    "chunks": 161,
+    "pages": 99,
+    "elapsed": 52.52
+  },
+  {
+    "paper_id": "2605.06540v1",
+    "status": "ok",
+    "chunks": 39,
+    "pages": 29,
+    "elapsed": 11.85
+  },
+  {
+    "paper_id": "2605.06535v1",
+    "status": "ok",
+    "chunks": 43,
+    "pages": 28,
+    "elapsed": 13.89
+  },
+  {
+    "paper_id": "2605.06529v1",
+    "status": "ok",
+    "chunks": 16,
+    "pages": 7,
+    "elapsed": 5.33
+  },
+  {
+    "paper_id": "2605.06530v1",
+    "status": "ok",
+    "chunks": 54,
+    "pages": 41,
+    "elapsed": 13.2
+  },
+  {
+    "paper_id": "2605.06524v1",
+    "status": "ok",
+    "chunks": 30,
+    "pages": 18,
+    "elapsed": 10.53
+  },
+  {
+    "paper_id": "2605.06523v1",
+    "status": "ok",
+    "chunks": 23,
+    "pages": 19,
+    "elapsed": 7.89
+  },
+  {
+    "paper_id": "2605.06516v1",
+    "status": "ok",
+    "chunks": 24,
+    "pages": 13,
+    "elapsed": 8.46
+  },
+  {
+    "paper_id": "2605.06510v1",
+    "status": "ok",
+    "chunks": 66,
+    "pages": 44,
+    "elapsed": 24.45
+  },
+  {
+    "paper_id": "2605.06508v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 20,
+    "elapsed": 11.36
+  },
+  {
+    "paper_id": "2605.06505v1",
+    "status": "ok",
+    "chunks": 42,
+    "pages": 25,
+    "elapsed": 13.09
+  },
+  {
+    "paper_id": "2605.06500v1",
+    "status": "ok",
+    "chunks": 72,
+    "pages": 40,
+    "elapsed": 23.39
+  },
+  {
+    "paper_id": "2605.06494v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 14,
+    "elapsed": 9.44
+  },
+  {
+    "paper_id": "2605.06490v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 22,
+    "elapsed": 11.26
+  },
+  {
+    "paper_id": "2605.06487v1",
+    "status": "ok",
+    "chunks": 16,
+    "pages": 11,
+    "elapsed": 5.63
+  },
+  {
+    "paper_id": "2605.06485v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 19,
+    "elapsed": 9.66
+  },
+  {
+    "paper_id": "2605.06483v1",
+    "status": "ok",
+    "chunks": 54,
+    "pages": 30,
+    "elapsed": 15.58
+  },
+  {
+    "paper_id": "2605.06480v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 16,
+    "elapsed": 9.43
+  },
+  {
+    "paper_id": "2605.06475v1",
+    "status": "ok",
+    "chunks": 15,
+    "pages": 12,
+    "elapsed": 5.5
+  },
+  {
+    "paper_id": "2605.06474v1",
+    "status": "ok",
+    "chunks": 81,
+    "pages": 38,
+    "elapsed": 27.89
+  },
+  {
+    "paper_id": "2605.06457v1",
+    "status": "ok",
+    "chunks": 7,
+    "pages": 6,
+    "elapsed": 2.63
+  },
+  {
+    "paper_id": "2605.06455v1",
+    "status": "ok",
+    "chunks": 67,
+    "pages": 35,
+    "elapsed": 22.42
+  },
+  {
+    "paper_id": "2605.06454v1",
+    "status": "ok",
+    "chunks": 51,
+    "pages": 32,
+    "elapsed": 16.59
+  },
+  {
+    "paper_id": "2605.06445v1",
+    "status": "ok",
+    "chunks": 17,
+    "pages": 23,
+    "elapsed": 6.12
+  },
+  {
+    "paper_id": "2605.06444v1",
+    "status": "ok",
+    "chunks": 100,
+    "pages": 55,
+    "elapsed": 33.07
+  },
+  {
+    "paper_id": "2605.06435v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 16,
+    "elapsed": 7.97
+  },
+  {
+    "paper_id": "2605.06434v1",
+    "status": "ok",
+    "chunks": 13,
+    "pages": 5,
+    "elapsed": 4.11
+  },
+  {
+    "paper_id": "2605.06415v1",
+    "status": "ok",
+    "chunks": 17,
+    "pages": 11,
+    "elapsed": 7.27
+  },
+  {
+    "paper_id": "2605.06407v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 17,
+    "elapsed": 11.94
+  },
+  {
+    "paper_id": "2605.06395v1",
+    "status": "ok",
+    "chunks": 99,
+    "pages": 51,
+    "elapsed": 40.59
+  },
+  {
+    "paper_id": "2605.06390v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 15,
+    "elapsed": 9.96
+  },
+  {
+    "paper_id": "2605.06387v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 14,
+    "elapsed": 8.35
+  },
+  {
+    "paper_id": "2605.06384v1",
+    "status": "ok",
+    "chunks": 177,
+    "pages": 102,
+    "elapsed": 58.86
+  },
+  {
+    "paper_id": "2605.06382v1",
+    "status": "ok",
+    "chunks": 22,
+    "pages": 13,
+    "elapsed": 7.73
+  },
+  {
+    "paper_id": "2605.06376v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 22,
+    "elapsed": 10.98
+  },
+  {
+    "paper_id": "2605.06371v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 11,
+    "elapsed": 8.13
+  },
+  {
+    "paper_id": "2605.06368v1",
+    "status": "ok",
+    "chunks": 39,
+    "pages": 24,
+    "elapsed": 14.59
+  },
+  {
+    "paper_id": "2605.06365v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 16,
+    "elapsed": 8.65
+  },
+  {
+    "paper_id": "2605.06364v1",
+    "status": "ok",
+    "chunks": 25,
+    "pages": 18,
+    "elapsed": 8.36
+  },
+  {
+    "paper_id": "2605.06357v1",
+    "status": "ok",
+    "chunks": 29,
+    "pages": 19,
+    "elapsed": 9.98
+  },
+  {
+    "paper_id": "2605.06352v1",
+    "status": "ok",
+    "chunks": 25,
+    "pages": 19,
+    "elapsed": 8.93
+  },
+  {
+    "paper_id": "2605.06350v1",
+    "status": "ok",
+    "chunks": 45,
+    "pages": 25,
+    "elapsed": 13.6
+  },
+  {
+    "paper_id": "2605.06347v1",
+    "status": "ok",
+    "chunks": 8,
+    "pages": 5,
+    "elapsed": 3.13
+  },
+  {
+    "paper_id": "2605.06346v1",
+    "status": "ok",
+    "chunks": 35,
+    "pages": 20,
+    "elapsed": 10.6
+  },
+  {
+    "paper_id": "2605.06345v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 19,
+    "elapsed": 12.22
+  },
+  {
+    "paper_id": "2605.06343v1",
+    "status": "ok",
+    "chunks": 37,
+    "pages": 26,
+    "elapsed": 13.92
+  },
+  {
+    "paper_id": "2605.06341v1",
+    "status": "ok",
+    "chunks": 19,
+    "pages": 9,
+    "elapsed": 6.99
+  },
+  {
+    "paper_id": "2605.06339v1",
+    "status": "ok",
+    "chunks": 54,
+    "pages": 26,
+    "elapsed": 16.78
+  },
+  {
+    "paper_id": "2605.06333v1",
+    "status": "ok",
+    "chunks": 24,
+    "pages": 14,
+    "elapsed": 8.7
+  },
+  {
+    "paper_id": "2605.06330v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 27,
+    "elapsed": 14.21
+  },
+  {
+    "paper_id": "2605.06327v1",
+    "status": "ok",
+    "chunks": 28,
+    "pages": 29,
+    "elapsed": 11.09
+  },
+  {
+    "paper_id": "2605.06320v1",
+    "status": "ok",
+    "chunks": 44,
+    "pages": 28,
+    "elapsed": 11.9
+  },
+  {
+    "paper_id": "2605.06317v1",
+    "status": "ok",
+    "chunks": 30,
+    "pages": 19,
+    "elapsed": 11.36
+  },
+  {
+    "paper_id": "2605.06316v1",
+    "status": "ok",
+    "chunks": 58,
+    "pages": 37,
+    "elapsed": 18.99
+  },
+  {
+    "paper_id": "2605.06308v1",
+    "status": "ok",
+    "chunks": 47,
+    "pages": 24,
+    "elapsed": 15.81
+  },
+  {
+    "paper_id": "2605.06305v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 14,
+    "elapsed": 11.69
+  },
+  {
+    "paper_id": "2605.06298v1",
+    "status": "ok",
+    "chunks": 57,
+    "pages": 35,
+    "elapsed": 19.08
+  },
+  {
+    "paper_id": "2605.06295v1",
+    "status": "ok",
+    "chunks": 57,
+    "pages": 32,
+    "elapsed": 17.25
+  },
+  {
+    "paper_id": "2605.06294v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 21,
+    "elapsed": 11.17
+  },
+  {
+    "paper_id": "2605.06290v1",
+    "status": "ok",
+    "chunks": 43,
+    "pages": 21,
+    "elapsed": 13.93
+  },
+  {
+    "paper_id": "2605.06289v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 39,
+    "elapsed": 10.02
+  },
+  {
+    "paper_id": "2605.06288v1",
+    "status": "ok",
+    "chunks": 46,
+    "pages": 19,
+    "elapsed": 16.06
+  },
+  {
+    "paper_id": "2605.06279v1",
+    "status": "ok",
+    "chunks": 63,
+    "pages": 35,
+    "elapsed": 20.72
+  },
+  {
+    "paper_id": "2605.06276v1",
+    "status": "ok",
+    "chunks": 29,
+    "pages": 18,
+    "elapsed": 10.23
+  },
+  {
+    "paper_id": "2605.06261v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 16,
+    "elapsed": 10.83
+  },
+  {
+    "paper_id": "2605.06258v1",
+    "status": "ok",
+    "chunks": 46,
+    "pages": 29,
+    "elapsed": 16.29
+  },
+  {
+    "paper_id": "2605.06240v1",
+    "status": "ok",
+    "chunks": 85,
+    "pages": 51,
+    "elapsed": 28.62
+  },
+  {
+    "paper_id": "2605.06238v1",
+    "status": "ok",
+    "chunks": 32,
+    "pages": 13,
+    "elapsed": 11.03
+  },
+  {
+    "paper_id": "2605.06235v1",
+    "status": "ok",
+    "chunks": 44,
+    "pages": 28,
+    "elapsed": 13.06
+  },
+  {
+    "paper_id": "2605.06230v1",
+    "status": "ok",
+    "chunks": 60,
+    "pages": 52,
+    "elapsed": 14.89
+  },
+  {
+    "paper_id": "2605.06228v1",
+    "status": "ok",
+    "chunks": 38,
+    "pages": 25,
+    "elapsed": 14.72
+  },
+  {
+    "paper_id": "2605.06227v1",
+    "status": "ok",
+    "chunks": 52,
+    "pages": 27,
+    "elapsed": 17.66
+  },
+  {
+    "paper_id": "2605.06226v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 32,
+    "elapsed": 12.45
+  },
+  {
+    "paper_id": "2605.06225v1",
+    "status": "ok",
+    "chunks": 55,
+    "pages": 32,
+    "elapsed": 19.24
+  },
+  {
+    "paper_id": "2605.06223v1",
+    "status": "ok",
+    "chunks": 30,
+    "pages": 17,
+    "elapsed": 10.33
+  },
+  {
+    "paper_id": "2605.06222v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 14,
+    "elapsed": 5.85
+  },
+  {
+    "paper_id": "2605.06219v1",
+    "status": "ok",
+    "chunks": 25,
+    "pages": 19,
+    "elapsed": 7.16
+  },
+  {
+    "paper_id": "2605.06216v1",
+    "status": "ok",
+    "chunks": 44,
+    "pages": 27,
+    "elapsed": 10.93
+  },
+  {
+    "paper_id": "2605.06215v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 21,
+    "elapsed": 6.68
+  },
+  {
+    "paper_id": "2605.06213v1",
+    "status": "ok",
+    "chunks": 85,
+    "pages": 42,
+    "elapsed": 24.09
+  },
+  {
+    "paper_id": "2605.06211v1",
+    "status": "ok",
+    "chunks": 42,
+    "pages": 23,
+    "elapsed": 10.2
+  },
+  {
+    "paper_id": "2605.06210v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 24,
+    "elapsed": 12.72
+  },
+  {
+    "paper_id": "2605.06207v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 27,
+    "elapsed": 10.72
+  },
+  {
+    "paper_id": "2605.06201v1",
+    "status": "ok",
+    "chunks": 33,
+    "pages": 20,
+    "elapsed": 9.75
+  },
+  {
+    "paper_id": "2605.06196v1",
+    "status": "ok",
+    "chunks": 52,
+    "pages": 28,
+    "elapsed": 14.11
+  },
+  {
+    "paper_id": "2605.06191v1",
+    "status": "ok",
+    "chunks": 24,
+    "pages": 10,
+    "elapsed": 7.1
+  },
+  {
+    "paper_id": "2605.06192v1",
+    "status": "ok",
+    "chunks": 30,
+    "pages": 22,
+    "elapsed": 9.19
+  },
+  {
+    "paper_id": "2605.06188v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 17,
+    "elapsed": 7.78
+  },
+  {
+    "paper_id": "2605.06187v1",
+    "status": "ok",
+    "chunks": 60,
+    "pages": 31,
+    "elapsed": 16.75
+  },
+  {
+    "paper_id": "2605.06185v1",
+    "status": "ok",
+    "chunks": 20,
+    "pages": 16,
+    "elapsed": 6.49
+  },
+  {
+    "paper_id": "2605.06183v1",
+    "status": "ok",
+    "chunks": 45,
+    "pages": 26,
+    "elapsed": 11.14
+  },
+  {
+    "paper_id": "2605.06177v1",
+    "status": "ok",
+    "chunks": 28,
+    "pages": 17,
+    "elapsed": 8.94
+  },
+  {
+    "paper_id": "2605.06173v1",
+    "status": "ok",
+    "chunks": 10,
+    "pages": 11,
+    "elapsed": 3.39
+  },
+  {
+    "paper_id": "2605.06165v1",
+    "status": "ok",
+    "chunks": 47,
+    "pages": 30,
+    "elapsed": 12.71
+  },
+  {
+    "paper_id": "2605.06161v1",
+    "status": "ok",
+    "chunks": 45,
+    "pages": 29,
+    "elapsed": 11.38
+  },
+  {
+    "paper_id": "2605.06156v1",
+    "status": "ok",
+    "chunks": 42,
+    "pages": 24,
+    "elapsed": 11.4
+  },
+  {
+    "paper_id": "2605.06154v1",
+    "status": "ok",
+    "chunks": 50,
+    "pages": 29,
+    "elapsed": 14.64
+  },
+  {
+    "paper_id": "2605.06149v1",
+    "status": "ok",
+    "chunks": 38,
+    "pages": 22,
+    "elapsed": 10.25
+  },
+  {
+    "paper_id": "2605.06148v1",
+    "status": "ok",
+    "chunks": 31,
+    "pages": 21,
+    "elapsed": 9.38
+  },
+  {
+    "paper_id": "2605.06145v1",
+    "status": "ok",
+    "chunks": 58,
+    "pages": 35,
+    "elapsed": 16.48
+  },
+  {
+    "paper_id": "2605.06143v1",
+    "status": "ok",
+    "chunks": 12,
+    "pages": 13,
+    "elapsed": 3.72
+  },
+  {
+    "paper_id": "2605.06142v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 29,
+    "elapsed": 11.35
+  },
+  {
+    "paper_id": "2605.06140v1",
+    "status": "ok",
+    "chunks": 55,
+    "pages": 35,
+    "elapsed": 16.04
+  },
+  {
+    "paper_id": "2605.06139v1",
+    "status": "ok",
+    "chunks": 55,
+    "pages": 29,
+    "elapsed": 15.41
+  },
+  {
+    "paper_id": "2605.06136v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 25,
+    "elapsed": 9.26
+  },
+  {
+    "paper_id": "2605.06137v1",
+    "status": "ok",
+    "chunks": 49,
+    "pages": 36,
+    "elapsed": 12.8
+  },
+  {
+    "paper_id": "2605.06130v1",
+    "status": "ok",
+    "chunks": 42,
+    "pages": 26,
+    "elapsed": 11.36
+  },
+  {
+    "paper_id": "2605.06127v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 23,
+    "elapsed": 10.28
+  },
+  {
+    "paper_id": "2605.06124v1",
+    "status": "ok",
+    "chunks": 32,
+    "pages": 23,
+    "elapsed": 9.75
+  },
+  {
+    "paper_id": "2605.06123v1",
+    "status": "ok",
+    "chunks": 121,
+    "pages": 75,
+    "elapsed": 33.21
+  },
+  {
+    "paper_id": "2605.06116v1",
+    "status": "ok",
+    "chunks": 6,
+    "pages": 11,
+    "elapsed": 2.11
+  },
+  {
+    "paper_id": "2605.06115v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 20,
+    "elapsed": 9.89
+  },
+  {
+    "paper_id": "2605.06112v1",
+    "status": "ok",
+    "chunks": 33,
+    "pages": 13,
+    "elapsed": 9.46
+  },
+  {
+    "paper_id": "2605.06111v1",
+    "status": "ok",
+    "chunks": 55,
+    "pages": 31,
+    "elapsed": 14.34
+  },
+  {
+    "paper_id": "2605.06110v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 24,
+    "elapsed": 10.63
+  },
+  {
+    "paper_id": "2605.06105v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 27,
+    "elapsed": 9.54
+  },
+  {
+    "paper_id": "2605.06104v1",
+    "status": "ok",
+    "chunks": 19,
+    "pages": 13,
+    "elapsed": 5.7
+  },
+  {
+    "paper_id": "2605.06100v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 18,
+    "elapsed": 8.67
+  },
+  {
+    "paper_id": "2605.06094v1",
+    "status": "ok",
+    "chunks": 69,
+    "pages": 41,
+    "elapsed": 19.74
+  },
+  {
+    "paper_id": "2605.06087v1",
+    "status": "ok",
+    "chunks": 55,
+    "pages": 32,
+    "elapsed": 16.21
+  },
+  {
+    "paper_id": "2605.06078v1",
+    "status": "ok",
+    "chunks": 32,
+    "pages": 15,
+    "elapsed": 9.96
+  },
+  {
+    "paper_id": "2605.06068v1",
+    "status": "ok",
+    "chunks": 33,
+    "pages": 19,
+    "elapsed": 9.14
+  },
+  {
+    "paper_id": "2605.06067v1",
+    "status": "ok",
+    "chunks": 26,
+    "pages": 17,
+    "elapsed": 8.51
+  },
+  {
+    "paper_id": "2605.06066v1",
+    "status": "ok",
+    "chunks": 29,
+    "pages": 21,
+    "elapsed": 9.32
+  },
+  {
+    "paper_id": "2605.06054v1",
+    "status": "ok",
+    "chunks": 16,
+    "pages": 5,
+    "elapsed": 4.79
+  },
+  {
+    "paper_id": "2605.06047v1",
+    "status": "ok",
+    "chunks": 43,
+    "pages": 24,
+    "elapsed": 10.55
+  },
+  {
+    "paper_id": "2605.06040v1",
+    "status": "ok",
+    "chunks": 19,
+    "pages": 10,
+    "elapsed": 5.27
+  },
+  {
+    "paper_id": "2605.06036v1",
+    "status": "ok",
+    "chunks": 43,
+    "pages": 21,
+    "elapsed": 10.53
+  },
+  {
+    "paper_id": "2605.06035v1",
+    "status": "ok",
+    "chunks": 17,
+    "pages": 8,
+    "elapsed": 4.95
+  },
+  {
+    "paper_id": "2605.06033v1",
+    "status": "ok",
+    "chunks": 48,
+    "pages": 26,
+    "elapsed": 12.18
+  },
+  {
+    "paper_id": "2605.06032v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 15,
+    "elapsed": 5.86
+  },
+  {
+    "paper_id": "2605.06029v1",
+    "status": "ok",
+    "chunks": 103,
+    "pages": 71,
+    "elapsed": 29.27
+  },
+  {
+    "paper_id": "2605.06024v1",
+    "status": "ok",
+    "chunks": 13,
+    "pages": 6,
+    "elapsed": 3.99
+  },
+  {
+    "paper_id": "2605.06014v1",
+    "status": "ok",
+    "chunks": 43,
+    "pages": 25,
+    "elapsed": 10.91
+  },
+  {
+    "paper_id": "2605.06012v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 12,
+    "elapsed": 8.16
+  },
+  {
+    "paper_id": "2605.06010v1",
+    "status": "ok",
+    "chunks": 21,
+    "pages": 15,
+    "elapsed": 6.64
+  },
+  {
+    "paper_id": "2605.06007v1",
+    "status": "ok",
+    "chunks": 9,
+    "pages": 5,
+    "elapsed": 2.9
+  },
+  {
+    "paper_id": "2605.06004v1",
+    "status": "ok",
+    "chunks": 24,
+    "pages": 16,
+    "elapsed": 7.63
+  },
+  {
+    "paper_id": "2605.05995v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 18,
+    "elapsed": 10.16
+  },
+  {
+    "paper_id": "2605.05990v1",
+    "status": "ok",
+    "chunks": 30,
+    "pages": 21,
+    "elapsed": 10.27
+  },
+  {
+    "paper_id": "2605.05985v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 29,
+    "elapsed": 10.16
+  },
+  {
+    "paper_id": "2605.05980v1",
+    "status": "ok",
+    "chunks": 47,
+    "pages": 28,
+    "elapsed": 12.91
+  },
+  {
+    "paper_id": "2605.05977v1",
+    "status": "ok",
+    "chunks": 28,
+    "pages": 11,
+    "elapsed": 8.4
+  },
+  {
+    "paper_id": "2605.05974v1",
+    "status": "ok",
+    "chunks": 36,
+    "pages": 18,
+    "elapsed": 9.4
+  },
+  {
+    "paper_id": "2605.05973v1",
+    "status": "ok",
+    "chunks": 64,
+    "pages": 34,
+    "elapsed": 17.65
+  },
+  {
+    "paper_id": "2605.05965v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 24,
+    "elapsed": 9.45
+  },
+  {
+    "paper_id": "2605.05963v1",
+    "status": "ok",
+    "chunks": 35,
+    "pages": 23,
+    "elapsed": 10.1
+  },
+  {
+    "paper_id": "2605.05959v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 14,
+    "elapsed": 11.82
+  },
+  {
+    "paper_id": "2605.05958v1",
+    "status": "ok",
+    "chunks": 40,
+    "pages": 16,
+    "elapsed": 10.02
+  },
+  {
+    "paper_id": "2605.05953v1",
+    "status": "ok",
+    "chunks": 38,
+    "pages": 19,
+    "elapsed": 9.84
+  },
+  {
+    "paper_id": "2605.05951v1",
+    "status": "ok",
+    "chunks": 41,
+    "pages": 22,
+    "elapsed": 11.14
+  },
+  {
+    "paper_id": "2605.05949v1",
+    "status": "ok",
+    "chunks": 84,
+    "pages": 60,
+    "elapsed": 23.1
+  },
+  {
+    "paper_id": "2605.05938v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 23,
+    "elapsed": 10.51
+  },
+  {
+    "paper_id": "2605.05931v1",
+    "status": "ok",
+    "chunks": 17,
+    "pages": 15,
+    "elapsed": 5.37
+  },
+  {
+    "paper_id": "2605.05929v1",
+    "status": "ok",
+    "chunks": 6,
+    "pages": 6,
+    "elapsed": 1.92
+  },
+  {
+    "paper_id": "2605.05921v1",
+    "status": "ok",
+    "chunks": 27,
+    "pages": 11,
+    "elapsed": 8.7
+  },
+  {
+    "paper_id": "2605.05920v1",
+    "status": "ok",
+    "chunks": 11,
+    "pages": 6,
+    "elapsed": 3.64
+  },
+  {
+    "paper_id": "2605.05914v1",
+    "status": "ok",
+    "chunks": 28,
+    "pages": 31,
+    "elapsed": 8.34
+  },
+  {
+    "paper_id": "2605.05913v1",
+    "status": "ok",
+    "chunks": 34,
+    "pages": 25,
+    "elapsed": 10.26
+  },
+  {
+    "paper_id": "2605.05911v1",
+    "status": "ok",
+    "chunks": 66,
+    "pages": 38,
+    "elapsed": 19.65
+  },
+  {
+    "paper_id": "2605.05909v1",
+    "status": "ok",
+    "chunks": 33,
+    "pages": 20,
+    "elapsed": 60.89
+  },
+  {
+    "paper_id": "2605.05908v1",
+    "status": "ok",
+    "chunks": 28,
+    "pages": 18,
+    "elapsed": 10.17
+  },
+  {
+    "paper_id": "2605.05896v1",
+    "status": "ok",
+    "chunks": 35,
+    "pages": 14,
+    "elapsed": 11.19
+  },
+  {
+    "paper_id": "2605.05893v1",
+    "status": "ok",
+    "chunks": 22,
+    "pages": 14,
+    "elapsed": 8.6
+  },
+  {
+    "paper_id": "2605.05895v1",
+    "status": "ok",
+    "chunks": 54,
+    "pages": 35,
+    "elapsed": 17.1
+  },
+  {
+    "paper_id": "2605.05889v1",
+    "status": "ok",
+    "chunks": 37,
+    "pages": 26,
+    "elapsed": 11.55
+  },
+  {
+    "paper_id": "2605.05891v1",
+    "status": "ok",
+    "chunks": 33,
+    "pages": 19,
+    "elapsed": 11.81
+  },
+  {
+    "paper_id": "2605.05882v1",
+    "status": "ok",
+    "chunks": 47,
+    "pages": 32,
+    "elapsed": 16.44
+  },
+  {
+    "paper_id": "2605.05878v1",
+    "status": "ok",
+    "chunks": 25,
+    "pages": 15,
+    "elapsed": 8.88
+  },
+  {
+    "paper_id": "2605.05873v1",
+    "status": "ok",
+    "chunks": 122,
+    "pages": 71,
+    "elapsed": 39.85
+  },
+  {
+    "paper_id": "2605.05866v1",
+    "status": "ok",
+    "chunks": 48,
+    "pages": 28,
+    "elapsed": 14.99
+  },
+  {
+    "paper_id": "2605.05863v1",
+    "status": "ok",
+    "chunks": 23,
+    "pages": 14,
+    "elapsed": 9.56
+  }
+]
