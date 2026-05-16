@@ -1,15 +1,15 @@
 {
   "recall@5": 0.6,
   "mrr": 0.55,
-  "avg_latency": 2.7034,
-  "p95_latency": 4.002,
+  "avg_latency": 2.3996,
+  "p95_latency": 2.598,
   "queries": [
     {
       "query": "how does ActCam control camera motion without training?",
       "paper_id": "2605.06667v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 4.002,
+      "latency": 2.598,
       "top_results": [
         {
           "paper_id": "2605.06667v1",
@@ -36,7 +36,7 @@
       "paper_id": "2605.05863v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.448,
+      "latency": 2.307,
       "top_results": [
         {
           "paper_id": "2605.05863v1",
@@ -63,7 +63,7 @@
       "paper_id": "2605.05896v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.404,
+      "latency": 2.548,
       "top_results": [
         {
           "paper_id": "2605.05896v1",
@@ -90,7 +90,7 @@
       "paper_id": "2605.05913v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.72,
+      "latency": 2.335,
       "top_results": [
         {
           "paper_id": "2605.05913v1",
@@ -117,7 +117,7 @@
       "paper_id": "2605.05929v1",
       "hit": 1,
       "rr": 0.5,
-      "latency": 2.533,
+      "latency": 2.356,
       "top_results": [
         {
           "paper_id": "2605.05931v1",
@@ -144,7 +144,7 @@
       "paper_id": "2605.05951v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.604,
+      "latency": 2.349,
       "top_results": [
         {
           "paper_id": "2605.05951v1",
@@ -171,7 +171,7 @@
       "paper_id": "2604.14032v1",
       "hit": 0,
       "rr": 0.0,
-      "latency": 2.594,
+      "latency": 2.531,
       "top_results": [
         {
           "paper_id": "2605.06638v1",
@@ -198,7 +198,7 @@
       "paper_id": "2604.14034v1",
       "hit": 0,
       "rr": 0.0,
-      "latency": 2.707,
+      "latency": 2.354,
       "top_results": [
         {
           "paper_id": "2605.06029v1",
@@ -225,7 +225,7 @@
       "paper_id": "2604.14265v1",
       "hit": 0,
       "rr": 0.0,
-      "latency": 2.439,
+      "latency": 2.285,
       "top_results": [
         {
           "paper_id": "2605.06500v1",
@@ -252,7 +252,7 @@
       "paper_id": "2604.14314v1",
       "hit": 0,
       "rr": 0.0,
-      "latency": 2.583,
+      "latency": 2.333,
       "top_results": [
         {
           "paper_id": "2605.06330v1",
