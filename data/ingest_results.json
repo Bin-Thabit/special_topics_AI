@@ -1,1402 +1,1402 @@
 [
   {
-    "paper_id": "2605.06665v1",
-    "status": "skipped \u2014 already ingested",
-    "chunks": 0,
-    "pages": 20,
-    "elapsed": 0.85
-  },
-  {
     "paper_id": "2605.06667v1",
     "status": "skipped \u2014 already ingested",
     "chunks": 0,
     "pages": 12,
-    "elapsed": 0.13
+    "elapsed": 0.63
+  },
+  {
+    "paper_id": "2605.06665v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 20,
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06664v1",
     "status": "skipped \u2014 already ingested",
     "chunks": 0,
     "pages": 16,
-    "elapsed": 0.16
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.06660v1",
     "status": "skipped \u2014 already ingested",
     "chunks": 0,
     "pages": 20,
-    "elapsed": 0.11
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06654v1",
     "status": "skipped \u2014 already ingested",
     "chunks": 0,
     "pages": 25,
-    "elapsed": 0.26
+    "elapsed": 0.23
   },
   {
     "paper_id": "2605.06652v1",
-    "status": "ok",
-    "chunks": 54,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 16.78
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06651v1",
-    "status": "ok",
-    "chunks": 39,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 12.94
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06647v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 12,
-    "elapsed": 7.51
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06643v1",
-    "status": "ok",
-    "chunks": 32,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 11.18
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06642v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 12.22
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06640v1",
-    "status": "ok",
-    "chunks": 83,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 45,
-    "elapsed": 27.52
+    "elapsed": 0.41
   },
   {
     "paper_id": "2605.06641v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 11.35
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06639v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 12.11
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06638v1",
-    "status": "ok",
-    "chunks": 56,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 18.53
+    "elapsed": 0.18
   },
   {
     "paper_id": "2605.06623v1",
-    "status": "ok",
-    "chunks": 51,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 31,
-    "elapsed": 13.83
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06615v1",
-    "status": "ok",
-    "chunks": 35,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 10.47
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06614v1",
-    "status": "ok",
-    "chunks": 62,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 33,
-    "elapsed": 20.51
+    "elapsed": 0.22
   },
   {
     "paper_id": "2605.06611v1",
-    "status": "ok",
-    "chunks": 24,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 9.55
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06607v1",
-    "status": "ok",
-    "chunks": 56,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 30,
-    "elapsed": 18.35
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06601v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 9.87
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06597v1",
-    "status": "ok",
-    "chunks": 29,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 10.39
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06595v1",
-    "status": "ok",
-    "chunks": 35,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 11.42
+    "elapsed": 0.19
   },
   {
     "paper_id": "2605.06592v1",
-    "status": "ok",
-    "chunks": 29,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 9.69
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06588v1",
-    "status": "ok",
-    "chunks": 50,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 14.95
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06584v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 11.57
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06583v1",
-    "status": "ok",
-    "chunks": 48,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 39,
-    "elapsed": 14.45
+    "elapsed": 0.29
   },
   {
     "paper_id": "2605.06575v1",
-    "status": "ok",
-    "chunks": 20,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 7.02
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06557v1",
-    "status": "ok",
-    "chunks": 48,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 15.78
+    "elapsed": 0.52
   },
   {
     "paper_id": "2605.06548v1",
-    "status": "ok",
-    "chunks": 161,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 99,
-    "elapsed": 52.52
+    "elapsed": 1.14
   },
   {
     "paper_id": "2605.06540v1",
-    "status": "ok",
-    "chunks": 39,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 11.85
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06535v1",
-    "status": "ok",
-    "chunks": 43,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 13.89
-  },
-  {
-    "paper_id": "2605.06529v1",
-    "status": "ok",
-    "chunks": 16,
-    "pages": 7,
-    "elapsed": 5.33
+    "elapsed": 0.22
   },
   {
     "paper_id": "2605.06530v1",
-    "status": "ok",
-    "chunks": 54,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 41,
-    "elapsed": 13.2
+    "elapsed": 0.14
+  },
+  {
+    "paper_id": "2605.06529v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 7,
+    "elapsed": 0.04
   },
   {
     "paper_id": "2605.06524v1",
-    "status": "ok",
-    "chunks": 30,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 10.53
+    "elapsed": 0.32
   },
   {
     "paper_id": "2605.06523v1",
-    "status": "ok",
-    "chunks": 23,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 7.89
+    "elapsed": 0.46
   },
   {
     "paper_id": "2605.06516v1",
-    "status": "ok",
-    "chunks": 24,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 8.46
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06510v1",
-    "status": "ok",
-    "chunks": 66,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 44,
-    "elapsed": 24.45
+    "elapsed": 3.94
   },
   {
     "paper_id": "2605.06508v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 11.36
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.06505v1",
-    "status": "ok",
-    "chunks": 42,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 13.09
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06500v1",
-    "status": "ok",
-    "chunks": 72,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 40,
-    "elapsed": 23.39
+    "elapsed": 0.25
   },
   {
     "paper_id": "2605.06494v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 9.44
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06490v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 11.26
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06487v1",
-    "status": "ok",
-    "chunks": 16,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 5.63
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06485v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 9.66
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06483v1",
-    "status": "ok",
-    "chunks": 54,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 30,
-    "elapsed": 15.58
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06480v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 9.43
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06475v1",
-    "status": "ok",
-    "chunks": 15,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 12,
-    "elapsed": 5.5
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06474v1",
-    "status": "ok",
-    "chunks": 81,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 38,
-    "elapsed": 27.89
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.06457v1",
-    "status": "ok",
-    "chunks": 7,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 6,
-    "elapsed": 2.63
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06455v1",
-    "status": "ok",
-    "chunks": 67,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 22.42
+    "elapsed": 0.26
   },
   {
     "paper_id": "2605.06454v1",
-    "status": "ok",
-    "chunks": 51,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 16.59
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.06445v1",
-    "status": "ok",
-    "chunks": 17,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 6.12
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06444v1",
-    "status": "ok",
-    "chunks": 100,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 55,
-    "elapsed": 33.07
+    "elapsed": 0.25
   },
   {
     "paper_id": "2605.06435v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 7.97
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06434v1",
-    "status": "ok",
-    "chunks": 13,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 5,
-    "elapsed": 4.11
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06415v1",
-    "status": "ok",
-    "chunks": 17,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 7.27
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06407v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 11.94
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06395v1",
-    "status": "ok",
-    "chunks": 99,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 51,
-    "elapsed": 40.59
+    "elapsed": 0.23
   },
   {
     "paper_id": "2605.06390v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 9.96
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.06387v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 8.35
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06384v1",
-    "status": "ok",
-    "chunks": 177,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 102,
-    "elapsed": 58.86
+    "elapsed": 0.35
   },
   {
     "paper_id": "2605.06382v1",
-    "status": "ok",
-    "chunks": 22,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 7.73
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06376v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 10.98
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.06371v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 8.13
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06368v1",
-    "status": "ok",
-    "chunks": 39,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 14.59
+    "elapsed": 3.23
   },
   {
     "paper_id": "2605.06365v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 8.65
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06364v1",
-    "status": "ok",
-    "chunks": 25,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 8.36
+    "elapsed": 0.28
   },
   {
     "paper_id": "2605.06357v1",
-    "status": "ok",
-    "chunks": 29,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 9.98
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06352v1",
-    "status": "ok",
-    "chunks": 25,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 8.93
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06350v1",
-    "status": "ok",
-    "chunks": 45,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 13.6
+    "elapsed": 0.18
   },
   {
     "paper_id": "2605.06347v1",
-    "status": "ok",
-    "chunks": 8,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 5,
-    "elapsed": 3.13
+    "elapsed": 0.03
   },
   {
     "paper_id": "2605.06346v1",
-    "status": "ok",
-    "chunks": 35,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 10.6
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06345v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 12.22
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06343v1",
-    "status": "ok",
-    "chunks": 37,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 13.92
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06341v1",
-    "status": "ok",
-    "chunks": 19,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 9,
-    "elapsed": 6.99
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.06339v1",
-    "status": "ok",
-    "chunks": 54,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 16.78
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06333v1",
-    "status": "ok",
-    "chunks": 24,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 8.7
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06330v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 14.21
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06327v1",
-    "status": "ok",
-    "chunks": 28,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 11.09
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.06320v1",
-    "status": "ok",
-    "chunks": 44,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 11.9
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06317v1",
-    "status": "ok",
-    "chunks": 30,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 11.36
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06316v1",
-    "status": "ok",
-    "chunks": 58,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 37,
-    "elapsed": 18.99
+    "elapsed": 0.19
   },
   {
     "paper_id": "2605.06308v1",
-    "status": "ok",
-    "chunks": 47,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 15.81
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06305v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 11.69
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06298v1",
-    "status": "ok",
-    "chunks": 57,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 19.08
+    "elapsed": 0.32
   },
   {
     "paper_id": "2605.06295v1",
-    "status": "ok",
-    "chunks": 57,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 17.25
+    "elapsed": 0.24
   },
   {
     "paper_id": "2605.06294v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 11.17
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06290v1",
-    "status": "ok",
-    "chunks": 43,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 13.93
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06289v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 39,
-    "elapsed": 10.02
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06288v1",
-    "status": "ok",
-    "chunks": 46,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 16.06
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06279v1",
-    "status": "ok",
-    "chunks": 63,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 20.72
+    "elapsed": 0.19
   },
   {
     "paper_id": "2605.06276v1",
-    "status": "ok",
-    "chunks": 29,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 10.23
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.06261v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 10.83
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06258v1",
-    "status": "ok",
-    "chunks": 46,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 16.29
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06240v1",
-    "status": "ok",
-    "chunks": 85,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 51,
-    "elapsed": 28.62
+    "elapsed": 0.31
   },
   {
     "paper_id": "2605.06238v1",
-    "status": "ok",
-    "chunks": 32,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 11.03
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06235v1",
-    "status": "ok",
-    "chunks": 44,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 13.06
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06230v1",
-    "status": "ok",
-    "chunks": 60,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 52,
-    "elapsed": 14.89
+    "elapsed": 0.25
   },
   {
     "paper_id": "2605.06228v1",
-    "status": "ok",
-    "chunks": 38,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 14.72
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06227v1",
-    "status": "ok",
-    "chunks": 52,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 17.66
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06226v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 12.45
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06225v1",
-    "status": "ok",
-    "chunks": 55,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 19.24
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.06223v1",
-    "status": "ok",
-    "chunks": 30,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 10.33
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06222v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 5.85
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06219v1",
-    "status": "ok",
-    "chunks": 25,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 7.16
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06216v1",
-    "status": "ok",
-    "chunks": 44,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 10.93
+    "elapsed": 0.18
   },
   {
     "paper_id": "2605.06215v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 6.68
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.06213v1",
-    "status": "ok",
-    "chunks": 85,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 42,
-    "elapsed": 24.09
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.06211v1",
-    "status": "ok",
-    "chunks": 42,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 10.2
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06210v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 12.72
+    "elapsed": 1.03
   },
   {
     "paper_id": "2605.06207v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 10.72
+    "elapsed": 0.18
   },
   {
     "paper_id": "2605.06201v1",
-    "status": "ok",
-    "chunks": 33,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 9.75
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06196v1",
-    "status": "ok",
-    "chunks": 52,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 14.11
-  },
-  {
-    "paper_id": "2605.06191v1",
-    "status": "ok",
-    "chunks": 24,
-    "pages": 10,
-    "elapsed": 7.1
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06192v1",
-    "status": "ok",
-    "chunks": 30,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 9.19
+    "elapsed": 0.13
+  },
+  {
+    "paper_id": "2605.06191v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 10,
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06188v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 7.78
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06187v1",
-    "status": "ok",
-    "chunks": 60,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 31,
-    "elapsed": 16.75
+    "elapsed": 0.25
   },
   {
     "paper_id": "2605.06185v1",
-    "status": "ok",
-    "chunks": 20,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 6.49
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06183v1",
-    "status": "ok",
-    "chunks": 45,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 11.14
+    "elapsed": 0.23
   },
   {
     "paper_id": "2605.06177v1",
-    "status": "ok",
-    "chunks": 28,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 8.94
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06173v1",
-    "status": "ok",
-    "chunks": 10,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 3.39
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06165v1",
-    "status": "ok",
-    "chunks": 47,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 30,
-    "elapsed": 12.71
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06161v1",
-    "status": "ok",
-    "chunks": 45,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 11.38
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06156v1",
-    "status": "ok",
-    "chunks": 42,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 11.4
+    "elapsed": 0.18
   },
   {
     "paper_id": "2605.06154v1",
-    "status": "ok",
-    "chunks": 50,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 14.64
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.06149v1",
-    "status": "ok",
-    "chunks": 38,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 10.25
+    "elapsed": 0.39
   },
   {
     "paper_id": "2605.06148v1",
-    "status": "ok",
-    "chunks": 31,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 9.38
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06145v1",
-    "status": "ok",
-    "chunks": 58,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 16.48
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06143v1",
-    "status": "ok",
-    "chunks": 12,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 3.72
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06142v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 11.35
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06140v1",
-    "status": "ok",
-    "chunks": 55,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 16.04
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.06139v1",
-    "status": "ok",
-    "chunks": 55,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 15.41
-  },
-  {
-    "paper_id": "2605.06136v1",
-    "status": "ok",
-    "chunks": 40,
-    "pages": 25,
-    "elapsed": 9.26
+    "elapsed": 0.34
   },
   {
     "paper_id": "2605.06137v1",
-    "status": "ok",
-    "chunks": 49,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 36,
-    "elapsed": 12.8
+    "elapsed": 0.16
+  },
+  {
+    "paper_id": "2605.06136v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 25,
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06130v1",
-    "status": "ok",
-    "chunks": 42,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 11.36
+    "elapsed": 0.31
   },
   {
     "paper_id": "2605.06127v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 10.28
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06124v1",
-    "status": "ok",
-    "chunks": 32,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 9.75
+    "elapsed": 0.23
   },
   {
     "paper_id": "2605.06123v1",
-    "status": "ok",
-    "chunks": 121,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 75,
-    "elapsed": 33.21
+    "elapsed": 0.35
   },
   {
     "paper_id": "2605.06116v1",
-    "status": "ok",
-    "chunks": 6,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 2.11
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06115v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 9.89
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06112v1",
-    "status": "ok",
-    "chunks": 33,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 9.46
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.06111v1",
-    "status": "ok",
-    "chunks": 55,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 31,
-    "elapsed": 14.34
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06110v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 10.63
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06105v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 27,
-    "elapsed": 9.54
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06104v1",
-    "status": "ok",
-    "chunks": 19,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 13,
-    "elapsed": 5.7
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06100v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 8.67
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06094v1",
-    "status": "ok",
-    "chunks": 69,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 41,
-    "elapsed": 19.74
+    "elapsed": 0.27
   },
   {
     "paper_id": "2605.06087v1",
-    "status": "ok",
-    "chunks": 55,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 16.21
+    "elapsed": 0.44
   },
   {
     "paper_id": "2605.06078v1",
-    "status": "ok",
-    "chunks": 32,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 9.96
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06068v1",
-    "status": "ok",
-    "chunks": 33,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 9.14
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06067v1",
-    "status": "ok",
-    "chunks": 26,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 17,
-    "elapsed": 8.51
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.06066v1",
-    "status": "ok",
-    "chunks": 29,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 9.32
+    "elapsed": 0.33
   },
   {
     "paper_id": "2605.06054v1",
-    "status": "ok",
-    "chunks": 16,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 5,
-    "elapsed": 4.79
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06047v1",
-    "status": "ok",
-    "chunks": 43,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 10.55
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.06040v1",
-    "status": "ok",
-    "chunks": 19,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 10,
-    "elapsed": 5.27
+    "elapsed": 0.05
   },
   {
     "paper_id": "2605.06036v1",
-    "status": "ok",
-    "chunks": 43,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 10.53
+    "elapsed": 0.19
   },
   {
     "paper_id": "2605.06035v1",
-    "status": "ok",
-    "chunks": 17,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 8,
-    "elapsed": 4.95
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06033v1",
-    "status": "ok",
-    "chunks": 48,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 26,
-    "elapsed": 12.18
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.06032v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 5.86
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.06029v1",
-    "status": "ok",
-    "chunks": 103,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 71,
-    "elapsed": 29.27
+    "elapsed": 0.2
   },
   {
     "paper_id": "2605.06024v1",
-    "status": "ok",
-    "chunks": 13,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 6,
-    "elapsed": 3.99
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.06014v1",
-    "status": "ok",
-    "chunks": 43,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 10.91
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06012v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 12,
-    "elapsed": 8.16
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.06010v1",
-    "status": "ok",
-    "chunks": 21,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 6.64
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.06007v1",
-    "status": "ok",
-    "chunks": 9,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 5,
-    "elapsed": 2.9
+    "elapsed": 0.03
   },
   {
     "paper_id": "2605.06004v1",
-    "status": "ok",
-    "chunks": 24,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 7.63
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.05995v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 10.16
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.05990v1",
-    "status": "ok",
-    "chunks": 30,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 21,
-    "elapsed": 10.27
+    "elapsed": 0.24
   },
   {
     "paper_id": "2605.05985v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 29,
-    "elapsed": 10.16
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.05980v1",
-    "status": "ok",
-    "chunks": 47,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 12.91
+    "elapsed": 0.13
   },
   {
     "paper_id": "2605.05977v1",
-    "status": "ok",
-    "chunks": 28,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 8.4
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.05974v1",
-    "status": "ok",
-    "chunks": 36,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 9.4
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.05973v1",
-    "status": "ok",
-    "chunks": 64,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 34,
-    "elapsed": 17.65
+    "elapsed": 0.16
   },
   {
     "paper_id": "2605.05965v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 24,
-    "elapsed": 9.45
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.05963v1",
-    "status": "ok",
-    "chunks": 35,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 10.1
+    "elapsed": 0.14
   },
   {
     "paper_id": "2605.05959v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 11.82
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.05958v1",
-    "status": "ok",
-    "chunks": 40,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 16,
-    "elapsed": 10.02
+    "elapsed": 0.12
   },
   {
     "paper_id": "2605.05953v1",
-    "status": "ok",
-    "chunks": 38,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 9.84
+    "elapsed": 0.11
   },
   {
     "paper_id": "2605.05951v1",
-    "status": "ok",
-    "chunks": 41,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 22,
-    "elapsed": 11.14
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.05949v1",
-    "status": "ok",
-    "chunks": 84,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 60,
-    "elapsed": 23.1
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.05938v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 23,
-    "elapsed": 10.51
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.05931v1",
-    "status": "ok",
-    "chunks": 17,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 5.37
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.05929v1",
-    "status": "ok",
-    "chunks": 6,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 6,
-    "elapsed": 1.92
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.05921v1",
-    "status": "ok",
-    "chunks": 27,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 11,
-    "elapsed": 8.7
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.05920v1",
-    "status": "ok",
-    "chunks": 11,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 6,
-    "elapsed": 3.64
+    "elapsed": 0.04
   },
   {
     "paper_id": "2605.05914v1",
-    "status": "ok",
-    "chunks": 28,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 31,
-    "elapsed": 8.34
+    "elapsed": 0.1
   },
   {
     "paper_id": "2605.05913v1",
-    "status": "ok",
-    "chunks": 34,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 25,
-    "elapsed": 10.26
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.05911v1",
-    "status": "ok",
-    "chunks": 66,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 38,
-    "elapsed": 19.65
+    "elapsed": 0.17
   },
   {
     "paper_id": "2605.05909v1",
-    "status": "ok",
-    "chunks": 33,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 20,
-    "elapsed": 60.89
+    "elapsed": 0.08
   },
   {
     "paper_id": "2605.05908v1",
-    "status": "ok",
-    "chunks": 28,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 18,
-    "elapsed": 10.17
+    "elapsed": 0.21
   },
   {
     "paper_id": "2605.05896v1",
-    "status": "ok",
-    "chunks": 35,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 11.19
-  },
-  {
-    "paper_id": "2605.05893v1",
-    "status": "ok",
-    "chunks": 22,
-    "pages": 14,
-    "elapsed": 8.6
+    "elapsed": 0.09
   },
   {
     "paper_id": "2605.05895v1",
-    "status": "ok",
-    "chunks": 54,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 35,
-    "elapsed": 17.1
+    "elapsed": 0.19
   },
   {
-    "paper_id": "2605.05889v1",
-    "status": "ok",
-    "chunks": 37,
-    "pages": 26,
-    "elapsed": 11.55
+    "paper_id": "2605.05893v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 14,
+    "elapsed": 0.07
   },
   {
     "paper_id": "2605.05891v1",
-    "status": "ok",
-    "chunks": 33,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 19,
-    "elapsed": 11.81
+    "elapsed": 0.17
+  },
+  {
+    "paper_id": "2605.05889v1",
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
+    "pages": 26,
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.05882v1",
-    "status": "ok",
-    "chunks": 47,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 32,
-    "elapsed": 16.44
+    "elapsed": 0.15
   },
   {
     "paper_id": "2605.05878v1",
-    "status": "ok",
-    "chunks": 25,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 15,
-    "elapsed": 8.88
+    "elapsed": 0.06
   },
   {
     "paper_id": "2605.05873v1",
-    "status": "ok",
-    "chunks": 122,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 71,
-    "elapsed": 39.85
+    "elapsed": 0.27
   },
   {
     "paper_id": "2605.05866v1",
-    "status": "ok",
-    "chunks": 48,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 28,
-    "elapsed": 14.99
+    "elapsed": 0.2
   },
   {
     "paper_id": "2605.05863v1",
-    "status": "ok",
-    "chunks": 23,
+    "status": "skipped \u2014 already ingested",
+    "chunks": 0,
     "pages": 14,
-    "elapsed": 9.56
+    "elapsed": 0.13
   }
 ]
