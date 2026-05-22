@@ -128,6 +128,7 @@ def enrich(input_path: str, output_path: str, top_k: int, threshold: float, dry_
     sim_matrix = cosine_similarity_matrix(paper_embeds, subtopic_embeds)
 
     assigned = []
+    most_topic_assigned = []
     for i, row in enumerate(tqdm(df.itertuples(), total=len(df), desc="Papers")):
         sims     = sim_matrix[i]
         top_idx  = np.argsort(sims)[::-1]
@@ -148,10 +149,15 @@ def enrich(input_path: str, output_path: str, top_k: int, threshold: float, dry_
                     break
 
         assigned.append(top_tags)
+        
+        # most_topic = the single highest similarity topic
+        best_idx = int(np.argmax(sims))
+        most_topic_assigned.append(subtopic_keys[best_idx])
         tqdm.write(f"  {str(row.paper_id):<20}  {' | '.join(top_tags)}")
 
     # Write enriched CSV — original never touched
     df["topics"] = ["|".join(tags) for tags in assigned]
+    df["most_topic"] = most_topic_assigned
     df.to_csv(output_path, index=False)
 
     print(f"\nDone - original CSV untouched.")
