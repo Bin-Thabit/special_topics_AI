@@ -5,7 +5,7 @@ CSAI415 Course Project — Hybrid Retrieval + GraphRAG with Online Learning and 
 ## Team
 | Member | Responsibility |
 |--------|---------------|
-| You | Ingestion · Retrieval · GraphRAG · River · API |
+| BinThabit | Ingestion · Retrieval · GraphRAG · River · API |
 | Abdullah | AutoML Baseline · Neo4j Graph · Evaluation · PEFT/QLoRA |
 
 ## One-command setup
