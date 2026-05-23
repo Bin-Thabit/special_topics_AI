@@ -17,12 +17,12 @@ docker compose up -d
 ```
 
 ## Deliverables
-| Tag | Week | Description |
-|-----|------|-------------|
-| v0.1.0-d1 | 5 | AutoML baseline + River online learner |
-| v0.2.0-d2 | 7 | Retrieval stack + Neo4j graph |
-| v0.3.0-d3 | 9 | GraphRAG executor + evaluation + safety |
-| v1.0.0-d4 | 10/11 | PEFT/QLoRA tuning + final demo |
+| Week | Description |
+|------|-------------|
+| 5 | AutoML baseline + River online learner |
+| 7 | Retrieval stack + Neo4j graph |
+| 9 | GraphRAG executor + evaluation + safety |
+| 10/11 | PEFT/QLoRA tuning + final demo |
 
 ## Project structure
 ```
