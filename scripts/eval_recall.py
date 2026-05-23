@@ -47,20 +47,152 @@ GOLD_QUERIES = [
         "paper_id": "2605.05951v1",
     },
     {
-        "query":    "What is the fundamental barrier to using standard Reinforcement Learning (RL) in real-world power grids?",
-        "paper_id": "2604.14032v1",
+        "query": "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+        "paper_id": "2605.06548v1",
     },
     {
-        "query":    "What are the promising future research directions identified in the literature review for AI-driven BPMN model generation?",
-        "paper_id": "2604.14034v1",
+        "query": "What does the acronym STAT stand for, and what specific process-level diagnostics does it introduce to supplement outcome-level rewards in multi-agent reinforcement learning evaluation?",
+        "paper_id": "2605.06557v1",
     },
     {
-        "query":    "What is Value Gradient Flow (VGF) and how does it approach behavior-regularized reinforcement learning?",
-        "paper_id": "2604.14265v1",
+        "query": "What does the acronym GONO stand for, and how does it utilize the consecutive cosine similarity signal (cc_t) to dynamically adapt Adam's momentum coefficient?",
+        "paper_id": "2605.06575v1",
     },
     {
-        "query":    "What unique fine-tuning methodology does the DharmaOCR paper introduce to handle text degeneration in structured OCR?",
-        "paper_id": "2604.14314v1",
+        "query": "What is the direction-loss decoupling phenomenon identified in deep learning optimization, and why do standard magnitude-based criteria fail to distinguish it?",
+        "paper_id": "2605.06575v1",
+    },
+    {
+        "query": "How does the proposed deterministic adjoint matching framework formulate human preference alignment for flow models, and what computational benefit does its truncated adjoint scheme provide?",
+        "paper_id": "2605.06583v1",
+    },
+    {
+        "query": "What does the acronym NeuroAgent stand for, and what are the primary core modules in its hierarchical multi-agent architecture used to automate multimodal neuroimaging preprocessing?",
+        "paper_id": "2605.06584v1",
+    },
+    {
+        "query": "Explain the mechanics and purpose of the feedback-driven 'Generate-Execute-Validate' engine within the context of automated neuroimaging error recovery pipelines.",
+        "paper_id": "2605.06584v1",
+    },
+    {
+        "query": "What does the acronym ConAXps stand for, and how does it utilize concept erasure to verify causal necessity compared to standard feature sensitivity approaches?",
+        "paper_id": "2605.06640v1",
+    },
+    {
+        "query": "Explain the difference between the NaiveEnum and XpSatEnum algorithms when extracting concept-based explanations across a given behavior set of images.",
+        "paper_id": "2605.06640v1",
+    },
+    {
+        "query": "What are the two sequential steps used by the GlazyBench framework to connect raw material formulation parameters to final perceptible visual tiles?",
+        "paper_id": "2605.06641v1",
+    },
+    {
+        "query": "What are the four core post-firing visual and physical prediction tasks supported by the GlazyBench benchmark dataset?",
+        "paper_id": "2605.06641v1",
+    },
+    {
+        "query": "What does the acronym StraTA stand for, and how does its explicit trajectory-level guidance fix the short-sighted exploration of purely reactive agents?",
+        "paper_id": "2605.06642v1",
+    },
+    {
+        "query": "How does the StraTA framework construct hierarchical groups over GRPO-style rollouts to optimize strategy generation and action execution jointly?",
+        "paper_id": "2605.06642v1",
+    },
+    {
+        "query": "What does the acronym RAO stand for, and how does it apply a local node reward structure with a delegation bonus to avoid the quantity-over-quality spawning problem?",
+        "paper_id": "2605.06639v1",
+    },
+    {
+        "query": "How does the RAO framework utilize depth-level inverse-frequency weighting to prevent heavily populated execution tree depths from dominating policy learning?",
+        "paper_id": "2605.06639v1",
+    },
+    {
+        "query": "What does the acronym MMDG-Bench stand for, and what are the three core task families it unifies to standardize evaluation practices?",
+        "paper_id": "2605.06643v1",
+    },
+    {
+        "query": "What is the rank inversion phenomenon identified in MMDG-Bench under input corruption, and why does clean benchmark performance fail to predict robustness?",
+        "paper_id": "2605.06643v1",
+    },
+    {
+        "query": "What does the acronym LOD KG stand for, and what are the primary multilingual knowledge graphs analyzed to categorize low-resource languages on the Semantic Web?",
+        "paper_id": "2605.05929v1",
+    },
+    {
+        "query": "What key structural variables are identified to characterize the uneven distribution of languages across Open Access Data (OAD) frameworks?",
+        "paper_id": "2605.05929v1",
+    },
+    {
+        "query": "What two core linguistic strategies are proposed to optimize cross-lingual transfer candidate selection for multilingual knowledge graph completion?",
+        "paper_id": "2605.05931v1",
+    },
+    {
+        "query": "How can analogical reasoning based on language proximity be utilized to address the digital invisibility of low-resource languages in Linked Open Data?",
+        "paper_id": "2605.05931v1",
+    },
+    {
+        "query": "What does the acronym CUAs stand for, and how are these circuit blocks integrated into pre-trained large language models to enable quantum enhancement?",
+        "paper_id": "2605.05914v1",
+    },
+    {
+        "query": "What fundamental constraint of classical memory allocation do Cayley-parameterized unitary adapters address when executing models on real quantum hardware?",
+        "paper_id": "2605.05914v1",
+    },
+    {
+        "query": "What does the acronym SECDA-DSE stand for, and how does it integrate large language models to automate the design space exploration of FPGA-based accelerators?",
+        "paper_id": "2605.05920v1",
+    },
+    {
+        "query": "How does the SECDA-DSE framework combine a structured explorer module with an LLM Stack to optimize memory hierarchies and dataflow strategies?",
+        "paper_id": "2605.05920v1",
+    },
+    {
+        "query": "What are the core mechanics of the 'Intentmaking' and 'Sensemaking' loops during human-AI interaction in AI-guided mathematical discovery?",
+        "paper_id": "2605.05921v1",
+    },
+    {
+        "query": "What challenges do domain experts face when trying to formulate mathematical constraints and interpret algorithmic outputs using interactive AI stack interfaces?",
+        "paper_id": "2605.05921v1",
+    },
+    {
+        "query": "What does the acronym AuxPath-FM stand for, and how does it generalize conditional flow matching by incorporating non-Gaussian distributions into the probability path?",
+        "paper_id": "2605.06364v1",
+    },
+    {
+        "query": "How does the AuxPath-FM framework implement trajectory-level classifier-free guidance (CFG) via auxiliary variables using only a single backbone evaluation?",
+        "paper_id": "2605.06364v1",
+    },
+    {
+        "query": "What is execution lineage in AI-native workflows, and how does it represent agentic work as a directed acyclic graph (DAG) to support identity-based replay?",
+        "paper_id": "2605.06365v1",
+    },
+    {
+        "query": "Explain how execution-lineage replay prevents unrelated-branch contamination and churn during policy-memo update tasks compared to loop-centric baselines.",
+        "paper_id": "2605.06365v1",
+    },
+    {
+        "query": "What does the acronym eX2L stand for, and how does it decorrelate confounding features by penalizing similarity between primary and confounder Grad-CAM activation maps?",
+        "paper_id": "2605.06368v1",
+    },
+    {
+        "query": "What performance gains does the eX2L framework achieve over Empirical Risk Minimization (ERM) on the Spawrious Many-to-Many Hard Challenge benchmark?",
+        "paper_id": "2605.06368v1",
+    },
+    {
+        "query": "How is persistent homology applied to the embedding matrices of modular arithmetic models to reveal a consistent topological signature of grokking?",
+        "paper_id": "2605.06352v1",
+    },
+    {
+        "query": "What sharp transitions in maximum and total persistence of first homology (H1) distinguish generalization from memorization in the data regimes of grokking?",
+        "paper_id": "2605.06352v1",
+    },
+    {
+        "query": "What does the acronym MEFA stand for, and how does it utilize gradient checkpointing to enable exact end-to-end full-gradient attacks through long purification trajectories?",
+        "paper_id": "2605.06357v1",
+    },
+    {
+        "query": "How does the SoftLeaky Relu activation function help alleviate the exponential decay of gradients in deep architectures evaluated under the MEFA framework?",
+        "paper_id": "2605.06357v1",
     },
 ]
 
