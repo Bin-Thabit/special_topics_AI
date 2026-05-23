@@ -1,15 +1,15 @@
 {
-  "recall@5": 0.6,
-  "mrr": 0.55,
-  "avg_latency": 2.3996,
-  "p95_latency": 2.598,
+  "recall@5": 0.9767,
+  "mrr": 0.9684,
+  "avg_latency": 0.1757,
+  "p95_latency": 0.331,
   "queries": [
     {
       "query": "how does ActCam control camera motion without training?",
       "paper_id": "2605.06667v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.598,
+      "latency": 0.196,
       "top_results": [
         {
           "paper_id": "2605.06667v1",
@@ -36,7 +36,7 @@
       "paper_id": "2605.05863v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.307,
+      "latency": 0.206,
       "top_results": [
         {
           "paper_id": "2605.05863v1",
@@ -63,7 +63,7 @@
       "paper_id": "2605.05896v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.548,
+      "latency": 0.2,
       "top_results": [
         {
           "paper_id": "2605.05896v1",
@@ -90,7 +90,7 @@
       "paper_id": "2605.05913v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.335,
+      "latency": 0.331,
       "top_results": [
         {
           "paper_id": "2605.05913v1",
@@ -117,7 +117,7 @@
       "paper_id": "2605.05929v1",
       "hit": 1,
       "rr": 0.5,
-      "latency": 2.356,
+      "latency": 0.198,
       "top_results": [
         {
           "paper_id": "2605.05931v1",
@@ -144,7 +144,7 @@
       "paper_id": "2605.05951v1",
       "hit": 1,
       "rr": 1.0,
-      "latency": 2.349,
+      "latency": 0.231,
       "top_results": [
         {
           "paper_id": "2605.05951v1",
@@ -167,110 +167,1001 @@
       ]
     },
     {
-      "query": "What is the fundamental barrier to using standard Reinforcement Learning (RL) in real-world power grids?",
-      "paper_id": "2604.14032v1",
-      "hit": 0,
-      "rr": 0.0,
-      "latency": 2.531,
+      "query": "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+      "paper_id": "2605.06548v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.225,
       "top_results": [
         {
-          "paper_id": "2605.06638v1",
-          "page_num": 1,
-          "score": 0.9492,
-          "text": "Can RL Teach Long-Horizon Reasoning to LLMs? Expressiveness Is Key Tianle Wang1 Zhaoyang Wang2 Guangchen Lan1 Xinpeng We"
-        },
-        {
-          "paper_id": "2605.06500v1",
-          "page_num": 1,
-          "score": 0.9432,
-          "text": "Operator-Guided Invariance Learning for Continuous Reinforcement Learning Zuyuan Zhang The George Washington University "
-        },
-        {
-          "paper_id": "2605.06228v1",
-          "page_num": 1,
-          "score": 0.9261,
-          "text": "Soft Deterministic Policy Gradient with Gaussian Smoothing Hyunjun Na Donghwan Lee School of Electrical Engineering, KAI"
-        }
-      ]
-    },
-    {
-      "query": "What are the promising future research directions identified in the literature review for AI-driven BPMN model generation?",
-      "paper_id": "2604.14034v1",
-      "hit": 0,
-      "rr": 0.0,
-      "latency": 2.354,
-      "top_results": [
-        {
-          "paper_id": "2605.06029v1",
-          "page_num": 4,
-          "score": 0.9534,
-          "text": "1 Research Questions Our focus are five related questions that stem from a critical software studies perspective. Underp"
-        },
-        {
-          "paper_id": "2605.06033v1",
-          "page_num": 4,
-          "score": 0.9262,
-          "text": "and geographical areas where AI adoption (or its lack thereof) require a closer look due to exceptional trends (e.g., hi"
-        },
-        {
-          "paper_id": "2605.06033v1",
-          "page_num": 1,
-          "score": 0.9058,
-          "text": "When AI Meets Science: Research Diversity, Interdisciplinarity, Visibility, and Retractions across Disciplines in a Glob"
-        }
-      ]
-    },
-    {
-      "query": "What is Value Gradient Flow (VGF) and how does it approach behavior-regularized reinforcement learning?",
-      "paper_id": "2604.14265v1",
-      "hit": 0,
-      "rr": 0.0,
-      "latency": 2.285,
-      "top_results": [
-        {
-          "paper_id": "2605.06500v1",
-          "page_num": 1,
-          "score": 0.9367,
-          "text": "Operator-Guided Invariance Learning for Continuous Reinforcement Learning Zuyuan Zhang The George Washington University "
-        },
-        {
-          "paper_id": "2605.06500v1",
-          "page_num": 7,
-          "score": 0.929,
-          "text": "The normalization penalty prevents the trivial zero-field solution and fixes the overall scale of X. (When learning mult"
-        },
-        {
-          "paper_id": "2605.06228v1",
-          "page_num": 1,
-          "score": 0.9216,
-          "text": "Soft Deterministic Policy Gradient with Gaussian Smoothing Hyunjun Na Donghwan Lee School of Electrical Engineering, KAI"
-        }
-      ]
-    },
-    {
-      "query": "What unique fine-tuning methodology does the DharmaOCR paper introduce to handle text degeneration in structured OCR?",
-      "paper_id": "2604.14314v1",
-      "hit": 0,
-      "rr": 0.0,
-      "latency": 2.333,
-      "top_results": [
-        {
-          "paper_id": "2605.06330v1",
-          "page_num": 3,
-          "score": 0.9235,
-          "text": "FINE-TUNING SMALL LANGUAGE MODELS FOR SOLUTION-ORIENTED WINDOWS EVENT LOG ANALYSIS3 we also found that using the LoRA fi"
+          "paper_id": "2605.06548v1",
+          "page_num": 51,
+          "score": 1.0,
+          "text": "C.5 Why Cola DLM Is Not Merely a Latent Reverse-Diffusion LM To avoid conceptual confusion, we now make the distinction "
         },
         {
           "paper_id": "2605.06548v1",
-          "page_num": 84,
-          "score": 0.9107,
-          "text": "Increasing the repaint cycles from t = 1 to t = 3 does not produce stable gains either, suggesting that repeatedly revis"
+          "page_num": 51,
+          "score": 0.9318,
+          "text": "Finally, the marginal distribution of Cola DLM is always defined by the hierarchical latent-variable identity p(x) = Z p"
         },
         {
-          "paper_id": "2605.06054v1",
+          "paper_id": "2605.06548v1",
+          "page_num": 3,
+          "score": 0.9298,
+          "text": "The second category consists of token-embedding-based continuous methods [14, 21, 24, 27, 29, 52, 54, 87], which first m"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym STAT stand for, and what specific process-level diagnostics does it introduce to supplement outcome-level rewards in multi-agent reinforcement learning evaluation?",
+      "paper_id": "2605.06557v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.37,
+      "top_results": [
+        {
+          "paper_id": "2605.06557v1",
+          "page_num": 9,
+          "score": 0.964,
+          "text": "STAT does not capture partial observability, explicit communication, heterogeneous agent capabilities, stochastic task a"
+        },
+        {
+          "paper_id": "2605.06557v1",
+          "page_num": 13,
+          "score": 0.9609,
+          "text": "A Code Release We release the STAT environment together with executable training and evaluation code for all methods con"
+        },
+        {
+          "paper_id": "2605.06557v1",
+          "page_num": 4,
+          "score": 0.9289,
+          "text": "agents, tasks, and environment size, (2) isolate task-assignment coordination as the primary coordination bottleneck by "
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym GONO stand for, and how does it utilize the consecutive cosine similarity signal (cc_t) to dynamically adapt Adam's momentum coefficient?",
+      "paper_id": "2605.06575v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.188,
+      "top_results": [
+        {
+          "paper_id": "2605.06575v1",
+          "page_num": 4,
+          "score": 0.9245,
+          "text": "3.2 The GONO Update Rule Definition 1 (Consecutive Cosine Similarity) cct = Lt, Lt1 LtLt1+ [1, 1]. Definition 2 (Adaptiv"
+        },
+        {
+          "paper_id": "2605.06575v1",
           "page_num": 2,
-          "score": 0.9027,
-          "text": "2 RELATED WORK Visual Text Comparison. Prior literature discusses various visual approaches for document-level compariso"
+          "score": 0.8896,
+          "text": "A simple, principled modification of Adam that adapts 1 using the consecutive cosine signal. GONO amplifies momentum und"
+        },
+        {
+          "paper_id": "2605.06575v1",
+          "page_num": 11,
+          "score": 0.864,
+          "text": "76.88% for AdamW and 66.22% for SGD-M (Figure 5). GONO remains competitive on this standard benchmark despite not being "
+        }
+      ]
+    },
+    {
+      "query": "What is the direction-loss decoupling phenomenon identified in deep learning optimization, and why do standard magnitude-based criteria fail to distinguish it?",
+      "paper_id": "2605.06575v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.229,
+      "top_results": [
+        {
+          "paper_id": "2605.06575v1",
+          "page_num": 2,
+          "score": 1.0,
+          "text": "This observation, which we call the direction-loss decoupling phenomenon, has a clear interpretation: directional consis"
+        },
+        {
+          "paper_id": "2605.06575v1",
+          "page_num": 1,
+          "score": 0.8371,
+          "text": "Directional Consistency as a Complementary Optimization Signal: The GONO Framework Victor Daniel Gera Department of Arti"
+        },
+        {
+          "paper_id": "2605.06611v1",
+          "page_num": 14,
+          "score": 0.7413,
+          "text": "The Structural Origin of Attention Sink linear warmup phase. Detailed optimization hyperparameters are provided in Table"
+        }
+      ]
+    },
+    {
+      "query": "How does the proposed deterministic adjoint matching framework formulate human preference alignment for flow models, and what computational benefit does its truncated adjoint scheme provide?",
+      "paper_id": "2605.06583v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.105,
+      "top_results": [
+        {
+          "paper_id": "2605.06583v1",
+          "page_num": 10,
+          "score": 0.9872,
+          "text": "Finally, we observe significant acceleration with truncated Adjoint Matching compared to full adjoint matching during tr"
+        },
+        {
+          "paper_id": "2605.06583v1",
+          "page_num": 3,
+          "score": 0.973,
+          "text": "3 The purpose of this paper is to improve upon adjoint matching techniques for flow models, enhancing both training flex"
+        },
+        {
+          "paper_id": "2605.06583v1",
+          "page_num": 3,
+          "score": 0.8516,
+          "text": "This truncated variant enhances the scalability of adjoint matching for large models: it yields a substantial speedup fr"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym NeuroAgent stand for, and what are the primary core modules in its hierarchical multi-agent architecture used to automate multimodal neuroimaging preprocessing?",
+      "paper_id": "2605.06584v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.253,
+      "top_results": [
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 5,
+          "score": 0.9776,
+          "text": "Framework Overview We propose NeuroAgent, a hierarchical, autonomous multi-agent framework designed to orchestrate the c"
+        },
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 3,
+          "score": 0.9406,
+          "text": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research environment, maintain stateful memory, decompos"
+        },
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 1,
+          "score": 0.9373,
+          "text": "2026-5-8 NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research Lujia Zhong1,2, Yihao Xia1, Jianwei Zh"
+        }
+      ]
+    },
+    {
+      "query": "Explain the mechanics and purpose of the feedback-driven 'Generate-Execute-Validate' engine within the context of automated neuroimaging error recovery pipelines.",
+      "paper_id": "2605.06584v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.199,
+      "top_results": [
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 10,
+          "score": 0.9327,
+          "text": "Instead of terminating, the engine feeds this error log back to the agent as a new prompt context. The agent then analyz"
+        },
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 10,
+          "score": 0.9245,
+          "text": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research AD-vs-CN ROI distributions, FA decline trajecto"
+        },
+        {
+          "paper_id": "2605.06584v1",
+          "page_num": 3,
+          "score": 0.9063,
+          "text": "We evaluate NeuroAgent on data pooled across all longitudinal ADNI phases (ADNI1, ADNI-GO, ADNI2, ADNI3, and ADNI4; n= 1"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym ConAXps stand for, and how does it utilize concept erasure to verify causal necessity compared to standard feature sensitivity approaches?",
+      "paper_id": "2605.06640v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.099,
+      "top_results": [
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 39,
+          "score": 0.9552,
+          "text": "G.7 Signed Concept-based Explanations The following three tables provide signed ConXps, each containing one or more pair"
+        },
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 2,
+          "score": 0.9467,
+          "text": "Given concept vectors, we present three different algorithms to compute ConXps: (1) a naive algorithm (NaiveEnum) that e"
+        },
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 1,
+          "score": 0.8814,
+          "text": "Concept-Based Abductive and Contrastive Explanations for Behaviors of Vision Models Ronaldo Canizales rcanizal@colostate"
+        }
+      ]
+    },
+    {
+      "query": "Explain the difference between the NaiveEnum and XpSatEnum algorithms when extracting concept-based explanations across a given behavior set of images.",
+      "paper_id": "2605.06640v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.095,
+      "top_results": [
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 16,
+          "score": 0.9702,
+          "text": "shows the computation times for each algorithm combination. XpEnum is considerably faster with Ortho and SpLiCE, but is "
+        },
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 37,
+          "score": 0.8655,
+          "text": "In the case of XpEnum (detailed in Appendix B), when used in conjunction with Ortho or SpLiCE, this algorithm is the fas"
+        },
+        {
+          "paper_id": "2605.06640v1",
+          "page_num": 2,
+          "score": 0.8265,
+          "text": "Given concept vectors, we present three different algorithms to compute ConXps: (1) a naive algorithm (NaiveEnum) that e"
+        }
+      ]
+    },
+    {
+      "query": "What are the two sequential steps used by the GlazyBench framework to connect raw material formulation parameters to final perceptible visual tiles?",
+      "paper_id": "2605.06641v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.229,
+      "top_results": [
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 2,
+          "score": 0.9811,
+          "text": "GlazyBench Figure 1: Two-step image generation task task that explicitly connects recipe representation, firing context,"
+        },
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 10,
+          "score": 0.9428,
+          "text": "GlazyBench critical foundation. Such datasets are essential for moving models away from prior-driven schematic generatio"
+        },
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 1,
+          "score": 0.9304,
+          "text": "GLAZYBENCH: A BENCHMARK FOR CERAMIC GLAZE PROPERTY PREDICTION AND IMAGE GENERATION Ziyu Zhai, Siyou Li, Juexi Shao, Junt"
+        }
+      ]
+    },
+    {
+      "query": "What are the four core post-firing visual and physical prediction tasks supported by the GlazyBench benchmark dataset?",
+      "paper_id": "2605.06641v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.361,
+      "top_results": [
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 1,
+          "score": 0.9706,
+          "text": "GLAZYBENCH: A BENCHMARK FOR CERAMIC GLAZE PROPERTY PREDICTION AND IMAGE GENERATION Ziyu Zhai, Siyou Li, Juexi Shao, Junt"
+        },
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 10,
+          "score": 0.9554,
+          "text": "GlazyBench critical foundation. Such datasets are essential for moving models away from prior-driven schematic generatio"
+        },
+        {
+          "paper_id": "2605.06641v1",
+          "page_num": 7,
+          "score": 0.9485,
+          "text": "GlazyBench Table 6: Traditional baseline performance Task Model Accuracy Micro F1 Transparency (4-class) RandomForest 0."
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym StraTA stand for, and how does its explicit trajectory-level guidance fix the short-sighted exploration of purely reactive agents?",
+      "paper_id": "2605.06642v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.186,
+      "top_results": [
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 2,
+          "score": 1.0,
+          "text": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction Figure 1 | A comparison betwe"
+        },
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 1,
+          "score": 0.9049,
+          "text": "2026-05-06 StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction Xiangyuan Xue1,2, "
+        },
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 5,
+          "score": 0.8848,
+          "text": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction Figure 2 | An overview of the"
+        }
+      ]
+    },
+    {
+      "query": "How does the StraTA framework construct hierarchical groups over GRPO-style rollouts to optimize strategy generation and action execution jointly?",
+      "paper_id": "2605.06642v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.102,
+      "top_results": [
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 6,
+          "score": 0.992,
+          "text": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction This reformulation decomposes"
+        },
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 5,
+          "score": 0.9348,
+          "text": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction Figure 2 | An overview of the"
+        },
+        {
+          "paper_id": "2605.06642v1",
+          "page_num": 2,
+          "score": 0.892,
+          "text": "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction Figure 1 | A comparison betwe"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym RAO stand for, and how does it apply a local node reward structure with a delegation bonus to avoid the quantity-over-quality spawning problem?",
+      "paper_id": "2605.06639v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.107,
+      "top_results": [
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 4,
+          "score": 1.0,
+          "text": "For a node corresponding to task X, let X denote the trajectory generated while solving X, and let C(X) denote the set o"
+        },
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 4,
+          "score": 0.9466,
+          "text": "2.2 Recursive Agent Optimization (RAO) A rollout on a root task produces an execution tree whose nodes correspond to rec"
+        },
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 6,
+          "score": 0.8216,
+          "text": "Summary: RAO 1. Trains a single, shared policy to act across recursive rollouts with dynamically generated execution tre"
+        }
+      ]
+    },
+    {
+      "query": "How does the RAO framework utilize depth-level inverse-frequency weighting to prevent heavily populated execution tree depths from dominating policy learning?",
+      "paper_id": "2605.06639v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.235,
+      "top_results": [
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 5,
+          "score": 1.0,
+          "text": "In some domains, sub-agent trajectories can greatly outnumber root trajectories, causing optimization to become dominate"
+        },
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 10,
+          "score": 0.9383,
+          "text": "This is intuitive: long-context aggregation tasks are best solved by chunking the context once and delegating each chunk"
+        },
+        {
+          "paper_id": "2605.06639v1",
+          "page_num": 2,
+          "score": 0.9181,
+          "text": "This produces a dynamically structured and recursive execution tree where each node corresponds to one agent instance at"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym MMDG-Bench stand for, and what are the three core task families it unifies to standardize evaluation practices?",
+      "paper_id": "2605.06643v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.083,
+      "top_results": [
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 2,
+          "score": 0.9764,
+          "text": "MMDG-Bench Methods ERM, RNA-Net, SimMMDG, MOOSA, CMRF, NEL, JAT, MBCD, GMP Evaluations Standard Accuracy, Corruption Rob"
+        },
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 2,
+          "score": 0.913,
+          "text": "To answer this question, we introduce MMDG-Bench, a comprehensive and standardized benchmark for evaluating multimodal d"
+        },
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 4,
+          "score": 0.8687,
+          "text": "Training: Testing: Action Recognition (Video+Flow+Audio) : ENGLISH: BUT IT WAS A GOOD MOVIE Training: Testing: Sentiment"
+        }
+      ]
+    },
+    {
+      "query": "What is the rank inversion phenomenon identified in MMDG-Bench under input corruption, and why does clean benchmark performance fail to predict robustness?",
+      "paper_id": "2605.06643v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.103,
+      "top_results": [
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 7,
+          "score": 1.0,
+          "text": "Trimodal fusion delivers inconsistent gains; while methods targeting modality competition benefit more reliably, current"
+        },
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 9,
+          "score": 0.9283,
+          "text": "Ultimately, these findings demonstrate that high predictive accuracy does not guarantee model trustworthiness, and even "
+        },
+        {
+          "paper_id": "2605.06643v1",
+          "page_num": 14,
+          "score": 0.9017,
+          "text": "B Limitations, Broader Impacts, and Future Work B.1 Limitations MMDG-Bench currently focuses on discriminative and regre"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym LOD KG stand for, and what are the primary multilingual knowledge graphs analyzed to categorize low-resource languages on the Semantic Web?",
+      "paper_id": "2605.05929v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.138,
+      "top_results": [
+        {
+          "paper_id": "2605.05929v1",
+          "page_num": 2,
+          "score": 0.9976,
+          "text": "2 N.-E. Mbengue et al. suitable low-resource language targets, along with corresponding high-resource languages to trans"
+        },
+        {
+          "paper_id": "2605.05929v1",
+          "page_num": 5,
+          "score": 0.995,
+          "text": "Which Are the Low-Resource Languages of the Semantic Web? 5 10 1 100 101 102 103 104 105 106 107 108 10 1 100 101 102 10"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 3,
+          "score": 0.9748,
+          "text": "Toward a Better Representation of Low-Resource Languages with KGs 3 tity Recognition, Relation Extraction, Information E"
+        }
+      ]
+    },
+    {
+      "query": "What key structural variables are identified to characterize the uneven distribution of languages across Open Access Data (OAD) frameworks?",
+      "paper_id": "2605.05929v1",
+      "hit": 0,
+      "rr": 0.1429,
+      "latency": 0.204,
+      "top_results": [
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 2,
+          "score": 1.0,
+          "text": "2 N.-E. Mbengue freely shared online for use, modification, and redistribution [46]. Since a significant divide exists a"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 9,
+          "score": 0.9786,
+          "text": "A formalization of the different levels of resource availability will also be developed to establish systematized defini"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 5,
+          "score": 0.908,
+          "text": "Based on these findings, we formulate one main research question and three sub-research questions: (RQ) Which criteria a"
+        }
+      ]
+    },
+    {
+      "query": "What two core linguistic strategies are proposed to optimize cross-lingual transfer candidate selection for multilingual knowledge graph completion?",
+      "paper_id": "2605.05931v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.095,
+      "top_results": [
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 4,
+          "score": 0.9782,
+          "text": "4 N.-E. Mbengue as: (i) graph-only, relying solely on topological structure [41,9]; (ii) text-only, exploiting entity na"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 5,
+          "score": 0.9584,
+          "text": "Based on these findings, we formulate one main research question and three sub-research questions: (RQ) Which criteria a"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 4,
+          "score": 0.9555,
+          "text": "We identified three main approaches in the reviewed contributions. (i) Data augmentation, using methods such as back-tra"
+        }
+      ]
+    },
+    {
+      "query": "How can analogical reasoning based on language proximity be utilized to address the digital invisibility of low-resource languages in Linked Open Data?",
+      "paper_id": "2605.05931v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.114,
+      "top_results": [
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 5,
+          "score": 0.9811,
+          "text": "Toward a Better Representation of Low-Resource Languages with KGs 5 of language digital coverage in LOD is currently ava"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 2,
+          "score": 0.9537,
+          "text": "2 N.-E. Mbengue freely shared online for use, modification, and redistribution [46]. Since a significant divide exists a"
+        },
+        {
+          "paper_id": "2605.05931v1",
+          "page_num": 10,
+          "score": 0.9367,
+          "text": "10 N.-E. Mbengue 10 1 100 101 102 103 104 105 106 107 100 102 104 106 108 Missing Written Languages (a) BabelNet-based c"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym CUAs stand for, and how are these circuit blocks integrated into pre-trained large language models to enable quantum enhancement?",
+      "paper_id": "2605.05914v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.088,
+      "top_results": [
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 3,
+          "score": 0.8914,
+          "text": "within transformer architectures. In practice, VQCs typically adopt fixed ansatze composed of repeated layers of paramet"
+        },
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 21,
+          "score": 0.8865,
+          "text": "a b c x (input tokens) Input embedding Transformer 1 Transformer 2 Transformer (expanded ) Transformer L LM head (output"
+        },
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 5,
+          "score": 0.8831,
+          "text": "independent 2n2n orthogonal blocks Qi, where d = k 2n denotes the adapter input dimension, typically matching the residu"
+        }
+      ]
+    },
+    {
+      "query": "What fundamental constraint of classical memory allocation do Cayley-parameterized unitary adapters address when executing models on real quantum hardware?",
+      "paper_id": "2605.05914v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.214,
+      "top_results": [
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 2,
+          "score": 1.0,
+          "text": "tively different pathway, but practical demonstrations on real hardware have remained elusive for models of practical re"
+        },
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 3,
+          "score": 0.9012,
+          "text": "within transformer architectures. In practice, VQCs typically adopt fixed ansatze composed of repeated layers of paramet"
+        },
+        {
+          "paper_id": "2605.05914v1",
+          "page_num": 11,
+          "score": 0.8867,
+          "text": "This is not about what classical computers can computethey can apply any unitary trivially but about the QPU providing a"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym SECDA-DSE stand for, and how does it integrate large language models to automate the design space exploration of FPGA-based accelerators?",
+      "paper_id": "2605.05920v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.076,
+      "top_results": [
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 1,
+          "score": 0.9973,
+          "text": "LLM-Driven Design Space Exploration of FPGA-based Accelerators Vinamra Sharma, Xingjian Fu, Jude Haris, Jose Cano School"
+        },
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 5,
+          "score": 0.9535,
+          "text": "LLM-Driven Design Space Exploration of FPGA-based Accelerators InSyDe workshop @ EuroSys 26, April 27, 2026, Edinburgh, "
+        },
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 2,
+          "score": 0.9453,
+          "text": "InSyDe workshop @ EuroSys 26, April 27, 2026, Edinburgh, UK Sharma et al. memory organization, tiling strategies, and da"
+        }
+      ]
+    },
+    {
+      "query": "How does the SECDA-DSE framework combine a structured explorer module with an LLM Stack to optimize memory hierarchies and dataflow strategies?",
+      "paper_id": "2605.05920v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.1,
+      "top_results": [
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 2,
+          "score": 0.9997,
+          "text": "The evaluation results are then further used to refine subsequent design iterations through a human-in-the-loop feedback"
+        },
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 2,
+          "score": 0.9346,
+          "text": "InSyDe workshop @ EuroSys 26, April 27, 2026, Edinburgh, UK Sharma et al. memory organization, tiling strategies, and da"
+        },
+        {
+          "paper_id": "2605.05920v1",
+          "page_num": 5,
+          "score": 0.9302,
+          "text": "The DSE Explorer will be evaluated based on search efficiency and parameter space coverage, while the LLM Stack will be "
+        }
+      ]
+    },
+    {
+      "query": "What are the core mechanics of the 'Intentmaking' and 'Sensemaking' loops during human-AI interaction in AI-guided mathematical discovery?",
+      "paper_id": "2605.05921v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.102,
+      "top_results": [
+        {
+          "paper_id": "2605.05921v1",
+          "page_num": 3,
+          "score": 0.9428,
+          "text": "Intentmaking and Sensemaking However, a critical limitation of these highly autonomous systems is their reliance on rela"
+        },
+        {
+          "paper_id": "2605.05921v1",
+          "page_num": 2,
+          "score": 0.8854,
+          "text": "In this paper, we present findings from the deployment and qualitative user study of an experimental user-interface desi"
+        },
+        {
+          "paper_id": "2605.05921v1",
+          "page_num": 3,
+          "score": 0.8839,
+          "text": "While traditional reflection-in-action involves manipulating static or predictable materials, intentmaking captures the "
+        }
+      ]
+    },
+    {
+      "query": "What challenges do domain experts face when trying to formulate mathematical constraints and interpret algorithmic outputs using interactive AI stack interfaces?",
+      "paper_id": "2605.05921v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.219,
+      "top_results": [
+        {
+          "paper_id": "2605.05921v1",
+          "page_num": 10,
+          "score": 0.9857,
+          "text": "While our interface incorporates features like the test-stage and configuration assistant specifically to minimize unnec"
+        },
+        {
+          "paper_id": "2605.06651v1",
+          "page_num": 2,
+          "score": 0.9559,
+          "text": "The AI co-mathematician provides a stateful, interactive workspace where a project coordinator agent delegates complex t"
+        },
+        {
+          "paper_id": "2605.06651v1",
+          "page_num": 4,
+          "score": 0.9056,
+          "text": "AI Co-Mathematician: Accelerating Mathematicians with Agentic AI and steer the ongoing research. This collaboration is a"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym AuxPath-FM stand for, and how does it generalize conditional flow matching by incorporating non-Gaussian distributions into the probability path?",
+      "paper_id": "2605.06364v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.203,
+      "top_results": [
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 1,
+          "score": 0.9937,
+          "text": "Flow Matching with Arbitrary Auxiliary Paths Xin Peng1 Ang Gao1 1School of Physical Science and Technology, Beijing Univ"
+        },
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 4,
+          "score": 0.9574,
+          "text": "Unlike conventional approaches that inject auxiliary signals only through network inputs, our formulation allows these s"
+        },
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 2,
+          "score": 0.9037,
+          "text": "Baseline ( = 0) Gaussian ( (0, I)) Uniform ( [ 1, 1]) Laplace ( Laplace(0, 1)) Rademacher ( { 1, 1}) Label-Guided ( = F "
+        }
+      ]
+    },
+    {
+      "query": "How does the AuxPath-FM framework implement trajectory-level classifier-free guidance (CFG) via auxiliary variables using only a single backbone evaluation?",
+      "paper_id": "2605.06364v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.196,
+      "top_results": [
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 7,
+          "score": 0.9982,
+          "text": "5.4 Trajectory-Level Classifier-Free Guidance AuxPath-FM admits a trajectory-level formulation of classifier-free guidan"
+        },
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 9,
+          "score": 0.8943,
+          "text": "CIFAR-10 ImageNet-1k w FID sFID IS Acc (%) FID 1.0 4.14 0.0026 9.24 83.68 22.49 1.2 3.85 0.0024 9.27 84.47 21.47 1.5 4.1"
+        },
+        {
+          "paper_id": "2605.06364v1",
+          "page_num": 18,
+          "score": 0.8518,
+          "text": "y=0 Step 0 Step 5 Step 10 Step 16 Step 21 Step 27 Step 32 Step 38 Step 43 Step 49 y=1 y=2 y=3 y=4 y=5 y=6 y=7 y=8 y=9 (a"
+        }
+      ]
+    },
+    {
+      "query": "What is execution lineage in AI-native workflows, and how does it represent agentic work as a directed acyclic graph (DAG) to support identity-based replay?",
+      "paper_id": "2605.06365v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.109,
+      "top_results": [
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 1,
+          "score": 1.0,
+          "text": "FROM AGENT LOOPS TO DETERMINISTIC GRAPHS: EXECUTION LINEAGE FOR REPRODUCIBLE AI-NATIVE WORK Josh Rosen ThruWire, Inc. Se"
+        },
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 12,
+          "score": 0.8971,
+          "text": "From Agent Loops to Deterministic Graphs: Execution Lineage for Reproducible AI-Native Work 8.5 Efficiency Tradeoffs The"
+        },
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 4,
+          "score": 0.8913,
+          "text": "From Agent Loops to Deterministic Graphs: Execution Lineage for Reproducible AI-Native Work explicit dependencies determ"
+        }
+      ]
+    },
+    {
+      "query": "Explain how execution-lineage replay prevents unrelated-branch contamination and churn during policy-memo update tasks compared to loop-centric baselines.",
+      "paper_id": "2605.06365v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.09,
+      "top_results": [
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 8,
+          "score": 0.9924,
+          "text": "From Agent Loops to Deterministic Graphs: Execution Lineage for Reproducible AI-Native Work 4 Execution vs Agent Loop Ag"
+        },
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 10,
+          "score": 0.9344,
+          "text": "From Agent Loops to Deterministic Graphs: Execution Lineage for Reproducible AI-Native Work counts, model-call counts, a"
+        },
+        {
+          "paper_id": "2605.06365v1",
+          "page_num": 11,
+          "score": 0.9344,
+          "text": "From Agent Loops to Deterministic Graphs: Execution Lineage for Reproducible AI-Native Work 8.2 Dependency Isolation: Un"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym eX2L stand for, and how does it decorrelate confounding features by penalizing similarity between primary and confounder Grad-CAM activation maps?",
+      "paper_id": "2605.06368v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.229,
+      "top_results": [
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 5,
+          "score": 0.9738,
+          "text": "eXplaining to Learn (eX2L) tial regions drive predictions for both the label y and the confounder c throughout training."
+        },
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 1,
+          "score": 0.9731,
+          "text": "eXplaining to Learn (eX2L): Regularization Using Contrastive Visual Explanation Pairs for Distribution Shifts Paulo Mari"
+        },
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 8,
+          "score": 0.9548,
+          "text": "Performance (Table 8) The experimental results demonstrate that the added algorithmic complexity of eX2L is a necessary "
+        }
+      ]
+    },
+    {
+      "query": "What performance gains does the eX2L framework achieve over Empirical Risk Minimization (ERM) on the Spawrious Many-to-Many Hard Challenge benchmark?",
+      "paper_id": "2605.06368v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.18,
+      "top_results": [
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 8,
+          "score": 0.9369,
+          "text": "Performance (Table 8) The experimental results demonstrate that the added algorithmic complexity of eX2L is a necessary "
+        },
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 24,
+          "score": 0.8805,
+          "text": "eXplaining to Learn (eX2L) Table 13. Performance on AlexNet (Constrained) on Hard M2M Spawrious Algorithm WGA AA eX2L-MA"
+        },
+        {
+          "paper_id": "2605.06368v1",
+          "page_num": 21,
+          "score": 0.8693,
+          "text": "eXplaining to Learn (eX2L) Table 7. CelebA Experiment Results Algorithms Subpopulation Shift Name Sampling CelebA AA WGA"
+        }
+      ]
+    },
+    {
+      "query": "How is persistent homology applied to the embedding matrices of modular arithmetic models to reveal a consistent topological signature of grokking?",
+      "paper_id": "2605.06352v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.189,
+      "top_results": [
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 1,
+          "score": 1.0,
+          "text": "Topological Signatures of Grokking Yifan Tang Imperial College London yifan.tang23@imperial.ac.uk Qiquan Wang Queen Mary"
+        },
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 3,
+          "score": 0.8946,
+          "text": "Persistent homology has previously been used to analyze neural network representations and transformer embeddings [20, 1"
+        },
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 2,
+          "score": 0.8524,
+          "text": "signatures are tied to the presence of underlying global structure rather than arising universally during training. We a"
+        }
+      ]
+    },
+    {
+      "query": "What sharp transitions in maximum and total persistence of first homology (H1) distinguish generalization from memorization in the data regimes of grokking?",
+      "paper_id": "2605.06352v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.084,
+      "top_results": [
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 1,
+          "score": 1.0,
+          "text": "Topological Signatures of Grokking Yifan Tang Imperial College London yifan.tang23@imperial.ac.uk Qiquan Wang Queen Mary"
+        },
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 9,
+          "score": 0.8849,
+          "text": "Figure 6: MNIST results, layer 1 (after the first hidden layer). Top row: train/test accuracy. Bottom row, left to right"
+        },
+        {
+          "paper_id": "2605.06352v1",
+          "page_num": 2,
+          "score": 0.8829,
+          "text": "signatures are tied to the presence of underlying global structure rather than arising universally during training. We a"
+        }
+      ]
+    },
+    {
+      "query": "What does the acronym MEFA stand for, and how does it utilize gradient checkpointing to enable exact end-to-end full-gradient attacks through long purification trajectories?",
+      "paper_id": "2605.06357v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.296,
+      "top_results": [
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 2,
+          "score": 0.9844,
+          "text": "Even if exact gradients are available for a fixed purification trajectory, a stochastic purification defense does not de"
+        },
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 13,
+          "score": 0.9508,
+          "text": "Supplementary Materials for Memory Efficient Full-gradient Attacks (MEFA) Framework for Adversarial Defense Evaluations "
+        },
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 2,
+          "score": 0.9406,
+          "text": "The central insight of this work is that exact full-gradient attacks against iterative stochastic purification defenses "
+        }
+      ]
+    },
+    {
+      "query": "How does the SoftLeaky Relu activation function help alleviate the exponential decay of gradients in deep architectures evaluated under the MEFA framework?",
+      "paper_id": "2605.06357v1",
+      "hit": 1,
+      "rr": 1.0,
+      "latency": 0.097,
+      "top_results": [
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 2,
+          "score": 0.9894,
+          "text": "The central insight of this work is that exact full-gradient attacks against iterative stochastic purification defenses "
+        },
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 7,
+          "score": 0.9839,
+          "text": "Figure 2: Purified images present random prediction with occlusion attributions [52] where red and blue regions indicate"
+        },
+        {
+          "paper_id": "2605.06357v1",
+          "page_num": 2,
+          "score": 0.9568,
+          "text": "Even if exact gradients are available for a fixed purification trajectory, a stochastic purification defense does not de"
         }
       ]
     }
