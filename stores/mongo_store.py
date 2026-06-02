@@ -201,6 +201,22 @@ def get_chunks_by_paper(
         .sort([("page_num", ASCENDING), ("chunk_index", ASCENDING)])
     )
 
+def get_chunks_by_paper_ids(
+    db:        Database,
+    paper_ids: list[str],
+) -> list[dict]:
+    """
+    Fetch all chunks for SEVERAL papers in one query (GraphRAG Step 2).
+    Ordered by paper, then page, then chunk index so each paper's chunks
+    stay in reading order. Returns [] for an empty paper_ids list.
+    """
+    if not paper_ids:
+        return []
+    return list(
+        db["chunks"]
+        .find({"paper_id": {"$in": paper_ids}}, {"_id": 0})
+        .sort([("paper_id", ASCENDING), ("page_num", ASCENDING), ("chunk_index", ASCENDING)])
+    )
 
 def delete_paper_chunks(db: Database, paper_id: str) -> int:
     """Delete all chunks for a paper. Used when re-ingesting."""
