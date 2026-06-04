@@ -30,6 +30,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Literal
 
 sys.path.insert(0, ".")
 load_dotenv()
@@ -299,7 +300,8 @@ class IngestResponse(BaseModel):
 
 # ── D3 request model ─────────────────────────────────────────────────────────
 class AskRequest(BaseModel):
-    query: str   # plain-text question from the user
+    query: str
+    condition: Literal["graph_guided", "hybrid", "vector_only"] = "graph_guided"
 
 
 # ---------------------------------------------------------------------------
@@ -478,163 +480,103 @@ async def search(request: SearchRequest):
 @app.post("/ask")
 async def ask(req: AskRequest):
     """
-    Full GraphRAG pipeline — 14 steps.
-
-    Plain-English summary of each step:
-
-    1  Embed the query into a vector (done ONCE, reused everywhere)
-    2  Get the current hybrid weight (alpha) from the online learner
-    3  Seed search — quick scan of all chunks → 5 anchor paper_ids
-    4  Topic parser — map the question words to Neo4j Topic node names
-    5  Subgraph — ask the knowledge graph for papers related to those topics
-    6  Expand — fetch all chunks belonging to those papers from MongoDB
-    7  Safety pre-filter — drop any chunks with missing/bad provenance
-    8  Align embeddings — look up pre-built vectors for the pool (no re-encoding)
-    9  Rank — score chunks with hybrid BM25+dense+graph and keep top-8
-    10 Generate answer — LLM answers using ONLY the ranked chunks, with [1][2] citations
-    11 Safety post-check — verify every sentence in the answer has a valid citation
-    12 Judge — break the answer into claims, check each is grounded in a chunk
-    13 Reflect — if hallucinations found, LLM revises; then re-judge
-    14 Return — final answer, citations, safety report, judge scores, improvement delta
+    Full GraphRAG pipeline with optional condition switching for ablation.
+ 
+    condition="graph_guided" (default) — full 14-step pipeline
+    condition="hybrid"                 — skip graph, use all chunks, hybrid alpha
+    condition="vector_only"            — skip graph, use all chunks, alpha=1.0
     """
     start = time.time()
     query = req.query.strip()
-
+ 
     if not query:
         raise HTTPException(status_code=400, detail="Query cannot be empty")
-
     if state.bm25_index is None or state.dense_embeddings is None:
         raise HTTPException(status_code=503, detail="No documents ingested yet.")
-
-    # ── Step 1 · Embed query ─────────────────────────────────────────────────
-    # We embed ONCE here and pass qv around — never embed again.
-    # graphrag_embed_query() applies the BGE query prefix automatically.
+ 
+    # ── Step 1 · Embed query (once, reused everywhere) ───────────────────────
     qv = graphrag_embed_query(state.model, query)
-
-    # ── Step 2 · Get adaptive alpha from online learner ──────────────────────
-    # adaptive_alpha() reads state.hybrid_adapter and returns a float.
-    # If no adapter loaded it returns the default (0.5).
+ 
+    # ── Step 2 · Get alpha from online learner ───────────────────────────────
     alpha, weights = adaptive_alpha(state.hybrid_adapter)
-
-    # ── Step 3 · Seed search ─────────────────────────────────────────────────
-    # Scans ALL 7,979 chunks with hybrid search (k=30), extracts the unique
-    # paper_ids from the top results, returns the best 5.
-    # These are the "anchor" papers we'll expand from in the graph.
-    seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=5)
-
-    # ── Step 4 · Topic parsing ───────────────────────────────────────────────
-    # TopicParser looks at the query text and maps it to actual Neo4j
-    # Topic node names (e.g. "knowledge_representation", "planning_and_scheduling").
-    # This lets us filter the graph by topic, not just by paper similarity.
-    topics = state.topic_parser.parse(query)
-
-    # ── Step 5 · Subgraph selection (GraphRAG Step 1) ────────────────────────
-    # select_subgraph() runs Cypher queries in Neo4j using:
-    #   - seed_ids  → papers we know are relevant
-    #   - topics    → topic nodes to expand through
-    # Returns up to 20 papers with graph-relevance scores and reasons.
-    subgraph = state.neo4j.select_subgraph(
-        seed_paper_ids=seed_ids,
-        topics=topics,
-        max_papers=20,
-    )
-
-    # ── Step 6 · Expand to chunks (GraphRAG Step 2) ──────────────────────────
-    # Takes the paper_ids from the subgraph and fetches ALL their chunks
-    # from MongoDB. Each chunk gets a graph_score and graph_reasons attached.
-    # This is our "candidate pool" — typically 200–800 chunks.
-    pool = expand_to_chunks(state.mongo_db, subgraph)
-
-    # ── Step 7 · Provenance filter (Safety ★ — pre-LLM) ─────────────────────
-    # Drops any chunk whose paper has missing or unverifiable provenance
-    # in MongoDB. We check BEFORE sending to the LLM — we never want the
-    # model citing something we can't verify.
-    pool = provenance_filter(state.mongo_db, pool)
-
-    # ── Step 8 · Align pool embeddings ───────────────────────────────────────
-    # At startup we loaded ALL embeddings from Qdrant into state.dense_embeddings.
-    # Here we look up which rows correspond to our pool chunks.
-    # No re-encoding — just an index lookup. Fast.
+ 
+    # ── Condition switch — graph_guided vs hybrid vs vector_only ─────────────
+    #
+    #   graph_guided : Steps 3-6 run normally (seed → subgraph → expand → filter)
+    #   hybrid       : Skip steps 3-6 entirely. Pool = all 7,979 chunks.
+    #   vector_only  : Same as hybrid but force alpha=1.0 (pure dense, no BM25)
+    #
+    # Everything from Step 8 onward is IDENTICAL for all 3 conditions.
+    # This is what makes the ablation fair — same ranking, same LLM, same judge.
+ 
+    if req.condition == "graph_guided":
+        # Steps 3-6 — graph narrows the pool
+        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=5)
+        topics   = state.topic_parser.parse(query)
+        subgraph = state.neo4j.select_subgraph(
+            seed_paper_ids=seed_ids, topics=topics, max_papers=20
+        )
+        pool = expand_to_chunks(state.mongo_db, subgraph)
+        pool = provenance_filter(state.mongo_db, pool)
+ 
+        papers_in_subgraph = len(subgraph)
+        seed_ids_out       = seed_ids
+        topics_out         = topics
+ 
+    else:
+        # hybrid / vector_only — skip the graph entirely
+        # Pool = all chunks (already loaded in state at startup)
+        pool = list(state.all_chunks)   # copy so we don't mutate state
+ 
+        if req.condition == "vector_only":
+            alpha = 1.0   # pure dense — BM25 weight becomes 0
+ 
+        papers_in_subgraph = 0
+        seed_ids_out       = []
+        topics_out         = []
+ 
+    # ── Step 8 · Align embeddings (same for all conditions) ──────────────────
     aligned_pool, pool_embeddings = pool_embeddings_from_state(
         pool, state.all_chunks, state.dense_embeddings
     )
-
-    # ── Step 9 · Rank (GraphRAG Step 3) ──────────────────────────────────────
-    # rank_pool() scores every chunk in the pool using:
-    #   BM25 score   (keyword match)
-    #   dense score  (embedding similarity, using our pre-computed qv)
-    #   graph score  (how central this chunk's paper was in the subgraph)
-    # Blended with alpha weighting, keeps top-8.
+ 
+    # ── Step 9 · Rank (same for all conditions) ───────────────────────────────
     ranked = rank_pool(
-        query,
-        aligned_pool,
-        state.model,
-        pool_embeddings,
-        alpha=alpha,
-        k=8,
-        query_vector=qv,
+        query, aligned_pool, state.model, pool_embeddings,
+        alpha=alpha, k=8, query_vector=qv,
     )
-
-    # ── Step 10 · Generate answer (GraphRAG Step 4) ──────────────────────────
-    # generate_answer() sends the top-8 chunks to the LLM (via OpenRouter).
-    # The LLM ONLY sees those chunks — not the whole corpus.
-    # It must use [1][2] style inline citations tied to the chunk list.
+ 
+    # ── Step 10 · Generate answer ─────────────────────────────────────────────
     result = generate_answer(query, ranked)
-
-    # ── Step 11 · Source pinning check (Safety ★ — post-LLM) ────────────────
-    # Checks every sentence ≥60 chars in the answer has a [N] citation
-    # that maps to a real chunk in ranked. Flags:
-    #   out_of_range     — citation [N] where N > chunks_used
-    #   uncited_sentences — long sentences with no citation at all
+ 
+    # ── Step 11 · Safety post-check ───────────────────────────────────────────
     pin = source_pinning_check(
         result["answer"],
         ranked[: result["chunks_used"]],
     )
-
-    # ── Step 12 · Judge answer (Quality ✦) ───────────────────────────────────
-    # judge_answer() extracts every factual claim from the answer and checks
-    # each one against the ranked chunks. Returns:
-    #   faithfulness_score   — float, grounded_claims / total_claims
-    #   ungrounded_claims    — list of claim strings that aren't in ANY chunk
+ 
+    # ── Step 12 · Judge ───────────────────────────────────────────────────────
     j_before = judge_answer(query, result["answer"], ranked)
-
-    # ── Step 13 · Reflect and revise (Quality ✦) ─────────────────────────────
-    # reflect_answer() takes the ungrounded_claims and passes them BACK to
-    # the LLM as a critique: "these claims are not supported, fix them."
-    # The LLM rewrites the answer using only the context.
-    # Then judge_answer runs again on the revised answer.
-    # If the initial answer was already FULLY_GROUNDED → skipped entirely
-    # (reflected=False, no extra API call made).
+ 
+    # ── Step 13 · Reflect ─────────────────────────────────────────────────────
     reflect = reflect_answer(query, ranked, result, j_before)
-
-    # ── Step 14 · Return ─────────────────────────────────────────────────────
+ 
+    # ── Step 14 · Return ──────────────────────────────────────────────────────
     return {
-        # Final answer (revised if reflection was triggered)
-        "answer":       reflect["revised_answer"],
-        "citations":    reflect["revised_citations"],
-
-        # Safety: is_clean bool + any uncited/out-of-range sentences
-        "safety":       pin,
-
-        # Faithfulness + relevance scores before reflection
-        "judge_before": reflect["initial_judge"],
-
-        # Faithfulness + relevance scores after reflection (same if skipped)
-        "judge_after":  reflect["revised_judge"],
-
-        # Delta: faithfulness_delta, relevance_delta, claims_fixed
-        "improvement":  reflect["improvement"],
-
-        # Was reflection needed? False = answer was clean on first try
-        "reflected":    reflect["reflection_triggered"],
-
-        # Debug / transparency fields
-        "seed_papers":      seed_ids,
-        "topics_used":      topics,
-        "papers_in_subgraph": len(subgraph),
-        "pool_size":        len(pool),
-        "alpha":            alpha,
-        "elapsed_seconds":  round(time.time() - start, 2),
+        "answer":              reflect["revised_answer"],
+        "citations":           reflect["revised_citations"],
+        "safety":              pin,
+        "judge_before":        reflect["initial_judge"],
+        "judge_after":         reflect["revised_judge"],
+        "improvement":         reflect["improvement"],
+        "reflected":           reflect["reflection_triggered"],
+        "condition":           req.condition,          # ablation label
+        "seed_papers":         seed_ids_out,
+        "topics_used":         topics_out,
+        "papers_in_subgraph":  papers_in_subgraph,
+        "pool_size":           len(pool),
+        "alpha":               alpha,
+        "elapsed_seconds":     round(time.time() - start, 2),
     }
 
 
