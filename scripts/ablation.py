@@ -1,28 +1,18 @@
 """
 scripts/ablation.py
 --------------------
-D3 Ablation Study — compare 3 retrieval conditions on the same queries.
+D3 Ablation Study — corpus-specific gold queries from D2 eval set.
 
-What "ablation" means in plain English:
-    We test what happens when we REMOVE parts of the pipeline.
-    Like removing ingredients from a recipe to see what each one contributes.
-
-The 3 conditions tested:
-    1. vector_only    — dense embeddings only (no BM25, no graph)
-    2. hybrid         — BM25 + dense blended, but NO graph narrowing
-    3. graph_guided   — full pipeline (graph narrows pool, then hybrid ranks)
-
-How it works:
-    We added a ?condition= param to /ask so the server can swap modes.
-    This script POSTs each query 3 times (once per condition) and scores
-    faithfulness + relevance + latency from the judge scores in the response.
+Each query targets one specific paper in the corpus.
+This makes the ablation traceable: we know exactly which paper
+the correct answer should come from.
 
 Run:
     python scripts/ablation.py
 
 Output:
-    ablation_results.json   <- paste into d3_report.ipynb
-    prints a clean table to stdout
+    ablation_results.json
+    prints summary table to stdout
 """
 
 import json
@@ -32,21 +22,42 @@ import httpx
 
 BASE_URL = "http://127.0.0.1:8000"
 
-# ── Test queries — same ones used for D2 gold eval ────────────────────────────
-# Use at least 5. More = more reliable p95.
+# ── Gold queries — each tied to one paper_id ─────────────────────────────────
 TEST_QUERIES = [
-    "What methods are used for knowledge representation in AI?",
-    "How does automated reasoning work in planning systems?",
-    "What are the main approaches to reinforcement learning?",
-    "How is uncertainty handled in probabilistic graphical models?",
-    "What are the challenges in natural language understanding?",
+    {
+        "query":    "How does ActCam control camera motion without training?",
+        "paper_id": "2605.06667v1",
+    },
+    {
+        "query":    "What is the main computational drawback of the RLPD algorithm?",
+        "paper_id": "2605.05863v1",
+    },
+    {
+        "query":    "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
+        "paper_id": "2605.05896v1",
+    },
+    {
+        "query":    "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
+        "paper_id": "2605.05913v1",
+    },
+    {
+        "query":    "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
+        "paper_id": "2605.05929v1",
+    },
+    {
+        "query":    "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
+        "paper_id": "2605.05951v1",
+    },
+    {
+        "query":    "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+        "paper_id": "2605.06548v1",
+    },
 ]
 
 CONDITIONS = ["vector_only", "hybrid", "graph_guided"]
 
 
-def run_query(query: str, condition: str, timeout: int = 120) -> dict:
-    """POST to /ask with a condition flag and return the parsed response."""
+def run_query(query: str, condition: str, timeout: int = 180) -> dict:
     resp = httpx.post(
         f"{BASE_URL}/ask",
         json={"query": query, "condition": condition},
@@ -56,9 +67,23 @@ def run_query(query: str, condition: str, timeout: int = 120) -> dict:
     return resp.json()
 
 
-def extract_metrics(result: dict) -> dict:
-    """Pull the numbers we care about from one /ask response."""
+def extract_metrics(result: dict, expected_paper_id: str) -> dict:
+    """
+    Pull metrics from one /ask response.
+    Also checks whether the expected paper_id appears in the citations —
+    this is our ground-truth hit check (did the graph find the right paper?).
+    """
     judge = result.get("judge_after") or result.get("judge_before") or {}
+
+    # Check if the correct paper appears in citations
+    citations    = result.get("citations", [])
+    cited_papers = {c.get("paper_id") for c in citations}
+    correct_hit  = expected_paper_id in cited_papers
+
+    # Also check seed_papers (graph may have found it even if not cited)
+    seed_papers  = result.get("seed_papers", [])
+    in_seed      = expected_paper_id in seed_papers
+
     return {
         "faithfulness":       judge.get("faithfulness_score", 0.0),
         "faithfulness_label": judge.get("faithfulness_label", "UNKNOWN"),
@@ -66,13 +91,15 @@ def extract_metrics(result: dict) -> dict:
         "latency_s":          result.get("elapsed_seconds", 0.0),
         "pool_size":          result.get("pool_size", 0),
         "reflected":          result.get("reflected", False),
+        "correct_paper_cited": correct_hit,   # gold paper appeared in citations
+        "correct_paper_seeded": in_seed,      # gold paper found in seed search
     }
 
 
-def p95(values: list[float]) -> float:
+def p95(values: list) -> float:
     if not values:
         return 0.0
-    s = sorted(values)
+    s   = sorted(values)
     idx = max(0, int(len(s) * 0.95) - 1)
     return round(s[idx], 3)
 
@@ -80,46 +107,58 @@ def p95(values: list[float]) -> float:
 def run_ablation():
     results = {c: [] for c in CONDITIONS}
 
-    for i, query in enumerate(TEST_QUERIES, 1):
-        print(f"\n[{i}/{len(TEST_QUERIES)}] {query[:65]}...")
+    for i, item in enumerate(TEST_QUERIES, 1):
+        query    = item["query"]
+        paper_id = item["paper_id"]
+        print(f"\n[{i}/{len(TEST_QUERIES)}] {query[:70]}...")
+        print(f"  Expected paper: {paper_id}")
+
         for condition in CONDITIONS:
             print(f"  {condition:<15} ", end="", flush=True)
-            t0 = time.perf_counter()
             try:
                 raw = run_query(query, condition)
-                metrics = extract_metrics(raw)
-                metrics["query"] = query
-                results[condition].append(metrics)
+                m   = extract_metrics(raw, paper_id)
+                m["query"]    = query
+                m["paper_id"] = paper_id
+                results[condition].append(m)
+                hit = "✓ hit" if m["correct_paper_cited"] else "✗ miss"
                 print(
-                    f"faith={metrics['faithfulness']:.2f}  "
-                    f"rel={metrics['relevance']:.2f}  "
-                    f"pool={metrics['pool_size']}  "
-                    f"{metrics['latency_s']:.1f}s"
+                    f"faith={m['faithfulness']:.2f}  "
+                    f"rel={m['relevance']:.2f}  "
+                    f"pool={m['pool_size']}  "
+                    f"{m['latency_s']:.1f}s  "
+                    f"{hit}  "
+                    f"{'reflected' if m['reflected'] else 'clean'}"
                 )
             except Exception as e:
                 print(f"ERROR — {e}")
                 results[condition].append({
-                    "query": query,
+                    "query":    query,
+                    "paper_id": paper_id,
                     "faithfulness": 0.0,
                     "faithfulness_label": "ERROR",
                     "relevance": 0.0,
-                    "latency_s": time.perf_counter() - t0,
+                    "latency_s": 0.0,
                     "pool_size": 0,
                     "reflected": False,
+                    "correct_paper_cited":  False,
+                    "correct_paper_seeded": False,
                     "error": str(e),
                 })
 
     # ── Summary stats ─────────────────────────────────────────────────────────
     summary = {}
     for cond, rows in results.items():
-        faithfulness = [r["faithfulness"] for r in rows]
-        relevance    = [r["relevance"]    for r in rows]
-        latencies    = [r["latency_s"]    for r in rows]
+        faith   = [r["faithfulness"] for r in rows]
+        rel     = [r["relevance"]    for r in rows]
+        lats    = [r["latency_s"]    for r in rows]
+        hits    = [r["correct_paper_cited"] for r in rows]
         summary[cond] = {
-            "mean_faithfulness": round(statistics.mean(faithfulness), 3),
-            "mean_relevance":    round(statistics.mean(relevance),    3),
-            "mean_latency_s":    round(statistics.mean(latencies),    3),
-            "p95_latency_s":     p95(latencies),
+            "mean_faithfulness": round(statistics.mean(faith), 3),
+            "mean_relevance":    round(statistics.mean(rel),   3),
+            "mean_latency_s":    round(statistics.mean(lats),  3),
+            "p95_latency_s":     p95(lats),
+            "citation_hit_rate": round(sum(hits) / len(hits), 3),  # how often correct paper cited
             "n_queries":         len(rows),
         }
 
@@ -135,50 +174,48 @@ def run_ablation():
 
 def print_table(summary: dict):
     print("\n")
-    print("=" * 68)
+    print("=" * 78)
     print("D3 ABLATION RESULTS")
-    print("=" * 68)
-    print(f"{'Condition':<20} {'Faithfulness':>13} {'Relevance':>10} {'p95 lat':>9}")
-    print("-" * 68)
+    print("=" * 78)
+    print(f"{'Condition':<20} {'Faithfulness':>13} {'Relevance':>10} {'Hit Rate':>10} {'p95 lat':>9}")
+    print("-" * 78)
     for cond, s in summary.items():
         label = cond.replace("_", " ")
         print(
             f"{label:<20} "
             f"{s['mean_faithfulness']:>13.3f} "
             f"{s['mean_relevance']:>10.3f} "
+            f"{s['citation_hit_rate']:>10.3f} "
             f"{s['p95_latency_s']:>9.3f}s"
         )
-    print("=" * 68)
+    print("=" * 78)
 
-    # Delta rows — improvement of graph_guided over vector_only
+    # Delta rows
     if "vector_only" in summary and "graph_guided" in summary:
         v = summary["vector_only"]
         g = summary["graph_guided"]
         print()
         print("Graph-guided vs vector-only improvement:")
-        faith_delta = round(g["mean_faithfulness"] - v["mean_faithfulness"], 3)
-        rel_delta   = round(g["mean_relevance"]    - v["mean_relevance"],    3)
-        sign_f = "+" if faith_delta >= 0 else ""
-        sign_r = "+" if rel_delta   >= 0 else ""
-        print(f"  Faithfulness delta : {sign_f}{faith_delta}")
-        print(f"  Relevance delta    : {sign_r}{rel_delta}")
+        fd = round(g["mean_faithfulness"]  - v["mean_faithfulness"],  3)
+        rd = round(g["mean_relevance"]     - v["mean_relevance"],     3)
+        hd = round(g["citation_hit_rate"]  - v["citation_hit_rate"],  3)
+        print(f"  Faithfulness delta : {'+' if fd >= 0 else ''}{fd}")
+        print(f"  Relevance delta    : {'+' if rd >= 0 else ''}{rd}")
+        print(f"  Hit rate delta     : {'+' if hd >= 0 else ''}{hd}")
     print()
 
 
 if __name__ == "__main__":
-    # Quick health check before starting
     try:
-        r = httpx.get(f"{BASE_URL}/health", timeout=5)
+        r      = httpx.get(f"{BASE_URL}/health", timeout=5)
         health = r.json()
         print(f"Server online — {health.get('chunks', 0)} chunks loaded")
-        print(f"Neo4j ready: {health.get('neo4j_ready')}")
-        print(f"TopicParser: {health.get('topic_parser')}")
+        print(f"Neo4j ready  : {health.get('neo4j_ready')}")
+        print(f"TopicParser  : {health.get('topic_parser')}")
     except Exception as e:
-        print(f"Cannot reach server at {BASE_URL} — is it running?")
-        print(f"Error: {e}")
+        print(f"Cannot reach server at {BASE_URL} — is it running?\n{e}")
         raise SystemExit(1)
 
-    print(f"\nRunning ablation over {len(TEST_QUERIES)} queries × {len(CONDITIONS)} conditions...")
-    print("This will take a while due to LLM calls. Grab a coffee.\n")
-
+    print(f"\nRunning {len(TEST_QUERIES)} queries × {len(CONDITIONS)} conditions")
+    print("Estimated time: ~30 minutes total\n")
     run_ablation()
