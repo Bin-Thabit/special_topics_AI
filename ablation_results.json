@@ -1,0 +1,288 @@
+{
+  "per_query": {
+    "vector_only": [
+      {
+        "faithfulness": 0.67,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 61.93,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "How does ActCam control camera motion without training?",
+        "paper_id": "2605.06667v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 50.71,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What is the main computational drawback of the RLPD algorithm?",
+        "paper_id": "2605.05863v1"
+      },
+      {
+        "faithfulness": 1.0,
+        "faithfulness_label": "FULLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 27.15,
+        "pool_size": 7979,
+        "reflected": false,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
+        "paper_id": "2605.05896v1"
+      },
+      {
+        "faithfulness": 1.0,
+        "faithfulness_label": "FULLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 35.82,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
+        "paper_id": "2605.05913v1"
+      },
+      {
+        "faithfulness": 0.2,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.75,
+        "latency_s": 61.65,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
+        "paper_id": "2605.05929v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.5,
+        "latency_s": 42.21,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
+        "paper_id": "2605.05951v1"
+      },
+      {
+        "faithfulness": 0.75,
+        "faithfulness_label": "MOSTLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 74.52,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+        "paper_id": "2605.06548v1"
+      }
+    ],
+    "hybrid": [
+      {
+        "faithfulness": 0.33,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 77.29,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "How does ActCam control camera motion without training?",
+        "paper_id": "2605.06667v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.5,
+        "latency_s": 44.39,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": false,
+        "query": "What is the main computational drawback of the RLPD algorithm?",
+        "paper_id": "2605.05863v1"
+      },
+      {
+        "faithfulness": 1.0,
+        "faithfulness_label": "FULLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 52.83,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
+        "paper_id": "2605.05896v1"
+      },
+      {
+        "faithfulness": 1.0,
+        "faithfulness_label": "FULLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 42.72,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
+        "paper_id": "2605.05913v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.75,
+        "latency_s": 59.73,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
+        "paper_id": "2605.05929v1"
+      },
+      {
+        "faithfulness": 0.5,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 41.81,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
+        "paper_id": "2605.05951v1"
+      },
+      {
+        "faithfulness": 0.71,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 65.84,
+        "pool_size": 7979,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": false,
+        "query": "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+        "paper_id": "2605.06548v1"
+      }
+    ],
+    "graph_guided": [
+      {
+        "faithfulness": 0.67,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 81.14,
+        "pool_size": 749,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": true,
+        "query": "How does ActCam control camera motion without training?",
+        "paper_id": "2605.06667v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.0,
+        "latency_s": 40.96,
+        "pool_size": 724,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": true,
+        "query": "What is the main computational drawback of the RLPD algorithm?",
+        "paper_id": "2605.05863v1"
+      },
+      {
+        "faithfulness": 1.0,
+        "faithfulness_label": "FULLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 28.33,
+        "pool_size": 732,
+        "reflected": false,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": true,
+        "query": "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
+        "paper_id": "2605.05896v1"
+      },
+      {
+        "faithfulness": 0.0,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 38.74,
+        "pool_size": 641,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": true,
+        "query": "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
+        "paper_id": "2605.05913v1"
+      },
+      {
+        "faithfulness": 0.4,
+        "faithfulness_label": "NOT_GROUNDED",
+        "relevance": 0.75,
+        "latency_s": 56.02,
+        "pool_size": 923,
+        "reflected": true,
+        "correct_paper_cited": false,
+        "correct_paper_seeded": true,
+        "query": "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
+        "paper_id": "2605.05929v1"
+      },
+      {
+        "faithfulness": 0.67,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 51.9,
+        "pool_size": 757,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": true,
+        "query": "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
+        "paper_id": "2605.05951v1"
+      },
+      {
+        "faithfulness": 0.67,
+        "faithfulness_label": "PARTIALLY_GROUNDED",
+        "relevance": 1.0,
+        "latency_s": 42.21,
+        "pool_size": 807,
+        "reflected": true,
+        "correct_paper_cited": true,
+        "correct_paper_seeded": true,
+        "query": "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
+        "paper_id": "2605.06548v1"
+      }
+    ]
+  },
+  "summary": {
+    "vector_only": {
+      "mean_faithfulness": 0.517,
+      "mean_relevance": 0.893,
+      "mean_latency_s": 50.57,
+      "p95_latency_s": 61.93,
+      "citation_hit_rate": 0.714,
+      "n_queries": 7
+    },
+    "hybrid": {
+      "mean_faithfulness": 0.506,
+      "mean_relevance": 0.893,
+      "mean_latency_s": 54.944,
+      "p95_latency_s": 65.84,
+      "citation_hit_rate": 0.571,
+      "n_queries": 7
+    },
+    "graph_guided": {
+      "mean_faithfulness": 0.487,
+      "mean_relevance": 0.821,
+      "mean_latency_s": 48.471,
+      "p95_latency_s": 56.02,
+      "citation_hit_rate": 0.571,
+      "n_queries": 7
+    }
+  }
+}

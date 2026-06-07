@@ -1,17 +1,22 @@
 """
 api/main.py
 ------------
-FastAPI application with two endpoints:
+FastAPI application — D2 retrieval stack + D3 GraphRAG pipeline.
 
-    POST /ingest  — upload PDF → parse → chunk → embed → store
-    POST /search  — query → hybrid_search() → cited results
+Endpoints:
+    POST /ingest        — upload PDF → parse → chunk → embed → store
+    POST /search        — query → hybrid_search() → cited results
+    POST /ask           — query → full GraphRAG pipeline → grounded answer  [D3]
+    POST /rebuild-index — rebuild BM25 + dense indexes after batch ingest
+    GET  /health        — liveness check
 
 Startup:
     - Reads run_card.yaml for best_alpha, best_k, best_svd_dim
     - Loads embedding model once
-    - Connects to Qdrant and MongoDB
+    - Connects to Qdrant, MongoDB, Neo4j                                    [D3]
     - Loads all chunks from MongoDB + builds BM25 + dense indexes
     - Warm-starts HybridWeightAdapter with AutoML best_alpha
+    - Initialises TopicParser for query → Neo4j topic mapping               [D3]
 """
 
 import os
@@ -22,13 +27,15 @@ from contextlib import asynccontextmanager
 import numpy as np
 import yaml
 from dotenv import load_dotenv
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Literal
 
 sys.path.insert(0, ".")
 load_dotenv()
 
+# ── D2 imports (unchanged) ────────────────────────────────────────────────────
 from ingestion.chunker    import chunk_document
 from ingestion.embedder   import (
     EMBED_MODEL,
@@ -53,11 +60,30 @@ from stores.qdrant_store  import (
     get_qdrant_client,
     upsert_vectors,
 )
-
 from retrieval.hybrid_retriever import hybrid_search
 
+# ── D3 imports ────────────────────────────────────────────────────────────────
+from stores.neo4j_store     import Neo4jStore       # Abdullah's store
+from graphrag.topic_parser  import TopicParser      # Abdullah's parser
+from graphrag.seed_search   import seed_search      # our bridge function
+from graphrag.expand        import expand_to_chunks # Abdullah's Step 2
+from graphrag.rank          import (                # Abdullah's Step 3
+    embed_query       as graphrag_embed_query,
+    adaptive_alpha,
+    pool_embeddings_from_state,
+    rank_pool,
+)
+from graphrag.answer  import generate_answer        # Abdullah's Step 4
+from graphrag.safety  import (                      # Abdullah's safety layer
+    provenance_filter,
+    source_pinning_check,
+)
+from graphrag.judge   import judge_answer           # Abdullah's judge
+from graphrag.reflect import reflect_answer         # Abdullah's reflect
+
+
 # ---------------------------------------------------------------------------
-# Load run card — AutoML best hyperparameters
+# Load run card — AutoML best hyperparameters  (D2, unchanged)
 # ---------------------------------------------------------------------------
 
 RUN_CARD_PATH = "run_card.yaml"
@@ -80,9 +106,7 @@ def load_run_card() -> dict:
     with open(RUN_CARD_PATH) as f:
         card = yaml.safe_load(f) or {}
 
-    # Read from best_params section only
     best = card.get("best_params", {})
-
     merged = {
         "best_alpha":   best.get("alpha",   defaults["best_alpha"]),
         "best_k":       best.get("k",       defaults["best_k"]),
@@ -97,26 +121,29 @@ def load_run_card() -> dict:
 
 
 # ---------------------------------------------------------------------------
-# App state
+# App state  (D2 fields unchanged — D3 fields added at bottom)
 # ---------------------------------------------------------------------------
 
 class AppState:
+    # ── D2 ────────────────────────────────────────────────────────────────────
     model            = None   # SentenceTransformer
     qdrant           = None   # QdrantClient
     mongo_db         = None   # MongoDB Database
     hybrid_adapter   = None   # HybridWeightAdapter (D1)
     run_card         = {}     # AutoML best hyperparameters
-    # Built once at startup from MongoDB chunks
     all_chunks       = []     # list[dict] — all chunks in the store
     bm25_index       = None   # BM25Okapi index
     dense_embeddings = None   # np.ndarray (N, 384)
     default_k        = 10
+    # ── D3 ────────────────────────────────────────────────────────────────────
+    neo4j            = None   # Neo4jStore — for subgraph selection
+    topic_parser     = None   # TopicParser — maps query text → Topic names
 
 state = AppState()
 
 
 # ---------------------------------------------------------------------------
-# Build retrieval indexes from MongoDB
+# Build retrieval indexes from MongoDB  (D2, unchanged)
 # ---------------------------------------------------------------------------
 
 def build_retrieval_indexes() -> None:
@@ -137,8 +164,9 @@ def build_retrieval_indexes() -> None:
     _build_dense_from_qdrant()
     print(f"  Indexes rebuilt: {len(state.all_chunks)} chunks")
 
+
 def _build_dense_from_qdrant() -> None:
-    """Pull vectors from Qdrant — fast, no re-encoding."""
+    """Pull vectors from Qdrant — fast, no re-encoding.  (D2, unchanged)"""
     import uuid
     print("  Pulling dense vectors from Qdrant...")
 
@@ -163,14 +191,16 @@ def _build_dense_from_qdrant() -> None:
     state.dense_embeddings = np.array(dense_embeddings) if dense_embeddings else None
     print(f"  Dense vectors loaded: {len(ordered_chunks)} chunks")
 
+
 # ---------------------------------------------------------------------------
-# Lifespan
+# Lifespan  (D2 startup unchanged — D3 additions at the bottom of startup)
 # ---------------------------------------------------------------------------
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Starting up...")
 
+    # ── D2 startup (unchanged) ────────────────────────────────────────────────
     state.run_card  = load_run_card()
     state.default_k = state.run_card.get("best_k", 10)
     alpha           = state.run_card.get("best_alpha", 0.5)
@@ -192,7 +222,6 @@ async def lifespan(app: FastAPI):
         print("  HybridWeightAdapter not found — using static alpha")
         state.hybrid_adapter = None
 
-    # At startup only load chunks + BM25 — skip dense re-encoding
     print("  Loading chunks and building BM25 index...")
     state.all_chunks = list(state.mongo_db["chunks"].find({}, {"_id": 0}))
     if state.all_chunks:
@@ -201,8 +230,16 @@ async def lifespan(app: FastAPI):
     else:
         state.bm25_index = None
 
-    # Pull dense vectors from Qdrant (fast — no re-encoding)
     _build_dense_from_qdrant()
+
+    # ── D3 startup additions ──────────────────────────────────────────────────
+    # Neo4jStore connects to bolt://localhost:7687 using .env credentials.
+    # TopicParser reuses state.model (already loaded above) — no extra cost.
+    print("  Connecting to Neo4j and initialising TopicParser...")
+    state.neo4j        = Neo4jStore()
+    state.topic_parser = TopicParser(state.neo4j, model=state.model)
+    print("  Neo4j + TopicParser ready.")
+    # ── end D3 additions ──────────────────────────────────────────────────────
 
     print("Startup complete.\n")
     yield
@@ -216,7 +253,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title       ="PDF-Papers AI Agent",
     description ="Hybrid Retrieval + GraphRAG with Online Learning",
-    version     ="0.2.0",
+    version     ="0.3.0",   # bumped to D3
     lifespan    =lifespan,
 )
 
@@ -234,8 +271,7 @@ app.add_middleware(
 
 class SearchRequest(BaseModel):
     query : str
-    top_k : int | None = None   # defaults to run_card best_k
-
+    top_k : int | None = None
 
 class ChunkResult(BaseModel):
     chunk_id    : str
@@ -247,14 +283,12 @@ class ChunkResult(BaseModel):
     dense_score : float
     text        : str
 
-
 class SearchResponse(BaseModel):
     query             : str
     results           : list[ChunkResult]
     retrieval_weights : dict
     top_k_used        : int
     elapsed_seconds   : float
-
 
 class IngestResponse(BaseModel):
     paper_id        : str
@@ -264,12 +298,21 @@ class IngestResponse(BaseModel):
     elapsed_seconds : float
     status          : str
 
+# ── D3 request model ─────────────────────────────────────────────────────────
+class AskRequest(BaseModel):
+    query: str
+    condition: Literal["graph_guided", "hybrid", "vector_only"] = "graph_guided"
+
 
 # ---------------------------------------------------------------------------
-# Helper — embed query
+# Helper — embed query for /search  (D2, unchanged)
+# Note: /ask uses graphrag_embed_query() from graphrag.rank instead,
+#       because that function accepts (model, query) and returns np.ndarray.
+#       This helper below only accepts (query) and reads state internally.
 # ---------------------------------------------------------------------------
 
-def embed_query(query: str) -> np.ndarray:
+def embed_query_local(query: str) -> np.ndarray:
+    """D2 helper — used only by /search."""
     return state.model.encode(
         BGE_QUERY_PREFIX + query,
         normalize_embeddings=True,
@@ -277,7 +320,7 @@ def embed_query(query: str) -> np.ndarray:
 
 
 # ---------------------------------------------------------------------------
-# POST /ingest
+# POST /ingest  (D2, unchanged)
 # ---------------------------------------------------------------------------
 
 @app.post("/ingest", response_model=IngestResponse)
@@ -292,12 +335,10 @@ async def ingest(file: UploadFile = File(...)):
     tmp_path = None
 
     try:
-        # Save upload to temp file
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
             shutil.copyfileobj(file.file, tmp)
             tmp_path = tmp.name
 
-        # Match to papers_enriched.csv
         import pandas as pd
         paper_id_hint = os.path.splitext(file.filename or "unknown")[0]
         csv_path      = "data/papers_enriched.csv"
@@ -309,14 +350,12 @@ async def ingest(file: UploadFile = File(...)):
             if not match.empty:
                 csv_row = match.iloc[0]
 
-        # Parse
         doc = parse_pdf(tmp_path, csv_row=csv_row)
         if csv_row is None:
             doc["paper_id"] = paper_id_hint
 
         paper_id = doc["paper_id"]
 
-        # Skip if already ingested
         if paper_exists(state.mongo_db, paper_id):
             return IngestResponse(
                 paper_id        =paper_id,
@@ -327,12 +366,10 @@ async def ingest(file: UploadFile = File(...)):
                 status          ="skipped — already ingested",
             )
 
-        # Chunk → embed
         chunks                   = chunk_document(doc)
         clean_chunks, embeddings = embed_chunks(chunks, state.model)
 
         if clean_chunks:
-            # Write vectors to Qdrant
             upsert_vectors(
                 client    =state.qdrant,
                 chunk_ids =[c.chunk_id for c in clean_chunks],
@@ -346,11 +383,8 @@ async def ingest(file: UploadFile = File(...)):
                     for c in clean_chunks
                 ],
             )
-
-            # Write full text + metadata to MongoDB
             insert_chunks(state.mongo_db, clean_chunks, doc)
 
-        # Paper metadata + provenance
         insert_paper(state.mongo_db, doc)
         insert_run_card(state.mongo_db, {
             "paper_id":        paper_id,
@@ -358,7 +392,6 @@ async def ingest(file: UploadFile = File(...)):
             "pages_parsed":    doc.get("page_count", 0),
             "model":           EMBED_MODEL,
         })
-
 
         return IngestResponse(
             paper_id        =paper_id,
@@ -378,7 +411,7 @@ async def ingest(file: UploadFile = File(...)):
 
 
 # ---------------------------------------------------------------------------
-# POST /search
+# POST /search  (D2, unchanged)
 # ---------------------------------------------------------------------------
 
 @app.post("/search", response_model=SearchResponse)
@@ -395,10 +428,8 @@ async def search(request: SearchRequest):
     if state.bm25_index is None or state.dense_embeddings is None:
         raise HTTPException(status_code=503, detail="No documents ingested yet.")
 
-    # Resolve top_k — request → run_card default
     top_k = request.top_k or state.default_k
 
-    # Get adaptive alpha from D1 HybridWeightAdapter
     if state.hybrid_adapter is not None:
         weights = state.hybrid_adapter.get_weights()
         alpha   = weights.get("dense_weight", 0.5)
@@ -406,22 +437,19 @@ async def search(request: SearchRequest):
         weights = {"dense_weight": 0.5, "bm25_weight": 0.5}
         alpha   = 0.5
 
-    # Embed query
-    query_vector = embed_query(request.query)
+    query_vector = embed_query_local(request.query)
 
-    # Call Abdullah's hybrid_search()
     results = hybrid_search(
         query            =request.query,
         chunks           =state.all_chunks,
         bm25_index       =state.bm25_index,
-        dense_model      =state.model,        # ← SentenceTransformer object
+        dense_model      =state.model,
         dense_embeddings =state.dense_embeddings,
         k                =top_k,
         alpha            =alpha,
         query_vector     =query_vector,
-    )   
+    )
 
-    # Build response
     chunk_results = [
         ChunkResult(
             chunk_id    =r["chunk_id"],
@@ -444,12 +472,121 @@ async def search(request: SearchRequest):
         elapsed_seconds   =round(time.time() - start, 2),
     )
 
+
+# ---------------------------------------------------------------------------
+# POST /ask  (D3 — new endpoint)
+# ---------------------------------------------------------------------------
+
+@app.post("/ask")
+async def ask(req: AskRequest):
+    """
+    Full GraphRAG pipeline with optional condition switching for ablation.
+ 
+    condition="graph_guided" (default) — full 14-step pipeline
+    condition="hybrid"                 — skip graph, use all chunks, hybrid alpha
+    condition="vector_only"            — skip graph, use all chunks, alpha=1.0
+    """
+    start = time.time()
+    query = req.query.strip()
+ 
+    if not query:
+        raise HTTPException(status_code=400, detail="Query cannot be empty")
+    if state.bm25_index is None or state.dense_embeddings is None:
+        raise HTTPException(status_code=503, detail="No documents ingested yet.")
+ 
+    # ── Step 1 · Embed query (once, reused everywhere) ───────────────────────
+    qv = graphrag_embed_query(state.model, query)
+ 
+    # ── Step 2 · Get alpha from online learner ───────────────────────────────
+    alpha, weights = adaptive_alpha(state.hybrid_adapter)
+ 
+    # ── Condition switch — graph_guided vs hybrid vs vector_only ─────────────
+    #
+    #   graph_guided : Steps 3-6 run normally (seed → subgraph → expand → filter)
+    #   hybrid       : Skip steps 3-6 entirely. Pool = all 7,979 chunks.
+    #   vector_only  : Same as hybrid but force alpha=1.0 (pure dense, no BM25)
+    #
+    # Everything from Step 8 onward is IDENTICAL for all 3 conditions.
+    # This is what makes the ablation fair — same ranking, same LLM, same judge.
+ 
+    if req.condition == "graph_guided":
+        # Steps 3-6 — graph narrows the pool
+        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=5)
+        topics   = state.topic_parser.parse(query)
+        subgraph = state.neo4j.select_subgraph(
+            seed_paper_ids=seed_ids, topics=topics, max_papers=20
+        )
+        pool = expand_to_chunks(state.mongo_db, subgraph)
+        pool = provenance_filter(state.mongo_db, pool)
+ 
+        papers_in_subgraph = len(subgraph)
+        seed_ids_out       = seed_ids
+        topics_out         = topics
+ 
+    else:
+        # hybrid / vector_only — skip the graph entirely
+        # Pool = all chunks (already loaded in state at startup)
+        pool = list(state.all_chunks)   # copy so we don't mutate state
+ 
+        if req.condition == "vector_only":
+            alpha = 1.0   # pure dense — BM25 weight becomes 0
+ 
+        papers_in_subgraph = 0
+        seed_ids_out       = []
+        topics_out         = []
+ 
+    # ── Step 8 · Align embeddings (same for all conditions) ──────────────────
+    aligned_pool, pool_embeddings = pool_embeddings_from_state(
+        pool, state.all_chunks, state.dense_embeddings
+    )
+ 
+    # ── Step 9 · Rank (same for all conditions) ───────────────────────────────
+    ranked = rank_pool(
+        query, aligned_pool, state.model, pool_embeddings,
+        alpha=alpha, k=8, query_vector=qv,
+    )
+ 
+    # ── Step 10 · Generate answer ─────────────────────────────────────────────
+    result = generate_answer(query, ranked)
+ 
+    # ── Step 11 · Safety post-check ───────────────────────────────────────────
+    pin = source_pinning_check(
+        result["answer"],
+        ranked[: result["chunks_used"]],
+    )
+ 
+    # ── Step 12 · Judge ───────────────────────────────────────────────────────
+    j_before = judge_answer(query, result["answer"], ranked)
+ 
+    # ── Step 13 · Reflect ─────────────────────────────────────────────────────
+    reflect = reflect_answer(query, ranked, result, j_before)
+ 
+    # ── Step 14 · Return ──────────────────────────────────────────────────────
+    return {
+        "answer":              reflect["revised_answer"],
+        "citations":           reflect["revised_citations"],
+        "safety":              pin,
+        "judge_before":        reflect["initial_judge"],
+        "judge_after":         reflect["revised_judge"],
+        "improvement":         reflect["improvement"],
+        "reflected":           reflect["reflection_triggered"],
+        "condition":           req.condition,          # ablation label
+        "seed_papers":         seed_ids_out,
+        "topics_used":         topics_out,
+        "papers_in_subgraph":  papers_in_subgraph,
+        "pool_size":           len(pool),
+        "alpha":               alpha,
+        "elapsed_seconds":     round(time.time() - start, 2),
+    }
+
+
+# ---------------------------------------------------------------------------
+# POST /rebuild-index  (D2, unchanged)
+# ---------------------------------------------------------------------------
+
 @app.post("/rebuild-index")
 async def rebuild_index():
-    """
-    Rebuild BM25 + dense indexes after batch ingest.
-    Call this once after all PDFs are ingested.
-    """
+    """Rebuild BM25 + dense indexes after batch ingest."""
     start = time.time()
     build_retrieval_indexes()
     return {
@@ -458,21 +595,26 @@ async def rebuild_index():
         "elapsed_seconds": round(time.time() - start, 2),
     }
 
+
 # ---------------------------------------------------------------------------
-# Health check
+# GET /health  (D2 + D3 additions)
 # ---------------------------------------------------------------------------
 
 @app.get("/health")
 async def health():
     return {
-        "status"     : "ok",
-        "model"      : EMBED_MODEL,
-        "collection" : COLLECTION_NAME,
-        "vector_dim" : VECTOR_DIM,
-        "chunks"     : len(state.all_chunks),
-        "alpha"      : state.hybrid_adapter.get_weights() if state.hybrid_adapter else 0.5,
-        "top_k"      : state.default_k,
-        "run_card"   : state.run_card,
+        "status"      : "ok",
+        "version"     : "0.3.0-d3",
+        "model"       : EMBED_MODEL,
+        "collection"  : COLLECTION_NAME,
+        "vector_dim"  : VECTOR_DIM,
+        "chunks"      : len(state.all_chunks),
+        "alpha"       : state.hybrid_adapter.get_weights() if state.hybrid_adapter else 0.5,
+        "top_k"       : state.default_k,
+        "run_card"    : state.run_card,
+        # D3 additions
+        "neo4j_ready" : state.neo4j is not None,
+        "topic_parser": state.topic_parser is not None,
     }
 
 
@@ -482,4 +624,5 @@ async def health():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
+    # Important: do NOT use --reload (it restarts when eval scripts touch files)
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=False)
