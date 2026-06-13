@@ -223,3 +223,4 @@ data/pdfs/
 
 .DS_Store
 
+models/*.gguf

@@ -1,221 +1,269 @@
 """
-scripts/ablation.py
---------------------
-D3 Ablation Study — corpus-specific gold queries from D2 eval set.
+scripts/ablation_d4.py
+-----------------------
+D4 ablation harness — extends D3's 3-condition study with an LLM axis.
 
-Each query targets one specific paper in the corpus.
-This makes the ablation traceable: we know exactly which paper
-the correct answer should come from.
+Runs 6 gold queries × 3 conditions × 2 LLMs = 36 total /ask calls.
 
-Run:
-    python scripts/ablation.py
+Conditions  : graph_guided | hybrid | bm25_only (was vector_only - see note)
+LLMs        : openrouter (~70B free tier)  |  tuned_local (QLoRA Qwen2.5-1.5B)
 
-Output:
-    ablation_results.json
-    prints summary table to stdout
+NOTE on bm25_only naming:
+    With our hybrid_score = alpha*BM25 + (1-alpha)*dense formula, setting
+    alpha=1.0 actually gives PURE BM25, not pure dense. We renamed the
+    condition from "vector_only" to "bm25_only" to reflect this honestly.
+
+NOTE on gold queries:
+    These are 6 content-grounded questions tied to specific chunks (not the
+    acronym-definition queries used previously). Each query has a target
+    chunk_id that the answer should ideally cite, allowing us to measure
+    retrieval precision at the chunk level (not just the paper level).
+    All queries are from the HELD-OUT EVAL SET — they were NOT seen by the
+    tuned model during QLoRA training, ensuring fair comparison.
+
+Saves per-query results to ablation_d4_results.json and prints a summary table.
+
+Usage:
+    # Start the server first (no --reload):
+    uvicorn api.main:app --host 0.0.0.0 --port 8000
+
+    # Then in another shell:
+    python scripts/ablation_d4.py
 """
 
+from __future__ import annotations
+
 import json
-import time
 import statistics
-import httpx
+import time
+from pathlib import Path
 
-BASE_URL = "http://127.0.0.1:8000"
+import requests
 
-# ── Gold queries — each tied to one paper_id ─────────────────────────────────
-TEST_QUERIES = [
+
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
+
+API_URL     = "http://127.0.0.1:8000/ask"
+TIMEOUT     = 600
+OUTPUT_PATH = Path("ablation_d4_results.json")
+
+CONDITIONS = ["graph_guided", "hybrid", "bm25_only"]
+LLMS       = ["openrouter", "tuned_local"]
+
+# 6 content-grounded gold queries — each tied to one specific chunk + paper
+# All from the held-out eval set; not seen during QLoRA training.
+GOLD_QUERIES = [
     {
-        "query":    "How does ActCam control camera motion without training?",
-        "paper_id": "2605.06667v1",
+        "query":     "What Top-1 accuracy does the Proposed XDecomposer achieve for K=2 in the baseline comparison?",
+        "target":    "2605.05866v1",
+        "chunk_id":  "2605.05866v1_p8_c0",
     },
     {
-        "query":    "What is the main computational drawback of the RLPD algorithm?",
-        "paper_id": "2605.05863v1",
+        "query":     "What effect does interpolating z_t towards zero have on digit identities and motion trajectories?",
+        "target":    "2605.06298v1",
+        "chunk_id":  "2605.06298v1_p7_c0",
     },
     {
-        "query":    "What does the acronym VARS-FL stand for, and what is its primary objective in federated learning?",
-        "paper_id": "2605.05896v1",
+        "query":     "What does the Neural Feature Ansatz (NFA) claim about Gram matrices of weights in a neural network layer?",
+        "target":    "2605.06258v1",
+        "chunk_id":  "2605.06258v1_p14_c0",
     },
     {
-        "query":    "What does the acronym Wisteria stand for, and what inspired its name in the context of DNA language models?",
-        "paper_id": "2605.05913v1",
+        "query":     "How many hours does it take to train Llama3.1-8B-Instruct on GSM8K on a single RTX Pro 6000 GPU?",
+        "target":    "2605.06523v1",
+        "chunk_id":  "2605.06523v1_p9_c0",
     },
     {
-        "query":    "What does the acronym LOD KG stand for, and why is it considered a viable tool for mitigating the digital divide between high- and low-resource languages?",
-        "paper_id": "2605.05929v1",
-    },
-    {
-        "query":    "What does the acronym HMW stand for, and what are the two core limitations in planner-facing latents it addresses?",
-        "paper_id": "2605.05951v1",
-    },
-    {
-        "query":    "What does the acronym Cola DLM stand for, and how does its hierarchical latent-variable paradigm decompose text generation to avoid token-level left-to-right serialization constraints?",
-        "paper_id": "2605.06548v1",
+        "query":     "What relative mean portability does PragLocker achieve compared to no protection?",
+        "target":    "2605.05974v1",
+        "chunk_id":  "2605.05974v1_p6_c2",
     },
 ]
 
-CONDITIONS = ["vector_only", "hybrid", "graph_guided"]
 
+# ---------------------------------------------------------------------------
+# Run one /ask call
+# ---------------------------------------------------------------------------
 
-def run_query(query: str, condition: str, timeout: int = 180) -> dict:
-    resp = httpx.post(
-        f"{BASE_URL}/ask",
-        json={"query": query, "condition": condition},
-        timeout=timeout,
-    )
-    resp.raise_for_status()
-    return resp.json()
+def run_one(query: str, condition: str, llm: str, target: str,
+            target_chunk: str) -> dict:
+    """Hit /ask once, return a flat row of metrics."""
+    payload = {"query": query, "condition": condition, "llm": llm}
+    t0 = time.time()
 
+    try:
+        r = requests.post(API_URL, json=payload, timeout=TIMEOUT)
+        r.raise_for_status()
+        data = r.json()
+    except requests.RequestException as e:
+        return {
+            "query":     query,
+            "condition": condition,
+            "llm":       llm,
+            "target":    target,
+            "target_chunk": target_chunk,
+            "error":     str(e),
+            "elapsed":   round(time.time() - t0, 2),
+        }
 
-def extract_metrics(result: dict, expected_paper_id: str) -> dict:
-    """
-    Pull metrics from one /ask response.
-    Also checks whether the expected paper_id appears in the citations —
-    this is our ground-truth hit check (did the graph find the right paper?).
-    """
-    judge = result.get("judge_after") or result.get("judge_before") or {}
+    citations       = data.get("citations", [])
+    cited_paper_ids = {c.get("paper_id") for c in citations}
+    cited_chunk_ids = {c.get("chunk_id") for c in citations}
+    correct_paper   = target       in cited_paper_ids
+    # NEW for D4: did we cite the EXACT gold chunk, not just the right paper?
+    correct_chunk   = target_chunk in cited_chunk_ids
 
-    # Check if the correct paper appears in citations
-    citations    = result.get("citations", [])
-    cited_papers = {c.get("paper_id") for c in citations}
-    correct_hit  = expected_paper_id in cited_papers
+    seed_ids       = data.get("seed_papers", [])
+    correct_seeded = target in seed_ids if condition == "graph_guided" else None
 
-    # Also check seed_papers (graph may have found it even if not cited)
-    seed_papers  = result.get("seed_papers", [])
-    in_seed      = expected_paper_id in seed_papers
+    j_before = data.get("judge_before", {}) or {}
+    j_after  = data.get("judge_after",  {}) or {}
+    improve  = data.get("improvement",  {}) or {}
 
     return {
-        "faithfulness":       judge.get("faithfulness_score", 0.0),
-        "faithfulness_label": judge.get("faithfulness_label", "UNKNOWN"),
-        "relevance":          judge.get("relevance_score", 0.0),
-        "latency_s":          result.get("elapsed_seconds", 0.0),
-        "pool_size":          result.get("pool_size", 0),
-        "reflected":          result.get("reflected", False),
-        "correct_paper_cited": correct_hit,   # gold paper appeared in citations
-        "correct_paper_seeded": in_seed,      # gold paper found in seed search
+        "query":      query,
+        "condition":  condition,
+        "llm":        llm,
+        "target":     target,
+        "target_chunk": target_chunk,
+
+        # quality after reflection
+        "faithfulness":     j_after.get("faithfulness_score"),
+        "faithfulness_lbl": j_after.get("faithfulness_label"),
+        "relevance":        j_after.get("relevance_score"),
+        "relevance_lbl":    j_after.get("relevance"),
+
+        # before reflection (shows reflection lift)
+        "faithfulness_before": j_before.get("faithfulness_score"),
+        "claims_fixed":        improve.get("claims_fixed", 0),
+        "reflected":           bool(data.get("reflected")),
+
+        # retrieval metrics
+        "pool_size":            data.get("pool_size"),
+        "papers_in_subgraph":   data.get("papers_in_subgraph"),
+        "correct_paper_cited":  correct_paper,
+        "correct_chunk_cited":  correct_chunk,                # NEW
+        "correct_paper_seeded": correct_seeded,
+
+        # safety
+        "safety_clean":  (data.get("safety") or {}).get("is_clean"),
+        "out_of_range":  len((data.get("safety") or {}).get("out_of_range", [])),
+        "uncited_sents": len((data.get("safety") or {}).get("uncited_sentences", [])),
+
+        # cost
+        "elapsed":     data.get("elapsed_seconds"),
+        "llm_model":   data.get("llm_model"),
+
+        # raw answer for human inspection
+        "answer":      data.get("answer", "")[:500],
     }
 
 
-def p95(values: list) -> float:
-    if not values:
-        return 0.0
-    s   = sorted(values)
-    idx = max(0, int(len(s) * 0.95) - 1)
-    return round(s[idx], 3)
+# ---------------------------------------------------------------------------
+# Main loop
+# ---------------------------------------------------------------------------
+
+def main():
+    print("Checking server health...")
+    try:
+        h = requests.get(API_URL.replace("/ask", "/health"), timeout=5).json()
+    except Exception as e:
+        raise SystemExit(f"Server not reachable at {API_URL}. ({e})")
+
+    print(f"  version:          {h.get('version')}")
+    print(f"  chunks:           {h.get('chunks')}")
+    print(f"  neo4j_ready:      {h.get('neo4j_ready')}")
+    print(f"  local_llm_ready:  {h.get('local_llm_ready')}")
+    print(f"  local_llm_model:  {h.get('local_llm_model')}")
+
+    if not h.get("local_llm_ready"):
+        print("\n⚠️  Local LLM not loaded. Ablation will skip tuned_local runs.")
+        llms = ["openrouter"]
+    else:
+        llms = LLMS
+
+    total = len(GOLD_QUERIES) * len(CONDITIONS) * len(llms)
+    print(f"\nRunning {total} /ask calls "
+          f"({len(GOLD_QUERIES)} queries × {len(CONDITIONS)} conditions × {len(llms)} llms)")
+    print("Allow 30-50 minutes total.\n")
+
+    rows = []
+    n = 0
+    for gq in GOLD_QUERIES:
+        for cond in CONDITIONS:
+            for llm in llms:
+                n += 1
+                print(f"[{n:>2}/{total}] cond={cond:13s} llm={llm:12s} "
+                      f"q={gq['query'][:55]!r}")
+                row = run_one(gq["query"], cond, llm, gq["target"], gq["chunk_id"])
+                rows.append(row)
+
+                # Incremental save — survives crashes
+                OUTPUT_PATH.write_text(json.dumps(rows, indent=2), encoding="utf-8")
+
+                if "error" in row:
+                    print(f"        ⚠️  error: {row['error'][:80]}")
+                else:
+                    print(f"        faith={row['faithfulness']:.2f} "
+                          f"rel={row['relevance']:.2f} "
+                          f"paper={row['correct_paper_cited']} "
+                          f"chunk={row['correct_chunk_cited']} "
+                          f"elapsed={row['elapsed']}s")
+
+    print_summary(rows)
+    print(f"\n✅ Full results saved to {OUTPUT_PATH}")
 
 
-def run_ablation():
-    results = {c: [] for c in CONDITIONS}
+# ---------------------------------------------------------------------------
+# Summary table
+# ---------------------------------------------------------------------------
 
-    for i, item in enumerate(TEST_QUERIES, 1):
-        query    = item["query"]
-        paper_id = item["paper_id"]
-        print(f"\n[{i}/{len(TEST_QUERIES)}] {query[:70]}...")
-        print(f"  Expected paper: {paper_id}")
+def safe_mean(xs):
+    xs = [x for x in xs if isinstance(x, (int, float))]
+    return round(statistics.mean(xs), 3) if xs else None
 
-        for condition in CONDITIONS:
-            print(f"  {condition:<15} ", end="", flush=True)
-            try:
-                raw = run_query(query, condition)
-                m   = extract_metrics(raw, paper_id)
-                m["query"]    = query
-                m["paper_id"] = paper_id
-                results[condition].append(m)
-                hit = "✓ hit" if m["correct_paper_cited"] else "✗ miss"
-                print(
-                    f"faith={m['faithfulness']:.2f}  "
-                    f"rel={m['relevance']:.2f}  "
-                    f"pool={m['pool_size']}  "
-                    f"{m['latency_s']:.1f}s  "
-                    f"{hit}  "
-                    f"{'reflected' if m['reflected'] else 'clean'}"
-                )
-            except Exception as e:
-                print(f"ERROR — {e}")
-                results[condition].append({
-                    "query":    query,
-                    "paper_id": paper_id,
-                    "faithfulness": 0.0,
-                    "faithfulness_label": "ERROR",
-                    "relevance": 0.0,
-                    "latency_s": 0.0,
-                    "pool_size": 0,
-                    "reflected": False,
-                    "correct_paper_cited":  False,
-                    "correct_paper_seeded": False,
-                    "error": str(e),
-                })
+def p95(xs):
+    xs = sorted(x for x in xs if isinstance(x, (int, float)))
+    if not xs:
+        return None
+    k = max(0, int(round(0.95 * (len(xs) - 1))))
+    return round(xs[k], 2)
 
-    # ── Summary stats ─────────────────────────────────────────────────────────
-    summary = {}
-    for cond, rows in results.items():
-        faith   = [r["faithfulness"] for r in rows]
-        rel     = [r["relevance"]    for r in rows]
-        lats    = [r["latency_s"]    for r in rows]
-        hits    = [r["correct_paper_cited"] for r in rows]
-        summary[cond] = {
-            "mean_faithfulness": round(statistics.mean(faith), 3),
-            "mean_relevance":    round(statistics.mean(rel),   3),
-            "mean_latency_s":    round(statistics.mean(lats),  3),
-            "p95_latency_s":     p95(lats),
-            "citation_hit_rate": round(sum(hits) / len(hits), 3),  # how often correct paper cited
-            "n_queries":         len(rows),
-        }
+def print_summary(rows):
+    print("\n" + "=" * 95)
+    print("D4 ABLATION SUMMARY")
+    print("=" * 95)
 
-    output = {"per_query": results, "summary": summary}
+    groups = {}
+    for r in rows:
+        key = (r["condition"], r["llm"])
+        groups.setdefault(key, []).append(r)
 
-    with open("ablation_results.json", "w") as f:
-        json.dump(output, f, indent=2)
-    print("\nSaved → ablation_results.json")
+    header = ("Condition       LLM            Faith  Rel   PaperHit  ChunkHit  Refl  ClmFix  p95(s)")
+    print(header)
+    print("-" * len(header))
 
-    print_table(summary)
-    return output
+    for (cond, llm), gs in sorted(groups.items()):
+        faith    = safe_mean([g.get("faithfulness") for g in gs])
+        rel      = safe_mean([g.get("relevance")    for g in gs])
+        paper    = safe_mean([1 if g.get("correct_paper_cited") else 0 for g in gs])
+        chunk    = safe_mean([1 if g.get("correct_chunk_cited") else 0 for g in gs])
+        refl     = safe_mean([1 if g.get("reflected")            else 0 for g in gs])
+        fixed    = safe_mean([g.get("claims_fixed")  for g in gs])
+        p95_lat  = p95([g.get("elapsed") for g in gs])
 
-
-def print_table(summary: dict):
-    print("\n")
-    print("=" * 78)
-    print("D3 ABLATION RESULTS")
-    print("=" * 78)
-    print(f"{'Condition':<20} {'Faithfulness':>13} {'Relevance':>10} {'Hit Rate':>10} {'p95 lat':>9}")
-    print("-" * 78)
-    for cond, s in summary.items():
-        label = cond.replace("_", " ")
-        print(
-            f"{label:<20} "
-            f"{s['mean_faithfulness']:>13.3f} "
-            f"{s['mean_relevance']:>10.3f} "
-            f"{s['citation_hit_rate']:>10.3f} "
-            f"{s['p95_latency_s']:>9.3f}s"
-        )
-    print("=" * 78)
-
-    # Delta rows
-    if "vector_only" in summary and "graph_guided" in summary:
-        v = summary["vector_only"]
-        g = summary["graph_guided"]
-        print()
-        print("Graph-guided vs vector-only improvement:")
-        fd = round(g["mean_faithfulness"]  - v["mean_faithfulness"],  3)
-        rd = round(g["mean_relevance"]     - v["mean_relevance"],     3)
-        hd = round(g["citation_hit_rate"]  - v["citation_hit_rate"],  3)
-        print(f"  Faithfulness delta : {'+' if fd >= 0 else ''}{fd}")
-        print(f"  Relevance delta    : {'+' if rd >= 0 else ''}{rd}")
-        print(f"  Hit rate delta     : {'+' if hd >= 0 else ''}{hd}")
-    print()
+        print(f"{cond:15s} {llm:14s} "
+              f"{faith if faith is not None else '?':<6} "
+              f"{rel   if rel   is not None else '?':<5} "
+              f"{paper if paper is not None else '?':<9} "
+              f"{chunk if chunk is not None else '?':<9} "
+              f"{refl  if refl  is not None else '?':<5} "
+              f"{fixed if fixed is not None else '?':<7} "
+              f"{p95_lat if p95_lat is not None else '?'}")
+    print("=" * 95)
 
 
 if __name__ == "__main__":
-    try:
-        r      = httpx.get(f"{BASE_URL}/health", timeout=5)
-        health = r.json()
-        print(f"Server online — {health.get('chunks', 0)} chunks loaded")
-        print(f"Neo4j ready  : {health.get('neo4j_ready')}")
-        print(f"TopicParser  : {health.get('topic_parser')}")
-    except Exception as e:
-        print(f"Cannot reach server at {BASE_URL} — is it running?\n{e}")
-        raise SystemExit(1)
-
-    print(f"\nRunning {len(TEST_QUERIES)} queries × {len(CONDITIONS)} conditions")
-    print("Estimated time: ~30 minutes total\n")
-    run_ablation()
+    main()

@@ -1,0 +1,17 @@
+﻿FROM C:\special-topics-ai\special_topics_AI\models\qwen-tuned-q4_k_m.gguf
+
+SYSTEM """You answer questions from scientific papers. Use ONLY the provided context. Cite sources inline as [1], [2], etc. Be concise (1-3 sentences). If the answer is not in the context, say so."""
+
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+{{ .Response }}<|im_end|>
+"""
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER num_ctx 4096

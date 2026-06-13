@@ -1,12 +1,13 @@
 """
 api/main.py
 ------------
-FastAPI application — D2 retrieval stack + D3 GraphRAG pipeline.
+FastAPI application — D2 retrieval stack + D3 GraphRAG pipeline + D4 tuned LLM.
 
 Endpoints:
     POST /ingest        — upload PDF → parse → chunk → embed → store
     POST /search        — query → hybrid_search() → cited results
     POST /ask           — query → full GraphRAG pipeline → grounded answer  [D3]
+                          + optional llm switching for ablation              [D4]
     POST /rebuild-index — rebuild BM25 + dense indexes after batch ingest
     GET  /health        — liveness check
 
@@ -17,6 +18,7 @@ Startup:
     - Loads all chunks from MongoDB + builds BM25 + dense indexes
     - Warm-starts HybridWeightAdapter with AutoML best_alpha
     - Initialises TopicParser for query → Neo4j topic mapping               [D3]
+    - Connects to local Ollama (tuned QLoRA model)                          [D4]
 """
 
 import os
@@ -81,6 +83,12 @@ from graphrag.safety  import (                      # Abdullah's safety layer
 from graphrag.judge   import judge_answer           # Abdullah's judge
 from graphrag.reflect import reflect_answer         # Abdullah's reflect
 
+# ── D4 imports ────────────────────────────────────────────────────────────────
+from graphrag.local_llm import (                    # our QLoRA-tuned Ollama client
+    load_local_llm,
+    generate_answer_local,
+)
+
 
 # ---------------------------------------------------------------------------
 # Load run card — AutoML best hyperparameters  (D2, unchanged)
@@ -121,7 +129,7 @@ def load_run_card() -> dict:
 
 
 # ---------------------------------------------------------------------------
-# App state  (D2 fields unchanged — D3 fields added at bottom)
+# App state  (D2 + D3 fields unchanged — D4 field at bottom)
 # ---------------------------------------------------------------------------
 
 class AppState:
@@ -138,6 +146,8 @@ class AppState:
     # ── D3 ────────────────────────────────────────────────────────────────────
     neo4j            = None   # Neo4jStore — for subgraph selection
     topic_parser     = None   # TopicParser — maps query text → Topic names
+    # ── D4 ────────────────────────────────────────────────────────────────────
+    local_llm        = None   # dict from load_local_llm() — Ollama state
 
 state = AppState()
 
@@ -193,7 +203,7 @@ def _build_dense_from_qdrant() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Lifespan  (D2 startup unchanged — D3 additions at the bottom of startup)
+# Lifespan  (D2 + D3 startup unchanged — D4 additions at the bottom)
 # ---------------------------------------------------------------------------
 
 @asynccontextmanager
@@ -239,7 +249,19 @@ async def lifespan(app: FastAPI):
     state.neo4j        = Neo4jStore()
     state.topic_parser = TopicParser(state.neo4j, model=state.model)
     print("  Neo4j + TopicParser ready.")
-    # ── end D3 additions ──────────────────────────────────────────────────────
+
+    # ── D4 startup additions ──────────────────────────────────────────────────
+    # Connect to local Ollama running the QLoRA-tuned Qwen2.5-1.5B model.
+    # Non-fatal: if Ollama isn't running, /ask with llm="openrouter" still works.
+    print("  Connecting to Ollama (tuned local LLM)...")
+    try:
+        state.local_llm = load_local_llm()
+        print(f"  Local LLM ready: {state.local_llm['model']}")
+    except Exception as e:
+        print(f"  Local LLM unavailable: {e}")
+        print(f"  /ask will only work with llm=\"openrouter\".")
+        state.local_llm = None
+    # ── end D4 additions ──────────────────────────────────────────────────────
 
     print("Startup complete.\n")
     yield
@@ -252,8 +274,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title       ="PDF-Papers AI Agent",
-    description ="Hybrid Retrieval + GraphRAG with Online Learning",
-    version     ="0.3.0",   # bumped to D3
+    description ="Hybrid Retrieval + GraphRAG + QLoRA-tuned local LLM",
+    version     ="0.4.0",   # bumped to D4
     lifespan    =lifespan,
 )
 
@@ -298,17 +320,15 @@ class IngestResponse(BaseModel):
     elapsed_seconds : float
     status          : str
 
-# ── D3 request model ─────────────────────────────────────────────────────────
+# ── D3 + D4 request model ────────────────────────────────────────────────────
 class AskRequest(BaseModel):
-    query: str
-    condition: Literal["graph_guided", "hybrid", "vector_only"] = "graph_guided"
+    query     : str
+    condition : Literal["graph_guided", "hybrid", "bm25_only"] = "graph_guided"
+    llm       : Literal["openrouter", "tuned_local"] = "openrouter"
 
 
 # ---------------------------------------------------------------------------
 # Helper — embed query for /search  (D2, unchanged)
-# Note: /ask uses graphrag_embed_query() from graphrag.rank instead,
-#       because that function accepts (model, query) and returns np.ndarray.
-#       This helper below only accepts (query) and reads state internally.
 # ---------------------------------------------------------------------------
 
 def embed_query_local(query: str) -> np.ndarray:
@@ -474,94 +494,92 @@ async def search(request: SearchRequest):
 
 
 # ---------------------------------------------------------------------------
-# POST /ask  (D3 — new endpoint)
+# POST /ask  (D3 — endpoint; D4 — adds llm switching)
 # ---------------------------------------------------------------------------
 
 @app.post("/ask")
 async def ask(req: AskRequest):
     """
-    Full GraphRAG pipeline with optional condition switching for ablation.
- 
-    condition="graph_guided" (default) — full 14-step pipeline
-    condition="hybrid"                 — skip graph, use all chunks, hybrid alpha
-    condition="vector_only"            — skip graph, use all chunks, alpha=1.0
+    Full GraphRAG pipeline with optional condition + llm switching for ablation.
+
+    condition = "graph_guided" (default) — full 14-step pipeline
+    condition = "hybrid"                 — skip graph, use all chunks, hybrid alpha
+    condition = "vector_only"            — skip graph, use all chunks, alpha=1.0
+
+    llm = "openrouter" (default)         — hosted Llama-3.3-70B (free tier)
+    llm = "tuned_local"                  — our QLoRA-tuned Qwen2.5-1.5B via Ollama
     """
     start = time.time()
     query = req.query.strip()
- 
+
     if not query:
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     if state.bm25_index is None or state.dense_embeddings is None:
         raise HTTPException(status_code=503, detail="No documents ingested yet.")
- 
+
     # ── Step 1 · Embed query (once, reused everywhere) ───────────────────────
     qv = graphrag_embed_query(state.model, query)
- 
+
     # ── Step 2 · Get alpha from online learner ───────────────────────────────
     alpha, weights = adaptive_alpha(state.hybrid_adapter)
- 
+
     # ── Condition switch — graph_guided vs hybrid vs vector_only ─────────────
-    #
-    #   graph_guided : Steps 3-6 run normally (seed → subgraph → expand → filter)
-    #   hybrid       : Skip steps 3-6 entirely. Pool = all 7,979 chunks.
-    #   vector_only  : Same as hybrid but force alpha=1.0 (pure dense, no BM25)
-    #
-    # Everything from Step 8 onward is IDENTICAL for all 3 conditions.
-    # This is what makes the ablation fair — same ranking, same LLM, same judge.
- 
     if req.condition == "graph_guided":
-        # Steps 3-6 — graph narrows the pool
-        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=5)
+        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=10)
         topics   = state.topic_parser.parse(query)
         subgraph = state.neo4j.select_subgraph(
             seed_paper_ids=seed_ids, topics=topics, max_papers=20
         )
         pool = expand_to_chunks(state.mongo_db, subgraph)
         pool = provenance_filter(state.mongo_db, pool)
- 
+
         papers_in_subgraph = len(subgraph)
         seed_ids_out       = seed_ids
         topics_out         = topics
- 
+
     else:
-        # hybrid / vector_only — skip the graph entirely
-        # Pool = all chunks (already loaded in state at startup)
-        pool = list(state.all_chunks)   # copy so we don't mutate state
- 
-        if req.condition == "vector_only":
-            alpha = 1.0   # pure dense — BM25 weight becomes 0
- 
+        pool = list(state.all_chunks)
+        if req.condition == "bm25_only":
+            alpha = 1.0
         papers_in_subgraph = 0
         seed_ids_out       = []
         topics_out         = []
- 
-    # ── Step 8 · Align embeddings (same for all conditions) ──────────────────
+
+    # ── Step 8 · Align embeddings ────────────────────────────────────────────
     aligned_pool, pool_embeddings = pool_embeddings_from_state(
         pool, state.all_chunks, state.dense_embeddings
     )
- 
-    # ── Step 9 · Rank (same for all conditions) ───────────────────────────────
+
+    # ── Step 9 · Rank ────────────────────────────────────────────────────────
     ranked = rank_pool(
         query, aligned_pool, state.model, pool_embeddings,
         alpha=alpha, k=8, query_vector=qv,
     )
- 
-    # ── Step 10 · Generate answer ─────────────────────────────────────────────
-    result = generate_answer(query, ranked)
- 
-    # ── Step 11 · Safety post-check ───────────────────────────────────────────
+
+    # ── Step 10 · Generate answer — D4 LLM switch ────────────────────────────
+    if req.llm == "tuned_local":
+        if state.local_llm is None:
+            raise HTTPException(
+                status_code=503,
+                detail="Local LLM not loaded. Is Ollama running with pdfpapers-tuned?",
+            )
+        result = generate_answer_local(query, ranked, state.local_llm)
+    else:
+        result = generate_answer(query, ranked)
+
+    # ── Step 11 · Safety post-check ──────────────────────────────────────────
     pin = source_pinning_check(
         result["answer"],
         ranked[: result["chunks_used"]],
     )
- 
-    # ── Step 12 · Judge ───────────────────────────────────────────────────────
+
+    # ── Step 12 · Judge ──────────────────────────────────────────────────────
     j_before = judge_answer(query, result["answer"], ranked)
- 
-    # ── Step 13 · Reflect ─────────────────────────────────────────────────────
+
+    # ── Step 13 · Reflect ────────────────────────────────────────────────────
     reflect = reflect_answer(query, ranked, result, j_before)
- 
-    # ── Step 14 · Return ──────────────────────────────────────────────────────
+
+    # ── Step 14 · Return ─────────────────────────────────────────────────────
     return {
         "answer":              reflect["revised_answer"],
         "citations":           reflect["revised_citations"],
@@ -570,7 +588,9 @@ async def ask(req: AskRequest):
         "judge_after":         reflect["revised_judge"],
         "improvement":         reflect["improvement"],
         "reflected":           reflect["reflection_triggered"],
-        "condition":           req.condition,          # ablation label
+        "condition":           req.condition,
+        "llm":                 req.llm,                  # D4 — ablation label
+        "llm_model":           result.get("model"),      # D4 — actual model name
         "seed_papers":         seed_ids_out,
         "topics_used":         topics_out,
         "papers_in_subgraph":  papers_in_subgraph,
@@ -597,24 +617,27 @@ async def rebuild_index():
 
 
 # ---------------------------------------------------------------------------
-# GET /health  (D2 + D3 additions)
+# GET /health  (D2 + D3 + D4 additions)
 # ---------------------------------------------------------------------------
 
 @app.get("/health")
 async def health():
     return {
-        "status"      : "ok",
-        "version"     : "0.3.0-d3",
-        "model"       : EMBED_MODEL,
-        "collection"  : COLLECTION_NAME,
-        "vector_dim"  : VECTOR_DIM,
-        "chunks"      : len(state.all_chunks),
-        "alpha"       : state.hybrid_adapter.get_weights() if state.hybrid_adapter else 0.5,
-        "top_k"       : state.default_k,
-        "run_card"    : state.run_card,
-        # D3 additions
-        "neo4j_ready" : state.neo4j is not None,
-        "topic_parser": state.topic_parser is not None,
+        "status"           : "ok",
+        "version"          : "0.4.0-d4",
+        "model"            : EMBED_MODEL,
+        "collection"       : COLLECTION_NAME,
+        "vector_dim"       : VECTOR_DIM,
+        "chunks"           : len(state.all_chunks),
+        "alpha"            : state.hybrid_adapter.get_weights() if state.hybrid_adapter else 0.5,
+        "top_k"            : state.default_k,
+        "run_card"         : state.run_card,
+        # D3
+        "neo4j_ready"      : state.neo4j is not None,
+        "topic_parser"     : state.topic_parser is not None,
+        # D4
+        "local_llm_ready"  : state.local_llm is not None,
+        "local_llm_model"  : state.local_llm["model"] if state.local_llm else None,
     }
 
 
