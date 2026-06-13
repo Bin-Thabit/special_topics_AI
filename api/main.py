@@ -323,8 +323,7 @@ class IngestResponse(BaseModel):
 # ── D3 + D4 request model ────────────────────────────────────────────────────
 class AskRequest(BaseModel):
     query     : str
-    condition : Literal["graph_guided", "hybrid", "vector_only"] = "graph_guided"
-    # D4 — switch between hosted OpenRouter LLM and our local tuned Ollama
+    condition : Literal["graph_guided", "hybrid", "bm25_only"] = "graph_guided"
     llm       : Literal["openrouter", "tuned_local"] = "openrouter"
 
 
@@ -526,7 +525,7 @@ async def ask(req: AskRequest):
 
     # ── Condition switch — graph_guided vs hybrid vs vector_only ─────────────
     if req.condition == "graph_guided":
-        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=5)
+        seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=10)
         topics   = state.topic_parser.parse(query)
         subgraph = state.neo4j.select_subgraph(
             seed_paper_ids=seed_ids, topics=topics, max_papers=20
@@ -540,7 +539,7 @@ async def ask(req: AskRequest):
 
     else:
         pool = list(state.all_chunks)
-        if req.condition == "vector_only":
+        if req.condition == "bm25_only":
             alpha = 1.0
         papers_in_subgraph = 0
         seed_ids_out       = []
