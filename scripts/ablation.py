@@ -56,29 +56,74 @@ LLMS       = ["openrouter", "tuned_local"]
 # All from the held-out eval set; not seen during QLoRA training.
 GOLD_QUERIES = [
     {
-        "query":     "What Top-1 accuracy does the Proposed XDecomposer achieve for K=2 in the baseline comparison?",
-        "target":    "2605.05866v1",
-        "chunk_id":  "2605.05866v1_p8_c0",
+        "query":     "What does NeurIPS require submissions to provide for reproducibility?",
+        "target":    "2605.06187v1",
+        "chunk_id":  "2605.06187v1_p28_c1",
     },
     {
-        "query":     "What effect does interpolating z_t towards zero have on digit identities and motion trajectories?",
-        "target":    "2605.06298v1",
-        "chunk_id":  "2605.06298v1_p7_c0",
+        "query":     "What does Recursive Agent Optimization (RAO) train across all nodes of the recursively generated execution tree?",
+        "target":    "2605.06639v1",
+        "chunk_id":  "2605.06639v1_p12_c0",
     },
     {
-        "query":     "What does the Neural Feature Ansatz (NFA) claim about Gram matrices of weights in a neural network layer?",
-        "target":    "2605.06258v1",
-        "chunk_id":  "2605.06258v1_p14_c0",
+        "query":     "How many unique environment-dataset combinations are described in the dataset setup?",
+        "target":    "2605.05863v1",
+        "chunk_id":  "2605.05863v1_p5_c1",
     },
     {
-        "query":     "How many hours does it take to train Llama3.1-8B-Instruct on GSM8K on a single RTX Pro 6000 GPU?",
-        "target":    "2605.06523v1",
-        "chunk_id":  "2605.06523v1_p9_c0",
+        "query":     "How many more tokens does Petri use overall compared to SimpleAudit, and which role contributes most to this difference?",
+        "target":    "2605.06652v1",
+        "chunk_id":  "2605.06652v1_p19_c0",
     },
     {
-        "query":     "What relative mean portability does PragLocker achieve compared to no protection?",
-        "target":    "2605.05974v1",
-        "chunk_id":  "2605.05974v1_p6_c2",
+        "query":     "What is the purpose of PersonaKit (PK) as described in the abstract?",
+        "target":    "2605.06007v1",
+        "chunk_id":  "2605.06007v1_p1_c0",
+    },
+    {
+        "query":     "What is the nest parameter value used in the nested-logit choice model?",
+        "target":    "2605.06529v1",
+        "chunk_id":  "2605.06529v1_p2_c1",
+    },
+    {
+        "query":     "At what time does the baby remain looking left while the person continues to lean on the walker?",
+        "target":    "2605.06094v1",
+        "chunk_id":  "2605.06094v1_p29_c1",
+    },
+    {
+        "query":     "What test mean absolute error (MAE) did the proposed model achieve on the DIVA-HisDB benchmark?",
+        "target":    "2605.06475v1",
+        "chunk_id":  "2605.06475v1_p1_c0",
+    },
+    {
+        "query":     "What are the two stages of the ProCompNav framework?",
+        "target":    "2605.06223v1",
+        "chunk_id":  "2605.06223v1_p1_c0",
+    },
+    {
+        "query":     "In On-Policy Self-Distillation, what additional information does the teacher have compared to the student?",
+        "target":    "2605.06188v1",
+        "chunk_id":  "2605.06188v1_p3_c0",
+    },
+    {
+        "query":     "What does Proposition 3 provide intuition for?",
+        "target":    "2605.06474v1",
+        "chunk_id":  "2605.06474v1_p8_c0",
+    },
+    {
+        "query":     "What is the FID of the U-Net + P-Guide model on ImageNet-1k (256×256) at guidance scale w = 1.1?",
+        "target":    "2605.06124v1",
+        "chunk_id":  "2605.06124v1_p9_c0",
+    },
+    {
+        "query":     "What does the strict policy state for category (4) regarding sharing user data with a third party?",
+        "target":    "2605.06161v1",
+        "chunk_id":  "2605.06161v1_p19_c1",
+    },
+    {
+        "query":     "What are the two types of triggers described for backdoor attacks in deep reinforcement learning?",
+        "target":    "2605.05977v1",
+        "chunk_id":  "2605.05977v1_p2_c1",
     },
 ]
 

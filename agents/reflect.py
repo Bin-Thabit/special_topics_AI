@@ -262,7 +262,7 @@ def reflect_answer(
     # ── re-judge the revised answer ────────────────────────────────────────
     revised_judge = None
     if re_judge:
-        from graphrag.judge import judge_answer
+        from agents.judge import judge_answer
         log.info("Reflect  re-judging revised answer...")
         revised_judge = judge_answer(
             query=query,
@@ -288,7 +288,7 @@ def reflect_answer(
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
-    from graphrag.judge import judge_answer
+    from agents.judge import judge_answer
 
     QUERY = "How does reinforcement learning handle long-horizon planning?"
 

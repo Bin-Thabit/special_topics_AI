@@ -7,7 +7,7 @@ from openai import RateLimitError
 
 # Import the functions under test
 # Adjust the import path if your folder structure dictates otherwise
-from graphrag.answer import _fmt_authors, build_context, _cited_numbers, generate_answer
+from agents.answer import _fmt_authors, build_context, _cited_numbers, generate_answer
 
 
 class TestGraphRagAnswer(unittest.TestCase):

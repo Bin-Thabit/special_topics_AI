@@ -38,6 +38,7 @@ sys.path.insert(0, ".")
 load_dotenv()
 
 # ── D2 imports (unchanged) ────────────────────────────────────────────────────
+from graphrag.topic_router import build_topic_router
 from ingestion.chunker    import chunk_document
 from ingestion.embedder   import (
     EMBED_MODEL,
@@ -75,13 +76,13 @@ from graphrag.rank          import (                # Abdullah's Step 3
     pool_embeddings_from_state,
     rank_pool,
 )
-from graphrag.answer  import generate_answer        # Abdullah's Step 4
+from agents.answer  import generate_answer        # Abdullah's Step 4
 from graphrag.safety  import (                      # Abdullah's safety layer
     provenance_filter,
     source_pinning_check,
 )
-from graphrag.judge   import judge_answer           # Abdullah's judge
-from graphrag.reflect import reflect_answer         # Abdullah's reflect
+from agents.judge   import judge_answer           # Abdullah's judge
+from agents.reflect import reflect_answer         # Abdullah's reflect
 
 # ── D4 imports ────────────────────────────────────────────────────────────────
 from graphrag.local_llm import (                    # our QLoRA-tuned Ollama client
@@ -247,7 +248,10 @@ async def lifespan(app: FastAPI):
     # TopicParser reuses state.model (already loaded above) — no extra cost.
     print("  Connecting to Neo4j and initialising TopicParser...")
     state.neo4j        = Neo4jStore()
+    from graphrag.topic_router import build_topic_router
+
     state.topic_parser = TopicParser(state.neo4j, model=state.model)
+    state.topic_router = build_topic_router(state.topic_parser)
     print("  Neo4j + TopicParser ready.")
 
     # ── D4 startup additions ──────────────────────────────────────────────────
@@ -526,7 +530,7 @@ async def ask(req: AskRequest):
     # ── Condition switch — graph_guided vs hybrid vs vector_only ─────────────
     if req.condition == "graph_guided":
         seed_ids = seed_search(query, state, alpha, qv, n_seed_papers=10)
-        topics   = state.topic_parser.parse(query)
+        topics = state.topic_router.predict(query)
         subgraph = state.neo4j.select_subgraph(
             seed_paper_ids=seed_ids, topics=topics, max_papers=20
         )
@@ -600,6 +604,33 @@ async def ask(req: AskRequest):
     }
 
 
+class FeedbackRequest(BaseModel):
+    query           : str
+    helpful         : bool
+    chunk_ids       : list[str] | None = None
+    correct_topic   : str | None = None    # for the topic router
+
+@app.post("/feedback")
+async def feedback(req: FeedbackRequest):
+    # Update the topic router (learner) — D1 online learning closure
+    if state.topic_router is not None and req.correct_topic:
+        state.topic_router.update(
+            req.query,
+            true_topic=req.correct_topic,
+            helpful=req.helpful,
+        )
+        state.topic_router.save()   # persist across restarts
+
+    # Bonus: also update the hybrid weight adapter from D1
+    if state.hybrid_adapter is not None and req.chunk_ids:
+        # signal: helpful=True means current alpha was good
+        state.hybrid_adapter.update(req.query, signal=1.0 if req.helpful else 0.0)
+
+    return {
+        "status":    "ok",
+        "new_alpha": state.hybrid_adapter.get_weights() if state.hybrid_adapter else None,
+    }
+
 # ---------------------------------------------------------------------------
 # POST /rebuild-index  (D2, unchanged)
 # ---------------------------------------------------------------------------
@@ -615,6 +646,28 @@ async def rebuild_index():
         "elapsed_seconds": round(time.time() - start, 2),
     }
 
+
+@app.get("/stats")
+async def stats():
+    """
+    Surfaces the live state of D1's online learning components.
+    Used in the demo to show 'ADWIN fired N times during this session'.
+    """
+    return {
+        "topic_router_drift_events": (
+            state.topic_router.drift_events
+            if state.topic_router is not None else None
+        ),
+        "topic_router_accuracy": (
+            state.topic_router.accuracy
+            if state.topic_router is not None else None
+        ),
+        "hybrid_alpha": (
+            state.hybrid_adapter.get_weights()
+            if state.hybrid_adapter is not None else None
+        ),
+        "chunks_indexed": len(state.all_chunks),
+    }
 
 # ---------------------------------------------------------------------------
 # GET /health  (D2 + D3 + D4 additions)
@@ -638,6 +691,7 @@ async def health():
         # D4
         "local_llm_ready"  : state.local_llm is not None,
         "local_llm_model"  : state.local_llm["model"] if state.local_llm else None,
+        "topic_router": state.topic_router is not None,
     }
 
 

@@ -56,7 +56,9 @@ from __future__ import annotations
 
 import json
 import logging
+import pickle
 import time
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -70,13 +72,30 @@ logger = logging.getLogger(__name__)
 # ── Topic labels ──────────────────────────────────────────────────────────────
 # These are the cs.AI sub-areas your model classifies queries into.
 # You can extend this list to match your actual corpus topics.
+# ── Topic labels ──────────────────────────────────────────────────────────────
+# These mirror the SUBTOPICS dict in scripts/enrich_subtopics.py exactly.
+# If you change one, change the other. Order doesn't matter, but stay consistent.
 TOPICS = [
-    "reinforcement_learning",
-    "computer_vision",
-    "natural_language_processing",
     "knowledge_representation",
-    "planning_search",
-    "other",
+    "automated_reasoning",
+    "planning_and_scheduling",
+    "expert_systems",
+    "uncertainty_in_ai",
+    "heuristic_search",
+    "symbolic_ai",
+    "logic_programming",
+    "nonmonotonic_reasoning",
+    "qualitative_reasoning",
+    "distributed_ai_foundations",
+    "cognitive_architectures",
+    "ai_ethics_and_safety",
+    "constraint_satisfaction",
+    "case_based_reasoning",
+    "ontology_engineering",
+    "common_sense_reasoning",
+    "explainability",
+    "temporal_reasoning",
+    "ai_applications",
 ]
 
 
@@ -577,6 +596,38 @@ class QueryTopicLearner:
             "topics": TOPICS,
         }
 
+    def save_model(self, path: str | Path = "data/query_classifier.pkl") -> None:
+        """
+        Pickle the ENTIRE learner object — BoW vocab, NB feature counts,
+        ADWIN state, metrics, counters, history.
+
+        Unlike `save()` (which writes a JSON metrics summary), this lets you
+        reload the trained classifier and resume online learning from where
+        it left off. Used by scripts/retrain_query_classifier.py to persist
+        the warm-trained model, and by api/main.py to load it at startup.
+        """
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "wb") as f:
+            pickle.dump(self, f)
+        logger.info("Learner pickled to %s", path)
+
+    @classmethod
+    def load_model(cls, path: str | Path = "data/query_classifier.pkl") -> "QueryTopicLearner":
+        """
+        Load a previously pickled learner. Returns a fully usable instance
+        — you can immediately call .predict() or .learn_one() on it.
+
+        Raises FileNotFoundError if the path doesn't exist (the API can
+        fall back to a fresh QueryTopicLearner() in that case).
+        """
+        path = Path(path)
+        with open(path, "rb") as f:
+            learner = pickle.load(f)
+        if not isinstance(learner, cls):
+            raise TypeError(f"Pickled object at {path} is not a {cls.__name__}")
+        logger.info("Learner loaded from %s", path)
+        return learner
 
 # ── HybridWeightAdapter ───────────────────────────────────────────────────────
 
