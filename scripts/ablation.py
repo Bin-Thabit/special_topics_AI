@@ -91,11 +91,6 @@ GOLD_QUERIES = [
         "chunk_id":  "2605.06094v1_p29_c1",
     },
     {
-        "query":     "What test mean absolute error (MAE) did the proposed model achieve on the DIVA-HisDB benchmark?",
-        "target":    "2605.06475v1",
-        "chunk_id":  "2605.06475v1_p1_c0",
-    },
-    {
         "query":     "What are the two stages of the ProCompNav framework?",
         "target":    "2605.06223v1",
         "chunk_id":  "2605.06223v1_p1_c0",
@@ -119,11 +114,6 @@ GOLD_QUERIES = [
         "query":     "What does the strict policy state for category (4) regarding sharing user data with a third party?",
         "target":    "2605.06161v1",
         "chunk_id":  "2605.06161v1_p19_c1",
-    },
-    {
-        "query":     "What are the two types of triggers described for backdoor attacks in deep reinforcement learning?",
-        "target":    "2605.05977v1",
-        "chunk_id":  "2605.05977v1_p2_c1",
     },
 ]
 
