@@ -223,4 +223,4 @@ data/pdfs/
 
 .DS_Store
 
-models/*.gguf
+# models/*.gguf
